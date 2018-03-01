@@ -1,0 +1,26 @@
+{
+ "baseUrl":"support/slwebview_files",
+ "homeHid":3,
+ "initialElement":"",
+ "sections":[
+  {
+   "hid":1,
+   "sid":"pump_model",
+   "name":"pump_model*",
+   "fullname":"pump_model",
+   "parent":"root",
+   "descendants":[
+    2,
+    3
+   ],
+   "hierarchyUrl":"support/slwebview_files/pump_model_h_1.json",
+   "backingUrl":"support/slwebview_files/pump_model_m.json"
+  }
+ ],
+ "optViews":[
+ ],
+ "display":{
+  "informer":0
+ },
+ "iconsUrl":"support/slwebview_files/pump_model_icons.css"
+}

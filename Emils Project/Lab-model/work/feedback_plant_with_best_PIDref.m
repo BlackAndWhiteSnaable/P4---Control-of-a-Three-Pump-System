@@ -1,0 +1,12 @@
+function sys=feedback_plant_with_best_PIDref
+sys = [];
+sys.child = [];
+sys.NumDataTypes = 3; 
+sys.DataTypes = [];
+temp.EnumNames='';
+temp.EnumValues = [];
+temp.Name = '';
+sys.DataTypes = repmat(temp,1,3);
+sys.DataTypes(1).Name = 'real_T';
+sys.DataTypes(2).Name = 'boolean_T';
+sys.DataTypes(3).Name = 'int8_T';

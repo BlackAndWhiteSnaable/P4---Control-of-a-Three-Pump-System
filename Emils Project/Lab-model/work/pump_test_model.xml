@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?><Root>
+
+          <SubSystem>
+    <Name>PID Controller</Name>
+    <xPCName>pump_test_model/PID Controller</xPCName>
+        <SubSystem>
+    <Name>Clamping circuit</Name>
+    <xPCName>pump_test_model/PID Controller/Clamping circuit</xPCName>
+    
+    
+
+
+ 
+            <block>
+            <blkName>DeadZone</blkName>
+            <xpcblkName>PID Controller/Clamping circuit/DeadZone</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller/Clamping circuit/DeadZone</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>LowerSaturationLimit</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>UpperSaturationLimit</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>ZeroGain</blkName>
+            <xpcblkName>PID Controller/Clamping circuit/ZeroGain</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller/Clamping circuit/ZeroGain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>Gain</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+ 
+            <block>
+            <blkName>Memory</blkName>
+            <xpcblkName>PID Controller/Clamping circuit/Memory</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller/Clamping circuit/Memory</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>X0</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>DataTypeConv1</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/DataTypeConv1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>DataTypeConv2</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/DataTypeConv2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>DeadZone</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/DeadZone</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>ZeroGain</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/ZeroGain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>AND</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/AND</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Memory</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/Memory</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Equal</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/Equal</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>NotEqual</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/NotEqual</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>SignDeltaU</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/SignDeltaU</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>SignPreIntegrator</sigName>
+              <xpcsigName>PID Controller/Clamping circuit/SignPreIntegrator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+
+    
+
+ 
+            <block>
+            <blkName>Constant</blkName>
+            <xpcblkName>PID Controller/Constant</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller/Constant</SLblockPath>
+            <isSrc>[1 0 1]</isSrc>
+          <parameter>
+          <paramName>Value</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Integral Gain</blkName>
+            <xpcblkName>PID Controller/Integral Gain</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller/Integral Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Proportional Gain</blkName>
+            <xpcblkName>PID Controller/Proportional Gain</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller/Proportional Gain</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Integrator</blkName>
+            <xpcblkName>PID Controller/Integrator</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller/Integrator</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>InitialCondition</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+ 
+            <block>
+            <blkName>Saturate</blkName>
+            <xpcblkName>PID Controller/Saturate</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller/Saturate</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>UpperSaturationLimit</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>LowerSaturationLimit</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Integral Gain</sigName>
+              <xpcsigName>PID Controller/Integral Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Proportional Gain</sigName>
+              <xpcsigName>PID Controller/Proportional Gain</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Integrator</sigName>
+              <xpcsigName>PID Controller/Integrator</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Saturate</sigName>
+              <xpcsigName>PID Controller/Saturate</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>PID Controller/Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Switch</sigName>
+              <xpcsigName>PID Controller/Switch</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+    </SubSystem>
+    <SubSystem>
+    <Name>MATLAB Function</Name>
+    <xPCName>pump_test_model/MATLAB Function</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>cost_power_1</Name>
+    <xPCName>pump_test_model/cost_power_1</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>cost_power_2</Name>
+    <xPCName>pump_test_model/cost_power_2</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>cost_power_3</Name>
+    <xPCName>pump_test_model/cost_power_3</xPCName>
+    
+    
+    </SubSystem>
+    <SubSystem>
+    <Name>valve_CV_esti_Test</Name>
+    <xPCName>pump_test_model/valve_CV_esti_Test</xPCName>
+    
+    
+    </SubSystem>
+
+      
+
+
+
+
+
+ 
+            <block>
+            <blkName>PID Controller</blkName>
+            <xpcblkName>PID Controller</xpcblkName>
+            <SLblockPath>pump_test_model/PID Controller</SLblockPath>
+            <isSrc>[0 1 1]</isSrc>
+          <parameter>
+          <paramName>P</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>I</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>UpperSaturationLimit</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+ 
+          <parameter>
+          <paramName>LowerSaturationLimit</paramName>
+          <dim>[1, 1]</dim>  
+          </parameter>
+          </block>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>MATLAB Function</sigName>
+              <xpcsigName>MATLAB Function</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+                <sigLabel>pumps_selected</sigLabel>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>cost_power_1</sigName>
+              <xpcsigName>cost_power_1</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+                <sigLabel>Power_cost_1</sigLabel>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>cost_power_2</sigName>
+              <xpcsigName>cost_power_2</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+                <sigLabel>Power_cost_2</sigLabel>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>cost_power_3</sigName>
+              <xpcsigName>cost_power_3</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+                <sigLabel>Power_cost_3</sigLabel>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>valve_CV_esti_Test</sigName>
+              <xpcsigName>valve_CV_esti_Test</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Rate Transition</sigName>
+              <xpcsigName>Rate Transition</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+                <sigLabel>PID_Ref</sigLabel>
+            </signal>
+
+
+    
+    
+
+
+  
+              
+
+              
+       
+              <signal>
+              <sigName>Sum</sigName>
+              <xpcsigName>Sum</xpcsigName>
+              <sigWidth>1</sigWidth>
+              <sigDim>[1, 1]</sigDim>
+                <sigLabel>PID_Error</sigLabel>
+            </signal>
+
+
+    
+    
+
+
+
+    
+    
+
+
+</Root>
