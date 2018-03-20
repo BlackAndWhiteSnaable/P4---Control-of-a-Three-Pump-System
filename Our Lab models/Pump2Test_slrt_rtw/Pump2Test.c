@@ -7,9 +7,9 @@
  *
  * Code generation for model "Pump2Test".
  *
- * Model version              : 1.379
+ * Model version              : 1.380
  * Simulink Coder version : 8.11 (R2016b) 25-Aug-2016
- * C source code generated on : Tue Mar 20 15:41:21 2018
+ * C source code generated on : Tue Mar 20 21:44:58 2018
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -348,7 +348,7 @@ RT_MODEL_Pump2Test_T *Pump2Test(void)
     Pump2Test_M->Timing.sampleHits = (&mdlSampleHits[0]);
   }
 
-  rtmSetTFinal(Pump2Test_M, 105.0);
+  rtmSetTFinal(Pump2Test_M, 115.0);
   Pump2Test_M->Timing.stepSize0 = 0.01;
   Pump2Test_M->Timing.stepSize1 = 0.01;
 

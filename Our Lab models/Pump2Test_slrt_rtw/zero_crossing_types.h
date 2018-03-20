@@ -7,9 +7,9 @@
  *
  * Code generation for model "Pump2Test".
  *
- * Model version              : 1.379
+ * Model version              : 1.380
  * Simulink Coder version : 8.11 (R2016b) 25-Aug-2016
- * C source code generated on : Tue Mar 20 15:41:21 2018
+ * C source code generated on : Tue Mar 20 21:44:58 2018
  *
  * Target selection: slrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
