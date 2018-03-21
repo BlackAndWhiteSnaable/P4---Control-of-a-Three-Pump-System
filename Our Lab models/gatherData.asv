@@ -24,6 +24,9 @@ while (exist(hostfolder, 'dir') == 7)
     hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
 end
 
+%create the new run_# folder
+mkdir(hostfolder);
+
 %% select valve opening(backpressure) by for loop
 for CV01 = [20:10:100]
 hostfile = [hostfolder 'P2_' int2str(CV01) '.dat'];
