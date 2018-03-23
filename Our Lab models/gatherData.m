@@ -5,7 +5,7 @@ clc;clear
 % ED4 is only working on Pump2
 
 %gets automatically incremented if folder already exists
-run_num = 1;
+run_num = 7;
 
 %valve settling time < 5 seconds
 CV01t = 5;
@@ -15,7 +15,7 @@ WP2 = [0:10:100];
 WPtime = [CV01t:10:100+CV01t];
 
 %don't let the simulation stop before all WP's are tested
-simstop = (numel(WPtime)+1)*10+CV01t;
+simstop = (numel(WPtime))*10+CV01t;
 
 targetfile = ['E:\P2.dat'];
 hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
@@ -31,7 +31,7 @@ mkdir(hostfolder);
 %% select valve opening(backpressure) by for loop
 for CV01 = [10:10:100]
     %int2str(CV01) makes sure the file has the valve opening % in the name
-    hostfile = [hostfolder 'P2_' int2str(CV01) '.dat'];
+    hostfile = [hostfolder 'P2_' num2str(CV01,'%03d') '.dat'];
 
     rtwbuild('Pump2Test');   % Build and download application.
 
