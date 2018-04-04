@@ -15,3 +15,4 @@ for j = 1:numel(pump2_meas)
     axis([0 pump2_meas(1).data(end,end) 0 7])
     hold on; grid on
 end
+legend('show','Location','northwest')
