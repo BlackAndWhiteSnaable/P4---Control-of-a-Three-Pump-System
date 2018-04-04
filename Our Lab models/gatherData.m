@@ -15,6 +15,7 @@ WP2 = [0:10:100];
 WPtime = [CV01t:10:100+CV01t];
 
 %don't let the simulation stop before all WP's are tested
+%better: take last element of WPtime and add difference between 2 elements
 simstop = (numel(WPtime))*10+CV01t;
 
 targetfile = ['E:\P2.dat'];
