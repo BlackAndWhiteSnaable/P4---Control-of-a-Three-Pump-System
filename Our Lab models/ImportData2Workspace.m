@@ -1,7 +1,7 @@
 %% SETUP
 clc;clear
 % run to import
-run_num = 8;
+run_num = 6;
 %% IMPORTING
 %count number of .dat files in folder
 folder = ['dataFromTarget\run_' int2str(run_num) '\'];
