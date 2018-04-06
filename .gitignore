@@ -1,0 +1,14 @@
+#LaTeX output###################
+################################
+Report/build/
+Report/sections/build/
+P4.pdf
+P4.log
+P4.aux
+P4.out
+P4.run.xml
+P4.synctex.gz
+P4.thm
+P4.toc
+P4-blx.bib
+*.bak
