@@ -1,11 +1,10 @@
-%%Setup correct file (correct valve%)
+%%Setup 
 clc;clear
-%file naming:
-% 'P[1/2/3]_[CV01%]'
+folder=0;
 % ED4 is only working on Pump2
 
 %gets automatically incremented if folder already exists
-run_num = 7;
+run_num = 10;
 
 %valve settling time < 5 seconds
 CV01t = 5;
@@ -17,22 +16,11 @@ WPtime = [CV01t:15:150+CV01t];
 %don't let the simulation stop before all WP's are tested
 simstop = WPtime(end)+(WPtime(end)-WPtime(end-1));
 
-targetfile = ['E:\P2.dat'];
-hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
-%make sure the folder doesn't exist
-while (exist(hostfolder, 'dir') == 7)
-    run_num = run_num + 1;
-    hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
-end
-
-%create the new run_# folder
-mkdir(hostfolder);
+%make sure this fits with simulink!!
+targetfile = ['E:\3P.dat'];
 
 %% select valve opening(backpressure) by for loop
 for CV01 = [10:10:100]
-    %int2str(CV01) makes sure the file has the valve opening % in the name
-    hostfile = [hostfolder 'P2_' num2str(CV01,'%03d') '.dat'];
-
     rtwbuild('Pump2Test');   % Build and download application.
 
     tg = SimulinkRealTime.target;
@@ -40,15 +28,29 @@ for CV01 = [10:10:100]
     start(tg);
 
     % Wait until the target is done runing the simulation.
+    % in the meantime we can make sure the correct folder exists
     while strcmp(tg.Status, 'running')
+        if folder==0
+
+            hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
+            %make sure the folder doesn't exist
+            while (exist(hostfolder, 'dir') == 7)
+                run_num = run_num + 1;
+                hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
+            end
+
+            %create the new run_# folder
+            mkdir(hostfolder);
+            
+            %int2str(CV01) makes sure the file has the valve opening % in the name
+            hostfile = [hostfolder 'P2_' num2str(CV01,'%03d') '.dat'];
+            
+            folder = 1;
+        end
         pause(0.01);
     end
     %% download file to host and rename
-
     SimulinkRealTime.copyFileToHost(targetfile);
     %rename file
-    movefile('P2.dat',hostfile);
-
-    % import into workspace
-    pump2=SimulinkRealTime.utils.getFileScopeData(hostfile);
+    movefile('3P.dat',hostfile);
 end
