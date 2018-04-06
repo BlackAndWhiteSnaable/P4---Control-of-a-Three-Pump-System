@@ -1,18 +1,26 @@
 %% SETUP
 %clc;
 clearvars -except pump2_meas run_num
-
+abs_max = 0; abs_min = 5; x_blank = 0;
     
 %% PLOTTING
 % plot all power curves
 figure('Name',['Power Comparison run',num2str(run_num)],'NumberTitle','off')
 for j = 1:numel(pump2_meas)
-    %subplot(ceil(numel(pump2_meas)/2),2,j)
-    ftit=pump2_meas(j).version; %make sure _ prints
-    name = [num2str(j*10) '% CV01']
+    name = [num2str(j*10) '% CV01'];
     plot(pump2_meas(j).data(:,end),pump2_meas(j).data(:,2),'DisplayName',name)
-    %plot(1:5,1:5,'DisplayName',ftit)
-    axis([0 pump2_meas(1).data(end,end) 0 7])
+    %set the axis to go from absolute minimum-1% to absolute maximum+1%
+    if max(pump2_meas(j).data(:,2)) > abs_max
+        abs_max = max(pump2_meas(j).data(:,2));
+        x_blank = abs_max * 0.01;
+    end
+    if min(pump2_meas(j).data(:,2)) < abs_min
+        abs_min = min(pump2_meas(j).data(:,2));
+    end
+    axis([0 pump2_meas(1).data(end,end) abs_min-x_blank abs_max+x_blank])
     hold on; grid on
 end
+title('Power Comparison')
+xlabel('time [s]')
+ylabel('LMGP2')
 legend('show','Location','northwest')

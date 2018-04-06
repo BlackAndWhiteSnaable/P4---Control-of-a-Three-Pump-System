@@ -12,11 +12,10 @@ CV01t = 5;
 %pumpspeeds to iterate through
 WP2 = [0:10:100];
 %time intervals from valve settling time, steps of 10 seconds
-WPtime = [CV01t:10:100+CV01t];
+WPtime = [CV01t:15:150+CV01t];
 
 %don't let the simulation stop before all WP's are tested
-%better: take last element of WPtime and add difference between 2 elements
-simstop = (numel(WPtime))*10+CV01t;
+simstop = WPtime(end)+(WPtime(end)-WPtime(end-1));
 
 targetfile = ['E:\P2.dat'];
 hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
