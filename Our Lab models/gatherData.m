@@ -1,6 +1,6 @@
 %%Setup 
 clc;clear
-folder=0;
+folder_check=0;
 % ED4 is only working on Pump2
 
 %gets automatically incremented if folder already exists
@@ -30,7 +30,7 @@ for CV01 = [10:10:100]
     % Wait until the target is done runing the simulation.
     % in the meantime we can make sure the correct folder exists
     while strcmp(tg.Status, 'running')
-        if folder==0
+        if folder_check==0
 
             hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
             %make sure the folder doesn't exist
@@ -42,11 +42,11 @@ for CV01 = [10:10:100]
             %create the new run_# folder
             mkdir(hostfolder);
             
-            %int2str(CV01) makes sure the file has the valve opening % in the name
-            hostfile = [hostfolder 'P2_' num2str(CV01,'%03d') '.dat'];
             
-            folder = 1;
+            folder_check = 1;
         end
+        %int2str(CV01) makes sure the file has the valve opening % in the name
+        hostfile = [hostfolder 'P2_' num2str(CV01,'%03d') '.dat'];
         pause(0.01);
     end
     %% download file to host and rename

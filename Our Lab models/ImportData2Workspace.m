@@ -1,7 +1,7 @@
 %% SETUP
 clc;clearvars -except run_num
 % run to import
-run_num = 8;
+run_num = 10;
 %% IMPORTING
 %count number of .dat files in folder
 folder = ['dataFromTarget\run_' int2str(run_num) '\'];
