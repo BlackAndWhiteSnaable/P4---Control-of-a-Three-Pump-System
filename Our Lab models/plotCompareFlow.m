@@ -1,7 +1,13 @@
 %% SETUP
-%clc;
-clearvars -except pump2_meas run_num
-abs_max = 0; abs_min = 5; x_blank = 0;
+clc;
+%if run_num exists, all other necessary ones should exist
+if exist('run_num', 'var')
+    clearvars -except pump2_meas run_num Pres Flow
+else
+    ImportData2Workspace;
+    clearvars -except pump2_meas run_num Pres Flow
+end
+abs_max = 0; abs_min = 50; x_blank = 0;
 
 %% PLOTTING
 % plot all speed curves
