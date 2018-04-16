@@ -1,0 +1,51 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{GitHub}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=BD}{%
+         family={Busemann},
+         familyi={B\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={Klein},
+         familyi={K\bibinitperiod},
+         given={Troels},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=BR}{%
+         family={Bucur},
+         familyi={B\bibinitperiod},
+         given={Razvan},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BDKTBR1}
+    \strng{fullhash}{BDKTBR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://github.com/BlackAndWhiteSnaable/P4---Control-of-a-Three-Pump-System}}
+    \field{title}{Pathfinding -as used in Rescuing Robots- (a 4th Semester
+  Project)}
+    \field{year}{2018}
+  \endentry
+\enddatalist
+\endinput
