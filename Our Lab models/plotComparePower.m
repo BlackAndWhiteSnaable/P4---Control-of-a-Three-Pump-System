@@ -1,6 +1,10 @@
 %% SETUP
 %clc;
-clearvars -except pump2_meas run_num
+if ~exist('run_num', 'var')
+    ImportData2Workspace;
+else
+    clearvars -except pump2_meas run_num
+end
 abs_max = 0; abs_min = 5; x_blank = 0;
     
 %% PLOTTING

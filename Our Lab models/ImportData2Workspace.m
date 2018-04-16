@@ -3,6 +3,9 @@ clc;
 if ~(exist('run_num', 'var'))
     % run to import
     run_num = 10;
+else
+    clearvars -except run_num
+end
 %% IMPORTING
 %count number of .dat files in folder
 folder = ['dataFromTarget\run_' int2str(run_num) '\'];
