@@ -1,5 +1,6 @@
 %% create pumpcurves
 clc
+run_num = 11;
 %run averageFlow &averagePressure &averagePower if needed
 if ~exist('Pres', 'var')
     averagePressure;
@@ -12,7 +13,6 @@ end
 if ~exist('Powr', 'var')
     averagePower;
 end
-[Curve,gof]=    FitPumpCurves(Flow,Pres);
 %y = feval(Curve(1),x);
 
 %plot flow as x, pressure as y
@@ -21,8 +21,7 @@ hold on
 for i=1:10
 %i = 2;
     name=['WP2 ' num2str(i*10) '%'];
-    plot(Flow(:,i),Pres(:,i),'DisplayName',name)
-    Speeds(i,i) = [Flow(:,i),Pres(:,i)]
+    stem(Flow(:,i),Pres(:,i),'DisplayName',name)
 end
 
 legend('show','Location','northeast')
