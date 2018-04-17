@@ -1,1 +1,46 @@
 \chapter{Mathematical Modelling}\label{ch:mathmodel}
+
+\section{Pump Curves}\label{sec:pumpcurves}
+With the data gathered through the experiments (Section \ref{sec:experiment}\todo{not linked yet}),
+
+We decided to use black-box modelling with polynomial fitting.
+For this we used the Curve Fitting Tool \cite{cftool} \todo{add to bibliography} \textit{cftool} \todo{make this look like a command} in MATLAB.
+Looking at the data we decided to use polynomial fitting with a second degree polynomial
+as can be seen in equation \ref{eq:polynom}.
+
+\begin{equation}
+	 P(Q) = p_1 \cdot Q^2 + p_2 \cdot Q + p_3
+	 \label{eq:polynom}
+\end{equation}
+
+After repeating this process over different datasets with different pump speeds,
+we noticed that the coefficients $p_1$ and $p_2$ barely change.
+
+The standard deviation for the $p_1$ and $p_2$ coefficients were calculated with the equation \todo{add reference to eq}
+
+\begin{equation}
+	\sigma_{\mean{p_{1,2}}} = \dfrac{1}{n}\sum |p_{1,2}-\mean{p_{1,2}}|
+	\label{eq:avedev}
+\end{equation}
+
+The results obviously vary between runs. For the run used to create the model the $\sigma_{\mean{p_{1,2}}}$ are:
+\begin{equation}
+	\sigma_{\mean{p_1}} \simeq 0.003854$$
+	
+	$$\sigma_{\mean{p_2}} \simeq 0.042299
+\end{equation}
+
+The $p_3$ coefficient however changes significantly, through different pump speeds.
+With a standard deviation $\sigma_{\mean{p_3}} \simeq 3.378111$ it was impossible to use only one simple polynomial as described in \ref{eq:polynom} to describe all pump characteristics at all speeds.
+
+We were able to identify a second order polynomial describing the change in $p_3$ according to the pump speed $\omega$.
+\begin{equation}
+	 p_3 = a \cdot \omega^2 + b \cdot \omega + c
+	 \label{eq:p3olynom}
+\end{equation}
+
+Combining \ref{eq:polynom} and \ref{eq:p3olynom}, we get:
+
+\begin{equation}
+	P(Q) = p_1 \cdot Q^2 + p_2 \cdot Q + a \cdot \omega^2 + b \cdot \omega + c 
+\end{equation}
