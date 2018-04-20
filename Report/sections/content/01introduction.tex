@@ -1,12 +1,29 @@
-\chapter*{List of Abbreviations}
+\chapter*{Acronyms}
+\todo[inline]{do we want a list of abbreviations?}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l  r }
 	DAQ 	& Data acquisition board\\
 	MFM 	& Magnetic flow meter\\
-	DP		& $\Delta$Pressure (delta Pressure)\\
-	
+	$\Delta$P		& $\Delta$Pressure (delta Pressure)\\
 \end{tabular*}
 \chapter{Introduction}\label{ch:introduction}
-\todo[inline]{do we want a list of abbreviations?}
+The focus of this project is to develop a controller for a system of pumps in such a way,
+that a constant flow is achieved with a minimal power consumption.
+
+The main focus is to understand, develop and implement modelling and control techniques.
+We will compare different techniques for both modelling and control in this report
+and conclude why specific techniques fit better to our purpose.
+
+
+Flow control is important in several situations throughout many industries.
+Examples range from the oil and gas sector\cite{OilFlow} over breweries\cite{BrewFlow},
+dairy plants\cite{DairyFlow} to waste water treatment plants\cite{WastewaterFlow}.
+
+
+Controlled flow can be achieved relatively easily by controlling the shaft rotation speed $\omega$,
+but this can lead to extreme power consumption.
+\todo[inline]{refer to a later chapter, something about affinity laws linear vs. cubed}
+
+According to the affinity laws\cite{AffinityLaws}
 
 \subsection*{Reading Guide}
 \todo{what is supposed to be in here? a short explanation of what knowledge each chapter conveys?}
