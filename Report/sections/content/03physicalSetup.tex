@@ -1,5 +1,6 @@
 \chapter{Physical Setup}\label{ch:physsetup}
 \section{Pumps}
+\todo{talk more about the pumps used, because the only reason we use them is: "they are present in the setup", e.g. we don't care why other pumps are not as good. [debatable]}
 \subsection{Principle}
 Centrifugal pumps are the most commonly used type of pump, due to its many advantages, simple construction, relative low 
 cost, reliability and quiet operation.
@@ -35,10 +36,57 @@ Affinity laws are mathematical relationships that provide a way to estimate the 
 of a change in one of the basic pump variables.
 In it's simplest form, the term law, means a principle that has been proven true for all cases.
 \todo{add affinity laws, formula and statement}
+\todo{"proven true for all cases"? that can't be correct for an estimate}
+
+\begin{equation}
+	\left(\frac{N_1}{N_2}\right)^1 = \frac{Q_1}{Q_2}$$
+	
+	$$\left(\frac{N_1}{N_2}\right)^2 = \frac{H_1}{H_2}$$
+	
+	$$\left(\frac{N_1}{N_2}\right)^3 = \frac{P_1}{P_2}	
+\end{equation} Equations for constant impeller diameter $D$ \cite{AffinityLaws}
+
+\begin{equation}
+	\left(\frac{D_1}{D_2}\right)^1 = \frac{Q_1}{Q_2}$$
+	
+	$$\left(\frac{D_1}{D_2}\right)^2 = \frac{H_1}{H_2}$$
+	
+	$$\left(\frac{D_1}{D_2}\right)^3 = \frac{P_1}{P_2}	
+\end{equation} Equations for constant rotational speed $N$ \cite{AffinityLaws}
+
+
 \subsection{Performance Curves}
 
 \section{Pipes}
+Pipes are a way of transporting liquids or gasses, inside a controllable environment.
+They are used to interconnect the pumps and the tank and other peripherals.
+One common analogy compares them to wires in electrical circuits.
+
+Based on their diameters, material and shape,
+they introduce resistance to the flow of the pumped medium.
+Staying with the analogy to electrical circuits,
+this can be compared to the cross sectional area and the specific resistance of a wire material.
 
 \section{Valves}
+Valves can control the resistance introduced, by changing the diameter of the pipeline at a given point. \todo{re-write valves, this reads terrible}
+
+The valve built into the used system is not used for control purposes,
+but only to simulate disturbances downstream the pumps.
+
+Depending on the type of valves, they can block the flow partially or completely.
+Their reaction and settling time may change and their ability to withstand pressure.
+Some valves have an inbuilt controller, managing the opening percentage.
+Valves can be actuated by different means, for example air pressure, electric motors or handles
+\todo{there is a better word for handle in this context}
 
 \section{Sensors}
+To be able to monitor the system closely, different sensors are used.
+\todo{write about the sensors used in the system}
+
+\subsection{Flow Meter}
+\subsection{$\Delta$Pressure Sensor}
+\subsection{Power Sensor}
+\todo{complete this list of subsections}
+\todo{maybe take out of ToC? (subsection*)}
+
+\todo{Do we want a section about xPC and Simulink Realtime?}
