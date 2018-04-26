@@ -9,27 +9,69 @@
 
 
 \chapter{Introduction}\label{ch:introduction}
-Fluids make up around 70\% of the worlds surface in the form of oceans.\cite{NOAA}
 The human body is made of 60\% water \cite{HumanWater}.
+To remain healthy,
+a human needs to consume \todo[color=01introduction]{3,7 l} of water every day.
+This amount comes from both drinks and also food.
+For food to contain liquid it has to be present,
+when the plants are growing,
+when they are processed or added in the process of food preparation.
+For drinks it has to be transported to the consumer,
+in form of bottles, tanks or pipelines.
 
-The focus of this project is to develop a controller for a system of pumps in such a way,
-that a constant flow is achieved with a minimal power consumption.
+In all of those processes,
+it is important to have a controllable flow,
+maybe to meter the usage of water,
+or to ensure the stability of a process.
 
-The main focus is to understand, develop and implement modelling and control techniques.
-We will compare different techniques for both modelling and control in this report
-and conclude why specific techniques fit better to our purpose.
-
-
-Flow control is important in several situations throughout many industries.
+Constant flow can also be important for different industries.
 Examples range from the oil and gas sector\cite{OilFlow} over breweries\cite{BrewFlow},
 dairy plants\cite{DairyFlow} to waste water treatment plants\cite{WastewaterFlow}.
 
+In every commercial use,
+it is important to keep cost low.
+The lifetime cost of any system depends both on the initial cost,
+but especially the running cost \todo[color=01introduction]{find marketing source}.
 
-Controlled flow can be achieved relatively easily by controlling the shaft rotation speed $\omega$,
-but this can lead to extreme power consumption.
-\todo[inline,color=01introduction]{refer to a later chapter, something about affinity laws linear vs. cubed}
+The running cost of controlling flow depends largely on the efficiency of the pump used \todo[color=01introduction]{find source for this in VOLK book}.
+But the efficiency also depends on the procedure of pumping.
 
-According to the affinity laws\cite{AffinityLaws}
+In previous work \todo[color=01introduction]{quote Zhenyu},
+it was found that using multiple pumps in parallel can be beneficial to the total efficiency.
 
-\subsection*{Reading Guide}
+But that research only focused on controlling pressure,
+and we therefore want to investigate whether this also holds for flow control.
+
+The focus of this report therefore lays on controlling a constant flow,
+inside a working range optimized for minimal energy consumption.
+%
+%
+%For the water to come into the food,
+%plants need to be watered regularly.
+%For drinking water (or other liquids), they have to be transported.
+%
+%In any way, the flow of the water has to be controlled at some point in this chain,
+%be it for irrigation or for bottling drinks.
+%
+%Even though 
+%
+%The focus of this project is to develop a controller for a system of pumps in such a way,
+%that a constant flow is achieved with a minimal power consumption.
+%
+%The main focus is to understand, develop and implement modelling and control techniques.
+%We will compare different techniques for both modelling and control in this report
+%and conclude why specific techniques fit better to our purpose.
+%
+%
+%Flow control is important in several situations throughout many industries.
+%
+%
+%Controlled flow can be achieved relatively easily by controlling the shaft rotation speed $\omega$,
+%but this can lead to extreme power consumption.
+%\todo[inline,color=01introduction]{refer to a later chapter, something about affinity laws linear vs. cubed}
+%
+%According to the affinity laws%\cite{AffinityLaws}
+%
+
+\section*{Reading Guide}
 \todo[color=01introduction]{what is supposed to be in here? a short explanation of what knowledge each chapter conveys?}
