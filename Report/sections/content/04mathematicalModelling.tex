@@ -1,11 +1,41 @@
 \chapter{Mathematical Modelling}\label{ch:mathmodel}
 
 \section{Pump Curves}\label{sec:pumpcurves}
+
+
+We decided to use the data gathered through experiments, to develop a model that would fit all our data within a small degree of error, 
+and that we would be able to further test.
+
+We decided to use black-box modeling with polynomial fitting. We based our decision on other research that has been done on the same
+setup as ours, but also on trial and error.
+
+Curve Fitting Tool \cite{cftool} \textit{cftool} was used in order to find a suitable mathematical formula for accurately describing the 
+system, while also trying to represent it in the easiest manner possible. 
+
+Equation \ref{eq:simulated_power} determines the power consumption, given the head and the flow. Although the formula does not directly
+relate to the pump speed, it indirectly relates to it, due to the fact that only one possible pump speed $\omega$ exists for a given
+pressure and flow.
+\todo[color=04mathematicalModelling]{quote zhenyu paper maybe}
+\begin{multline}
+		P(Q,H) = p_{00} + p_{10} \cdot Q + p_{01} \cdot H + p_{20} \cdot Q^2 + p_{11} \cdot Q \cdot H + \\
+		p_{02} \cdot H^2 + p_{30} \cdot Q ^ 3 + p_{21} \cdot Q^2 \cdot H + p_{12} \cdot Q \cdot H^2
+		\label{eq:simulated_power}
+\end{multline}
+\todo[color=04mathematicalModelling]{maybe align formula}
+
+The model has an adjusted coefficient of determination  $\bar{R^2}$ = 1. Such a high coefficient of determination, was achieved due to
+heavy filtering of the data gathered. In addition, no or minor disturbances were present during the gathering of the data.
+\todo[color=04mathematicalModelling]{from supervisor meeting} 
+
+
+\newpage
 With the data gathered through the experiments (Section \ref{sec:experiment}\todo[color=04mathematicalModelling]{not linked yet}),
 
-\todo[color=04mathematicalModelling]{re-write this section, all math used here doesn't apply to real life. But use the knowledge we gained here instead of deleting everything}
+\todo[color=04mathematicalModelling]{re-write this section, all math used here doesn't apply to real life. But use the knowledge we 
+gained here instead of deleting everything}
 We decided to use black-box modelling with polynomial fitting.
-For this we used the Curve Fitting Tool \cite{cftool} \todo[color=04mathematicalModelling]{add to bibliography} \textit{cftool} \todo[color=04mathematicalModelling]{make this look like a command} in MATLAB.
+For this we used the Curve Fitting Tool \cite{cftool} \textit{cftool} 
+\todo[color=04mathematicalModelling]{make this look like a command} in MATLAB.
 Looking at the data we decided to use polynomial fitting with a second degree polynomial
 as can be seen in equation \ref{eq:polynom}.
 
@@ -18,7 +48,8 @@ After repeating this process over different datasets with different pump speeds,
 we noticed that the coefficients $p_1$ and $p_2$ barely change.
 \todo[color=04mathematicalModelling]{they do, shit isn't even properly linear...}
 
-The standard deviation for the $p_1$ and $p_2$ coefficients were calculated with the equation \todo[color=04mathematicalModelling]{add reference to eq}
+The standard deviation for the $p_1$ and $p_2$ coefficients were calculated with the equation \todo[color=04mathematicalModelling]{add 
+reference to eq}
 
 \begin{equation}
 	\sigma_{\mean{p_{1,2}}} = \dfrac{1}{n}\sum |p_{1,2}-\mean{p_{1,2}}|
@@ -33,7 +64,8 @@ The results obviously vary between runs. For the run used to create the model th
 \end{equation}
 
 The $p_3$ coefficient however changes significantly, through different pump speeds.
-With a standard deviation $\sigma_{\mean{p_3}} \simeq 3.378111$ it was impossible to use only one simple polynomial as described in \ref{eq:polynom} to describe all pump characteristics at all speeds.
+With a standard deviation $\sigma_{\mean{p_3}} \simeq 3.378111$ it was impossible to use only one simple polynomial as described in 
+\ref{eq:polynom} to describe all pump characteristics at all speeds.
 
 We were able to identify a second order polynomial describing the change in $p_3$ according to the pump speed $\omega$.
 \begin{equation}
@@ -46,4 +78,5 @@ Combining \ref{eq:polynom} and \ref{eq:p3olynom}, we get:
 \begin{equation}
 	P(Q) = p_1 \cdot Q^2 + p_2 \cdot Q + a \cdot \omega^2 + b \cdot \omega + c 
 \end{equation}
-\todo[color=04mathematicalModelling]{at least something that isn't completely wrong, but incomplete. Not sure if we should start remodelling with power anyways}
+\todo[color=04mathematicalModelling]{at least something that isn't completely wrong, but incomplete. Not sure if we should start 
+remodelling with power anyways}
