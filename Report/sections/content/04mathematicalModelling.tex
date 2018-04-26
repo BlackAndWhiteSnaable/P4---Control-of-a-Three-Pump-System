@@ -1,11 +1,11 @@
 \chapter{Mathematical Modelling}\label{ch:mathmodel}
 
 \section{Pump Curves}\label{sec:pumpcurves}
-With the data gathered through the experiments (Section \ref{sec:experiment}\todo{not linked yet}),
+With the data gathered through the experiments (Section \ref{sec:experiment}\todo[color=04mathematicalModelling]{not linked yet}),
 
-\todo{re-write this section, all math used here doesn't apply to real life. But use the knowledge we gained here instead of deleting everything}
+\todo[color=04mathematicalModelling]{re-write this section, all math used here doesn't apply to real life. But use the knowledge we gained here instead of deleting everything}
 We decided to use black-box modelling with polynomial fitting.
-For this we used the Curve Fitting Tool \cite{cftool} \todo{add to bibliography} \textit{cftool} \todo{make this look like a command} in MATLAB.
+For this we used the Curve Fitting Tool \cite{cftool} \todo[color=04mathematicalModelling]{add to bibliography} \textit{cftool} \todo[color=04mathematicalModelling]{make this look like a command} in MATLAB.
 Looking at the data we decided to use polynomial fitting with a second degree polynomial
 as can be seen in equation \ref{eq:polynom}.
 
@@ -16,9 +16,9 @@ as can be seen in equation \ref{eq:polynom}.
 
 After repeating this process over different datasets with different pump speeds,
 we noticed that the coefficients $p_1$ and $p_2$ barely change.
-\todo{they fucking do, shit isn't even properly linear...}
+\todo[color=04mathematicalModelling]{they do, shit isn't even properly linear...}
 
-The standard deviation for the $p_1$ and $p_2$ coefficients were calculated with the equation \todo{add reference to eq}
+The standard deviation for the $p_1$ and $p_2$ coefficients were calculated with the equation \todo[color=04mathematicalModelling]{add reference to eq}
 
 \begin{equation}
 	\sigma_{\mean{p_{1,2}}} = \dfrac{1}{n}\sum |p_{1,2}-\mean{p_{1,2}}|
@@ -46,4 +46,4 @@ Combining \ref{eq:polynom} and \ref{eq:p3olynom}, we get:
 \begin{equation}
 	P(Q) = p_1 \cdot Q^2 + p_2 \cdot Q + a \cdot \omega^2 + b \cdot \omega + c 
 \end{equation}
-\todo{at least something that isn't completely wrong, but incomplete. Not sure if we should start remodelling with power anyways}
+\todo[color=04mathematicalModelling]{at least something that isn't completely wrong, but incomplete. Not sure if we should start remodelling with power anyways}
