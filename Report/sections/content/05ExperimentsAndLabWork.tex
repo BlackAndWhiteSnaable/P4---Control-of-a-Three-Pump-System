@@ -1,6 +1,4 @@
-\chapter{Experiments and Lab Work}\label{ch:experiment}
-Introduction goes here... 
- 
+\chapter{Experiments and Lab Work}\label{ch:experiment} 
 \section{Performance test}\label{sec:performance_test} 
 For gathering data about the pump system, a performance test was carried out.
 \todo{Should we explain how a performance test is carried out?}
@@ -10,26 +8,33 @@ Instead of relying on performance curves provided by the pump manufacturer,
 the pump will be run in situ \todo{"situ"? I think something went missing here}, and the obtained data will show how the pump 
 operates for the specific system.
  
-During the test gauges for flow, pressure, speed, and power consumption were 
-measured. Flow resistance can be varied by a choke valve, resulting in 
+During the test flow resistance is varied by a choke valve, resulting in 
 corresponding values of flow, differential pressure, and power consumption 
 which has been measured in order to create the performance curves.
- 
-The actual code for the pump test application was done in Matlab. 
+\newline
+\newline
+The programming for the pump test was done in Matlab. 
 A model of the system was made using Simulink blocks. \todo{elaborate on this?}
 Simulink Real-time and xPC Target was used to run the model in real-time 
 on the pump systems dedicated PC. 
 \todo{move somewhere else?} 
 
+\missingfigure[figwidth=0.5\textwidth]{Placeholder figure}
+
 xPC Target allows you to add I/O blocks to your model, and then use the host 
 PC and a C compiler to create executable code. The executable code is download 
 from the host PC to the target PC running the xPC Target real-time kernel. 
 After downloading the executable code, you can run and test your target 
-application in real-time. \todo{nescesarry?}
+application in real-time. \todo{is it nescesarry to describe this and data acquisition?}
 
-% The physical system and what sensors/variables avaliable should already be explained 
-- Experiment setup (What are we controlling and doing - explain the script)
-- Data acquisition (other topic now?)
+\missingfigure[figwidth=0.5\textwidth]{Placeholder figure}
+
+\textbf{Experiment setup}
+- pumpspeeds to iterate through: 0:10:100\n
+- time intervals from valve settling time, steps of 10 seconds
+- select valve opening(backpressure) by for loop
+
+
 - Results
 \todo{Do we need the datasheet for the pump? We must be using it for something?? (NPSHR?)}
  
