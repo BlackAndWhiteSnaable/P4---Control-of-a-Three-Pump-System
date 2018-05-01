@@ -72,6 +72,19 @@ Powr_90 = Powr(:,10);
 Powr_100 = Powr(:,11);
 
 Powr_all = [Powr_10 Powr_20 Powr_30 Powr_40 Powr_50 Powr_60 Powr_70 Powr_80 Powr_90 Powr_100];
+%% Prepare Speed for curve fitting
+Speed_10 = Speed(:,2);
+Speed_20 = Speed(:,3);
+Speed_30 = Speed(:,4);
+Speed_40 = Speed(:,5);
+Speed_50 = Speed(:,6);
+Speed_60 = Speed(:,7);
+Speed_70 = Speed(:,8);
+Speed_80 = Speed(:,9);
+Speed_90 = Speed(:,10);
+Speed_100 = Speed(:,11);
+
+Speed_all = [Speed_10 Speed_20 Speed_30 Speed_40 Speed_50 Speed_60 Speed_70 Speed_80 Speed_90 Speed_100];
 %% curve fitting for offset parameter
 p1=ones(1,10);
 p2=ones(1,10);
