@@ -1,20 +1,21 @@
 \chapter*{Acronyms}
 \todo[color=01introduction]{do we want a list of abbreviations?}
-\todo{how to meassure Phyd}
+\todo[color=01introduction]{how to meassure Phyd}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l r}
 	\hline
 	\textbf{Symbol}	& \textbf{Definition}			& \textbf{Unit}\\
 	\hline
 	DAQ 		& Data acquisition board 			& \\
-	MFM 		& Magnetic Flow Meter 				& \\
-	$\Delta$P	& Pressure Difference				& $bar$\\
-	NPSH		& Net Positive Suction Head 		&\\
 	H			& Head								& $m$\\
-	$\omega$	& Rotational speed					& $\frac{rad}{s}$\\
+	MFM 		& Magnetic Flow Meter 				& \\
+	NPSH		& Net Positive Suction Head 		& \\
 	$P_{hyd}$	& Hydraulic Power					& \\
 	$P_{el}$	& Electric Power					& \\
+
+	$\Delta P$	& Pressure Difference				& $bar$\\
 	$\eta$		& Efficiency						& $\%$\\
 	$\rho$		& Density							& $\frac{kg}{m^3}$\\
+	$\omega$	& Rotational speed					& $\frac{rad}{s}$\\
 	\hline \hline
 				& 									&	\\
 				& \textbf{Subscripts}				&	\\
@@ -33,7 +34,7 @@
 \chapter{Introduction}\label{ch:introduction}
 The human body is made of 60\% water \cite{HumanWater}.
 To remain healthy,
-a human needs to consume \todo[color=01introduction]{3,7 l} of water every day.
+a human needs to consume between 2,7 l and 3,7 l of water every day. \cite{DailyWater}
 This amount comes from both drinks and also food.
 For food to contain liquid it has to be present,
 when the plants are growing,
@@ -44,28 +45,24 @@ in form of bottles, tanks or pipelines.
 In all of those processes,
 it is important to have a controllable flow,
 maybe to meter the usage of water,
-or to ensure the stability of a process.
-
+or to ensure the stability of a process.\\
 Constant flow can also be important for different industries.
 Examples range from the oil and gas sector\cite{OilFlow} over breweries\cite{BrewFlow},
 dairy plants\cite{DairyFlow} to waste water treatment plants\cite{WastewaterFlow}.
-
 In every commercial use,
 it is important to keep cost low.
 The lifetime cost of any system depends both on the initial cost,
-but especially the running cost \todo[color=01introduction]{find marketing source}.
+but especially the running cost. \cite{LifetimeCost}
+The running cost of controlling flow depends largely on the efficiency of the pumps used.\cite{LifeCycleCostEfficiency}
 
-The running cost of controlling flow depends largely on the efficiency of the pump used \todo[color=01introduction]{find source for this in VOLK book}.
-But the efficiency also depends on the procedure of pumping.
-
-In previous work \todo[color=01introduction]{quote Zhenyu},
-it was found that using multiple pumps in parallel can be beneficial to the total efficiency.
-
-But that research only focused on controlling pressure,
+Prior work in the field shows, that the efficiency can be influenced by using multiple pumps,
+when those are optimally scheduled. \cite{YangMultiPump2008}\\
+The mentioned research only focused on controlling pressure though,
 and we therefore want to investigate whether this also holds for flow control.
 
 The focus of this report therefore lays on controlling a constant flow,
 inside a working range optimized for minimal energy consumption.
+\todo[color=01introduction]{Introduction done, but should be reread}
 %
 %
 %For the water to come into the food,
@@ -95,5 +92,16 @@ inside a working range optimized for minimal energy consumption.
 %According to the affinity laws%\cite{AffinityLaws}
 %
 
+\cleardoublepage
 \section*{Reading Guide}
 \todo[color=01introduction]{what is supposed to be in here? a short explanation of what knowledge each chapter conveys?}
+
+In Chapter \ref{ch:physsetup} the physical setup gets explained,
+giving a short introduction to all components relevant for this report.
+Chapter \ref{ch:mathmodel} and \ref{ch:modValPerf}
+focus on the mathematical modelling of those components and their interdependencies.
+Focus is mainly put on the relations between Flow, Head and Efficiency according to a given Pump Speed.
+Different modelling techniques are explained and evaluated,
+alongside a very brief introduction to SimuLink\copyright{} and MATLAB\copyright{},
+the software used for this process.
+Chapter \ref{ch:experiment} explains how the experiments were conducted
