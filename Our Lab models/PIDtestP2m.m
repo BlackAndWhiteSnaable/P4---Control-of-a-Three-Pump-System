@@ -5,10 +5,10 @@ CV01 = 100;
 CV01t = 0.5;
 simstop = 60*0.5;
 
-for setpoint=20;
+setpoint=20;
 %% SIMULATE
-i=1;
-    Kp=500;
+for i=1:3
+    Kp=ZNKp(i);
     Ki=ZNTi(i);
     Kd=ZNTd(i);
     Kn=100;
@@ -33,8 +33,8 @@ i=1;
     SimulinkRealTime.copyFileToHost(targetfile);
     SimulinkRealTime.copyFileToHost(unusedfile);
 
-    PIDfile = ['PIDdata/PID' num2str(Kp) '.dat'];
-    unusedfile = ['PIDdata/unused' num2str(Kp) '.dat'];
+    PIDfile = ['PIDdata/PID' num2str(i) '.dat'];
+    unusedfile = ['PIDdata/unused' num2str(i) '.dat'];
     %rename file
     movefile('PID.dat',PIDfile);
     movefile('unused.dat',unusedfile);

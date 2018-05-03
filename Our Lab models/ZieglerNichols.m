@@ -1,8 +1,8 @@
 %% calculate optimal gains
 clc;clear
 %gather these values from steady oscillations
-Ku = 212;
-Pu = 4.31;
+Ku = 250;
+Pu = 2.96;
 
 ZNKp = [0,0,0];
 ZNTi = [0,0,0];
