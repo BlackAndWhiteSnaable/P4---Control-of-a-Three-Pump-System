@@ -1,5 +1,5 @@
 %% import data (.dat) into workspace
-meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/PID' num2str(1) '.dat']);
+meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/noPID' num2str(1) '.dat']);
 cv01  = meas.data(:, 1);
 
 dpt01 = meas.data(:, 2);
@@ -33,11 +33,11 @@ time  = meas.data(:,26);
 
 figure()
 hold on; grid on;
-plot(time,ref,'DisplayName','ref')
-%plot(time,inp)
-plot(time,error./10,'DisplayName','err')
+%plot(time,ref,'DisplayName','ref')
+%plot(time,input)
+%plot(time,error./10,'DisplayName','err')
 
 %plot(time,dpt02)
 %plot(time,lmgp2)
-plot(time,mfm02,'DisplayName','mfm02')
-plot(time,wp002,'DisplayName','wp002')
+plot(time,mfm03,'DisplayName','mfm03')
+%plot(time,wp002,'DisplayName','wp002')

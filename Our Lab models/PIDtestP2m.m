@@ -3,9 +3,9 @@ clc;clearvars -except ZNKp ZNTd ZNTi
 %% SETUP workspace variables to be used in simulation
 CV01 = 100;
 CV01t = 0.5;
-simstop = 60*0.5;
+simstop = 60*1;
 
-setpoint=20;
+setpoint=8;
 %% SIMULATE
 for i=1:3
     Kp=ZNKp(i);
