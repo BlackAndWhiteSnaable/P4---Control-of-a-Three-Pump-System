@@ -3,24 +3,32 @@
 \section{Pump Curves}\label{sec:pumpcurves}
 
 
-We decided to use the data gathered through experiments, to develop a model that would fit all our data within a small degree of error, 
+We used the data gathered through experiments to develop a model that would fit all our data, within a certain degree of error, 
 and that we would be able to further test.
 
 We decided to use black-box modeling with polynomial fitting. We based our decision on other research that has been done on the same
-setup as ours, but also on trial and error.
+setup as ours, and also on the affinity laws.
+\todo[color=04mathematicalModelling]{quote zhenyu paper}
 
 Curve Fitting Tool \cite{cftool} \textit{cftool} was used in order to find a suitable mathematical formula for accurately describing the 
 system, while also trying to represent it in the easiest manner possible. 
 
-Equation \ref{eq:simulated_power} determines the power consumption, given the head and the flow. Although the formula does not directly
-relate to the pump speed, it indirectly relates to it, due to the fact that only one possible pump speed $\omega$ exists for a given
-pressure and flow.
-\todo[color=04mathematicalModelling]{quote zhenyu paper maybe}
-\begin{multline}
-		P(Q,H) = p_{00} + p_{10} \cdot Q + p_{01} \cdot H + p_{20} \cdot Q^2 + p_{11} \cdot Q \cdot H + \\
-		p_{02} \cdot H^2 + p_{30} \cdot Q ^ 3 + p_{21} \cdot Q^2 \cdot H + p_{12} \cdot Q \cdot H^2
-		\label{eq:simulated_power}
-\end{multline}
+Equation \ref{eq:simulated_head} determines the head, while equation \ref{eq:simulated_power} determines the power, given the flow. 
+Although the formula does not directly relate to the pump speed, it indirectly relates to it, due to the fact that only one possible 
+pump speed $\omega$ exists for a given flow.
+\todo[color=04mathematicalModelling]{maybe say that one pump speed corresponds to a certain flow if everything else is constant}
+\todo[color=04mathematicalModelling]{quote zhenyu paper again}
+
+\begin{equation}
+	H = a_{0}*Q^2 + a_{1} * Q + a_{2}
+	\label{eq:simulated_head} 
+\end{equation}
+
+\begin{equation}
+	P = b_{0}*Q^3 + b_{1} * Q ^ 2 + a_{3} * Q + a_{4}
+	\label{eq:simulated_power} 
+\end{equation}
+
 \todo[color=04mathematicalModelling]{maybe align formula}
 
 The model has an adjusted coefficient of determination  $\bar{R^2}$ = 1. Such a high coefficient of determination, was achieved due to
