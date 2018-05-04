@@ -13,23 +13,49 @@ setup as ours, and also on the affinity laws.
 Curve Fitting Tool \cite{cftool} \textit{cftool} was used in order to find a suitable mathematical formula for accurately describing the 
 system, while also trying to represent it in the easiest manner possible. 
 
-Equation \ref{eq:simulated_head} determines the head, while equation \ref{eq:simulated_power} determines the power, given the flow. 
+Equation \ref{eq:pump_model} determines the head and the power, given the flow. 
 Although the formula does not directly relate to the pump speed, it indirectly relates to it, due to the fact that only one possible 
 pump speed $\omega$ exists for a given flow.
 \todo[color=04mathematicalModelling]{maybe say that one pump speed corresponds to a certain flow if everything else is constant}
 \todo[color=04mathematicalModelling]{quote zhenyu paper again}
 
 \begin{equation}
-	H = a_{0}*Q^2 + a_{1} * Q + a_{2}
-	\label{eq:simulated_head} 
+	\begin{aligned}
+	H = \bar{a_{0}} \cdot Q^2 + \bar{a_{1}} \cdot Q + \bar{a_{2}} \\
+	P = \bar{b_{0}} \cdot Q^3 + \bar{b_{1}} \cdot Q^2 + \bar{b_{2}} \cdot Q + \bar{b_{3}}
+	\end{aligned}
+	\label{eq:pump_model}
 \end{equation}
 
+The coefficients are determined by the pump characteristics and can be experimentally identified.
+
+Taking variable speed into account, the equations \ref{eq:pump_model} will depend on the motor speed. 
+The pump Affinity Laws state:
+
+\begin{align}
+	\left(\frac{\omega_1}{\omega_2}\right)^1 = \frac{Q_1}{Q_2} && 
+	\left(\frac{\omega_1}{\omega_2}\right)^2 = \frac{H_1}{H_2} &&
+	\left(\frac{\omega_1}{\omega_2}\right)^3 = \frac{P_1}{P_2}	
+\end{align}
+
+\newpage
+Assuming the pump model parameters ($\bar{a_{0}}$, $\bar{a_{1}}$, $\bar{a_{2}}$) and ($\bar{b_{0}}$, $\bar{b_{1}}$, $\bar{b_{2}}$, $\bar{b_{3}}$) 
+described in equation \ref{eq:pump_model} are obtained at a certain speed $\bar{\omega_{0}}$, 
+this results in the following equation describing the pump at any speed $\omega$.
 \begin{equation}
-	P = b_{0}*Q^3 + b_{1} * Q ^ 2 + a_{3} * Q + a_{4}
-	\label{eq:simulated_power} 
+	\begin{aligned}
+	H(\omega) = a_0 \cdot \omega^2 + a_1 \cdot \omega \cdot Q(\omega) + a_2 \cdot Q(\omega)^2 \\
+	P(\omega) = b_0 \cdot \omega^3 + b_1 \cdot \omega^2 \cdot Q(\omega) + b_2 \cdot \omega \cdot Q(\omega)^2 + b_3 \cdot Q(\omega)^3
+	\end{aligned}
 \end{equation}
 
-\todo[color=04mathematicalModelling]{maybe align formula}
+The coefficients can be determined as follows
+
+\begin{align*}
+	a_0 = \frac{\bar{a_0}}{\bar{\omega_0^2}} && a_1 = \frac{\bar{a_1}}{\bar{\omega_0}} && a_2 = \bar{a_2} \\
+	b_0 = \frac{\bar{b_0}}{\bar{\omega_0^3}} && b_1 = \frac{\bar{b_1}}{\bar{\omega_0^2}} && b_2 = \frac{\bar{b_2}}{\omega_0} && b_3 = \bar{b_3}
+\end{align*}
+\newpage
 
 The model has an adjusted coefficient of determination  $\bar{R^2}$ = 1. Such a high coefficient of determination, was achieved due to
 heavy filtering of the data gathered. In addition, no, or minor disturbances were present during the gathering of the data.
