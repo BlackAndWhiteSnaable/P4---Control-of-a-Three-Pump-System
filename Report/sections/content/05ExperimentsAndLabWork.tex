@@ -1,21 +1,24 @@
 \chapter{Experiments and Lab Work}\label{ch:experiment} 
-\section{Performance test}\label{sec:performance_test} 
-% Explain why it is important to carry out a performence test
+\section{System test}\label{sec:system_test} 
+A test is carried out in order to obtain information about how the specific 
+system reacts under different load conditions. A single pump is run at 
+different speeds, while flow resistance is varied by a choke valve, resulting 
+in measuring corresponding values of flow and pressure. Curves are created 
+from the measured data.
 
-\todo[color=05ExperimentsAndLabWork]{Should we explain how a performance test is carried out?}
-
+Remove this:
 A performance curve is plotted to indicate the variation of pump differential head against volumetric flow (gpm) of a liquid at an indicated rotational speed or velocity, while consuming a specific quantity of horsepower (BHP). The performance curve is actually four curves relating with each other on a common graph. These four curves are:
 
-For gathering data about the pump, a performance test was carried out.
+\section{Data gathering}\label{sec:data_gathering} 
+\textbf{Experiment setup}
+%- pumpspeeds to iterate through: 0:10:100\n
+- time intervals from valve settling time, steps of 10 seconds
+- select valve opening(backpressure) by for loop
 
-Instead of relying on performance curves provided by the pump manufacturer,
-the pump is run in situ, and the obtained data will show how the pump operates for the specific system.
 
-During the test, flow resistance is varied by a choke valve, resulting in 
-corresponding values of flow, differential pressure, and power consumption 
-which has been measured in order to create the performance curves.
-\newline
-\newline
+- Results
+\todo[color=05ExperimentsAndLabWork]{Do we need the datasheet for the pump? We must be using it for something?? (NPSHR?)}
+
 The programming for the pump test was done in Matlab. 
 A model of the system was made using Simulink blocks. \todo[color=05ExperimentsAndLabWork]{elaborate on this?}
 Simulink Real-time and xPC Target was used to run the model in real-time 
@@ -33,12 +36,5 @@ application in real-time. \todo[color=05ExperimentsAndLabWork]{is it necessary t
 
 \missingfigure[figwidth=0.5\textwidth]{Placeholder figure}
 
-\textbf{Experiment setup}
-%- pumpspeeds to iterate through: 0:10:100\n
-- time intervals from valve settling time, steps of 10 seconds
-- select valve opening(backpressure) by for loop
 
-
-- Results
-\todo[color=05ExperimentsAndLabWork]{Do we need the datasheet for the pump? We must be using it for something?? (NPSHR?)}
  
