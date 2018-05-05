@@ -1,5 +1,5 @@
 %% import data (.dat) into workspace
-meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/noPID' num2str(1) '.dat']);
+meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/PI.dat']);
 cv01  = meas.data(:, 1);
 
 dpt01 = meas.data(:, 2);
@@ -32,12 +32,19 @@ error = meas.data(:,25);
 time  = meas.data(:,26);
 
 figure()
+xlabel('Time [$s$]','Interpreter','latex');
+ylabel('Q [$\frac{m^{3}}{s}$]','Interpreter','latex');
+title('Results of PI-control','Interpreter','latex')
+set(gca,'fontsize',16);
 hold on; grid on;
-%plot(time,ref,'DisplayName','ref')
-%plot(time,input)
+plot(time,ref,'DisplayName','ref')
+plot(time,input,'DisplayName','$\omega$')
 %plot(time,error./10,'DisplayName','err')
 
 %plot(time,dpt02)
-%plot(time,lmgp2)
-plot(time,mfm03,'DisplayName','mfm03')
+plot(time,lmgp3,'DisplayName','lmgp')
+plot(time,mfm03,'DisplayName','Q')
 %plot(time,wp002,'DisplayName','wp002')
+leg = legend('Location','southeast');
+set(leg,'Interpreter','latex');
+set(leg,'FontSize',12);
