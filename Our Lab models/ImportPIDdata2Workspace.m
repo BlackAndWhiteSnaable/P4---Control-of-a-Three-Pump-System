@@ -1,5 +1,5 @@
 %% import data (.dat) into workspace
-meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/PI.dat']);
+meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/GainPI.dat']);
 cv01  = meas.data(:, 1);
 
 dpt01 = meas.data(:, 2);
@@ -31,11 +31,12 @@ input = meas.data(:,24);
 error = meas.data(:,25);
 time  = meas.data(:,26);
 
-figure()
-xlabel('Time [$s$]','Interpreter','latex');
-ylabel('Q [$\frac{m^{3}}{s}$]','Interpreter','latex');
-title('Results of PI-control','Interpreter','latex')
-set(gca,'fontsize',16);
+
+% figure()
+% xlabel('Time [$s$]','Interpreter','latex');
+% ylabel('Q [$\frac{m^{3}}{s}$]','Interpreter','latex');
+% title('Results of PI-control','Interpreter','latex')
+% set(gca,'fontsize',16);
 hold on; grid on;
 plot(time,ref,'DisplayName','ref')
 plot(time,input,'DisplayName','$\omega$')

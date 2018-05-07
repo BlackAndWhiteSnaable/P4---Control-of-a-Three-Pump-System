@@ -1,8 +1,21 @@
-%% calculate optimal gains
+%% clear
 clc;clear
-%gather these values from steady oscillations
-R = 1.9074;
-L = 0.77;
+%% gather these values from unit step response
+x1 = 1.46;
+x2 = 3.17; %start and endtime of slope
+y1 = 0.1601;
+y2 = 1.119; %start and end value of slope
+
+inpuT = 0.5; %unit step input time
+reacT = 1.2500; %reaction time
+
+
+%% 
+deltax = x2-x1;
+deltay = y2-y1;
+
+R = deltax/deltay; %slope
+L = reacT - inpuT; %lag from input to first reaction
 
 
 ZNKp = [0,0,0];
@@ -20,3 +33,5 @@ ZNTi(2) = L / 0.3;
 ZNKp(3) = 1.2 / (R * L);
 ZNTi(3) = 2 * L;
 ZNTd(3) = 0.5 * L;
+
+clearvars -except ZN*
