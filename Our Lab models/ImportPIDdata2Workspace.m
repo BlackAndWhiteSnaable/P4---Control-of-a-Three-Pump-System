@@ -1,5 +1,5 @@
 %% import data (.dat) into workspace
-meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/GainPI.dat']);
+meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/openloopGainUnitstep.dat']);
 cv01  = meas.data(:, 1);
 
 dpt01 = meas.data(:, 2);
@@ -32,20 +32,27 @@ error = meas.data(:,25);
 time  = meas.data(:,26);
 
 
-% figure()
-% xlabel('Time [$s$]','Interpreter','latex');
-% ylabel('Q [$\frac{m^{3}}{s}$]','Interpreter','latex');
-% title('Results of PI-control','Interpreter','latex')
-% set(gca,'fontsize',16);
+figure()
+axis([0 20+0.01 -0.1 2.5])
+xlabel('Time [$s$]','Interpreter','latex');
+ylabel('Q [$\frac{m^{3}}{s}$]','Interpreter','latex');
+title('Unitstep Response','Interpreter','latex')
+set(gca,'fontsize',16);
 hold on; grid on;
 plot(time,ref,'DisplayName','ref')
-plot(time,input,'DisplayName','$\omega$')
+%plot(time,input,'DisplayName','$\omega$')
 %plot(time,error./10,'DisplayName','err')
 
 %plot(time,dpt02)
-plot(time,lmgp3,'DisplayName','lmgp')
+%plot(time,lmgp3,'DisplayName','lmgp')
 plot(time,mfm03,'DisplayName','Q')
 %plot(time,wp002,'DisplayName','wp002')
 leg = legend('Location','southeast');
 set(leg,'Interpreter','latex');
 set(leg,'FontSize',12);
+
+%% only for step response
+A = mean(mfm03(20*100:end));
+A_plot = ones(numel(time),1)*A;
+plot(time,A_plot,)
+plot(time,(time/R)-(1/R))

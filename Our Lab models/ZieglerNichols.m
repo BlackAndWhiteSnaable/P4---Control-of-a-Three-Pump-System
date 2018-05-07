@@ -1,10 +1,10 @@
 %% clear
-clc;clear
+%clc;clear
 %% gather these values from unit step response
-x1 = 1.46;
-x2 = 3.17; %start and endtime of slope
-y1 = 0.1601;
-y2 = 1.119; %start and end value of slope
+x1 = 1.53;
+x2 = 4.15; %start and endtime of slope
+y1 = 0.2123;
+y2 = 1.507; %start and end value of slope
 
 inpuT = 0.5; %unit step input time
 reacT = 1.2500; %reaction time
@@ -17,7 +17,7 @@ deltay = y2-y1;
 R = deltax/deltay; %slope
 L = reacT - inpuT; %lag from input to first reaction
 
-
+%%
 ZNKp = [0,0,0];
 ZNTi = [0,0,0];
 ZNTd = [0,0,0];
@@ -34,4 +34,4 @@ ZNKp(3) = 1.2 / (R * L);
 ZNTi(3) = 2 * L;
 ZNTd(3) = 0.5 * L;
 
-clearvars -except ZN*
+%clearvars -except ZN*
