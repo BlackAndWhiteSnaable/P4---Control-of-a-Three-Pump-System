@@ -4,10 +4,11 @@ clc;clearvars -except ZNKp ZNTd ZNTi
 CV01 = 100;
 CV01t = 0.5;
 simstop = 60*1;
+name = ['PID'];
 
 setpoint=8;
 %% SIMULATE
-for i=1:3
+for i=2:2
     Kp=ZNKp(i);
     Ki=ZNTi(i);
     Kd=ZNTd(i);
@@ -30,14 +31,14 @@ for i=1:3
     end
 
     %download file to host and rename
-    SimulinkRealTime.copyFileToHost(targetfile);
-    SimulinkRealTime.copyFileToHost(unusedfile);
+    %SimulinkRealTime.copyFileToHost(targetfile);
+    %SimulinkRealTime.copyFileToHost(unusedfile);
 
-    PIDfile = ['PIDdata/PID' num2str(i) '.dat'];
-    unusedfile = ['PIDdata/unused' num2str(i) '.dat'];
+    PIDfile = ['PIDdata/Gain' name(1:i) '.dat'];
+    unusedfile = ['PIDdata/GainUnused' name(1:i) '.dat'];
     %rename file
-    movefile('PID.dat',PIDfile);
-    movefile('unused.dat',unusedfile);
+    %movefile('PID.dat',PIDfile);
+    %movefile('unused.dat',unusedfile);
 end
 
 
