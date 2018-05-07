@@ -12,7 +12,7 @@ setup as ours, and also on the affinity laws.
 
 Curve Fitting Tool \cite{cftool} \textit{cftool} was used in order to find a suitable mathematical formula for accurately describing the 
 system, while also trying to represent it in the easiest manner possible. 
-
+\subsubsection{Single Variable Speed Pump Model}
 Equation \ref{eq:pump_model} determines the head and the power, given the flow. 
 Although the formula does not directly relate to the pump speed, it indirectly relates to it, due to the fact that only one possible 
 pump speed $\omega$ exists for a given flow.
@@ -49,14 +49,34 @@ this results in the following equation describing the pump at any speed $\omega$
 	\end{aligned}
 \end{equation}
 
-The coefficients can be determined as follows
+The coefficients can be determined as follows:
 
 \begin{align*}
 	a_0 = \frac{\bar{a_0}}{\bar{\omega_0^2}} && a_1 = \frac{\bar{a_1}}{\bar{\omega_0}} && a_2 = \bar{a_2} \\
 	b_0 = \frac{\bar{b_0}}{\bar{\omega_0^3}} && b_1 = \frac{\bar{b_1}}{\bar{\omega_0^2}} && b_2 = \frac{\bar{b_2}}{\omega_0} && b_3 = \bar{b_3}
 \end{align*}
-\newpage
 
+Results of the model can be seen in figure and figure.
+\todo[color = 04mathematicalModelling]{add figures}
+\subsubsection{Multi Variable Speed Pump Model at Same Speed}
+For a certain number of pumps P in parallel, with the requirement that they all run at the same speed $\omega$, the pump model is
+described by the following equations:
+
+\begin{equation}
+	\begin{aligned}
+	H_s(\omega) = a_0^s \cdot \omega^2 + a_1^s \cdot \omega \cdot Q_s(\omega) + a_2^s \cdot Q_s(\omega)^2 \\
+	P_s(\omega) = b_0^s \cdot \omega^3 + b_1^s \cdot \omega^2 \cdot Q_s(\omega) + b_2^s \cdot \omega \cdot Q_s(\omega)^2 + b_3^s \cdot Q_s(\omega)^3
+	\end{aligned}
+\end{equation}
+
+The formulas are identical, however the coefficients differ. They can be determined as follows:
+\begin{align*}
+	a_0^s = a_0 && a_1^s = \frac{a_1}{P} && a_2^s = \frac{a_2}{P^2} \\
+	b_0^s = b_0 && b_1^s = \frac{b_1}{P} && b_2^s = \frac{b_2}{P^2} && b_3^s = \frac{b_3}{P^3}
+\end{align*}
+\todo[color=04mathematicalModelling]{vary much from zhenyu's papers, should be able to understand and explain, otherwise, will take out and rewrite}
+
+\newpage
 The model has an adjusted coefficient of determination  $\bar{R^2}$ = 1. Such a high coefficient of determination, was achieved due to
 heavy filtering of the data gathered. In addition, no, or minor disturbances were present during the gathering of the data.
 \todo[color=04mathematicalModelling]{from supervisor meeting} 
