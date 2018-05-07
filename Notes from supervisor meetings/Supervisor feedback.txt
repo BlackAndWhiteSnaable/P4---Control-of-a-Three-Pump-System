@@ -1,0 +1,47 @@
+1st supervisor meeting:
+- we are looking at the steady state of the function and discarding the dynamics.. argument why not looking at the dynamics.
+- how you have found steadystate
+- did you filter
+- why did you choose this model
+- what do you want to use the model for
+- model based on steadystate.. so it's not based on time
+- affinity model represents a pump very well
+
+Modeling:
+- polymoninal estimation
+- cf toolbox (matlab curve fitting tool)
+- Petar mentioned least square approximation
+
+Experiment:
+- running pump at different speed, changing the valve position
+- sampling
+
+2nd supervisor meeting:
+- valve equation
+- validation data set
+- another data set to validate
+- when curve fitting, what is R-square
+- root mean square error, least mean square
+- we are (heavily) filtering over a lot of datapoins in the steadysteate, which makes the curve fitting really accurate
+- +the physical system does not change much
+- calculate the hydrostatic pressure
+- data sheet flowmeter
+- calibrate sensor of flowmeter
+- signal to noise ratio, what is the real signal
+- specify a range so that you are not drowning noise
+- blackbox model, relying on our measured data (yes)
+- use a datadriven approach like siegler-nichols, instead of model based
+- link the energy consumption/energy efficiency to the pump
+- a bit ambitious, compared to using a pid
+- identify operating range, by plotting the power as well
+- again, datadriven pid controller
+- first order system, how to identify it?
+
+- must be linearized (simplified = loose information = less precise) before you laplace transform it and get the transfer function
+- system analysis (bode plot etc, but most precise is still the linear)
+- can be implemented using the linear something in matlab
+- best way to linearize is taylor serier, apply your equation, apply your nonlinear terms, find your linerisation point
+- moodle, control course, lecture about linerisation
+- find the uncertaties, are they important or not
+- you could be asked wath matlab is doing for you
+

@@ -6,13 +6,13 @@ CV01t = 0.5;
 simstop = 60*1;
 name = ['PID'];
 
-setpoint=8;
+setpoint=1;
 %% SIMULATE
-for i=2:2
+for i=1:3
     Kp=ZNKp(i);
     Ki=ZNTi(i);
     Kd=ZNTd(i);
-    Kn=100;
+    Kn=0;
     %make sure this fits with simulink!!
     targetfile = ['E:\PID.dat'];
     unusedfile = ['E:\unused.dat'];
@@ -31,14 +31,14 @@ for i=2:2
     end
 
     %download file to host and rename
-    %SimulinkRealTime.copyFileToHost(targetfile);
-    %SimulinkRealTime.copyFileToHost(unusedfile);
+    SimulinkRealTime.copyFileToHost(targetfile);
+    SimulinkRealTime.copyFileToHost(unusedfile);
 
-    PIDfile = ['PIDdata/Gain' name(1:i) '.dat'];
-    unusedfile = ['PIDdata/GainUnused' name(1:i) '.dat'];
+    PIDfile = ['PIDdata/closedloopGain' name(1:i) '.dat'];
+    unusedfile = ['PIDdata/closedloopGainUnused' name(1:i) '.dat'];
     %rename file
-    %movefile('PID.dat',PIDfile);
-    %movefile('unused.dat',unusedfile);
+    movefile('PID.dat',PIDfile);
+    movefile('unused.dat',unusedfile);
 end
 
 
