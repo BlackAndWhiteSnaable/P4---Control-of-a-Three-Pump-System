@@ -1,31 +1,31 @@
 \chapter{Experiments and Lab Work}\label{ch:experiment} 
 \section{System test}\label{sec:system_test} 
 A test is carried out in order to obtain information about how the specific 
-system reacts under different load conditions. A single pump is run at 
-different speeds, while flow resistance is varied by a choke valve, resulting 
-in measuring corresponding values of flow and pressure. Curves are created 
-from the measured data.
+system reacts under different load conditions. A single pump is run 
+at different speeds, while flow resistance is varied by a choke valve, resulting 
+in corresponding values of flow, pressure, and energy consumption measured by 
+the sensors. The measured data is stored for further processing such as creating 
+curves.
 
-Remove this:
-A performance curve is plotted to indicate the variation of pump differential head against volumetric flow (gpm) of a liquid at an indicated rotational speed or velocity, while consuming a specific quantity of horsepower (BHP). The performance curve is actually four curves relating with each other on a common graph. These four curves are:
+\section{Results}\label{sec:results}
+Explain this better:\newline
+- The pump speed is gradually turned up from 0 to 100\% in 10\% intervals. \newline
+- For each pump speed, the valve openningvalve settling time, steps of 10 seconds\newline
+- Select valve opening(backpressure) by for loop\newline
 
-\section{Data gathering}\label{sec:data_gathering} 
-\textbf{Experiment setup}
-%- pumpspeeds to iterate through: 0:10:100\n
-- time intervals from valve settling time, steps of 10 seconds
-- select valve opening(backpressure) by for loop
+\missingfigure[figwidth=0.5\textwidth]{Show curves from early test runs}
+
+\missingfigure[figwidth=0.5\textwidth]{Show curves from early test runs}
+
+\section{Data gathering}\label{sec:data_gathering}
+The script programmed for the system test was done in Matlab. 
+A model of the system is made using Simulink blocks. 
+Simulink Real-time and xPC Target was used to run the model in real-time on 
+the pump systems dedicated PC. 
+\todo[color=05ExperimentsAndLabWork]{Is this ok here? Do we want a seperate section for this anyway?}
 
 
-- Results
-\todo[color=05ExperimentsAndLabWork]{Do we need the datasheet for the pump? We must be using it for something?? (NPSHR?)}
 
-The programming for the pump test was done in Matlab. 
-A model of the system was made using Simulink blocks. \todo[color=05ExperimentsAndLabWork]{elaborate on this?}
-Simulink Real-time and xPC Target was used to run the model in real-time 
-on the pump systems dedicated PC. 
-\todo[color=05ExperimentsAndLabWork]{move somewhere else?}
-
-\missingfigure[figwidth=0.5\textwidth]{Placeholder figure}
 
 % Explain how we carried out the performance test
 xPC Target allows you to add input/output blocks to your model, and then use the host 
@@ -36,5 +36,7 @@ application in real-time. \todo[color=05ExperimentsAndLabWork]{is it necessary t
 
 \missingfigure[figwidth=0.5\textwidth]{Placeholder figure}
 
+Remove this nonsense:
+A performance curve is plotted to indicate the variation of pump differential head against volumetric flow (gpm) of a liquid at an indicated rotational speed or velocity, while consuming a specific quantity of horsepower (BHP). The performance curve is actually four curves relating with each other on a common graph. These four curves are:
 
  
