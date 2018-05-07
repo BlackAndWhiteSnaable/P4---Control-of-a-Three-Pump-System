@@ -1,3 +1,10 @@
+%% check if everything exists
+clc
+if ~(exist('ZNKp','var'))
+    clear
+    ZieglerNichols %US if using ultimate sensitivity
+end
+
 %% import data (.dat) into workspace
 meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/openloopGainUnitstep.dat']);
 cv01  = meas.data(:, 1);
@@ -36,16 +43,16 @@ figure()
 axis([0 20+0.01 -0.1 2.5])
 xlabel('Time [$s$]','Interpreter','latex');
 ylabel('Q [$\frac{m^{3}}{s}$]','Interpreter','latex');
-title('Unitstep Response','Interpreter','latex')
+title('Step Response','Interpreter','latex')
 set(gca,'fontsize',16);
 hold on; grid on;
-plot(time,ref,'DisplayName','ref')
+plot(time,ref,'-k','MarkerIndices',1:50:length(time),'DisplayName','step input (scaled down with 10)')
 %plot(time,input,'DisplayName','$\omega$')
 %plot(time,error./10,'DisplayName','err')
 
 %plot(time,dpt02)
 %plot(time,lmgp3,'DisplayName','lmgp')
-plot(time,mfm03,'DisplayName','Q')
+plot(time,mfm03,':k','MarkerIndices',[1:25:599 600:50:length(time)],'DisplayName','Q')
 %plot(time,wp002,'DisplayName','wp002')
 leg = legend('Location','southeast');
 set(leg,'Interpreter','latex');
@@ -54,5 +61,8 @@ set(leg,'FontSize',12);
 %% only for step response
 A = mean(mfm03(20*100:end));
 A_plot = ones(numel(time),1)*A;
-plot(time,A_plot,)
-plot(time,(time/R)-(1/R))
+plot(time,A_plot,'-r','MarkerIndices',1:50:length(time),'DisplayName','Final Value')
+plot(time,(time/R)-(1/R),'-^r','MarkerIndices',1:50:length(time),'DisplayName','Slope')
+leg = legend('Location','southeast');
+set(leg,'Interpreter','latex');
+set(leg,'FontSize',12);

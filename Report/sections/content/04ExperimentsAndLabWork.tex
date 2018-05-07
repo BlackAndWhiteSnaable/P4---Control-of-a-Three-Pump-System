@@ -63,15 +63,30 @@ Remove this nonsense:
 A performance curve is plotted to indicate the variation of pump differential head against volumetric flow (gpm) of a liquid at an indicated rotational speed or velocity, while consuming a specific quantity of horsepower (BHP). The performance curve is actually four curves relating with each other on a common graph. These four curves are:
 
 \section{Unit step response}
-\missingfigure[figwidth=\textwidth]{A simplified block diagram to show the placement of a PID controller}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/04ExperimentsAndLabWork/CLblock.png}
+    \caption{A simplified block diagram to show the placement of a PID}
+	\label{fig:PIDplace}
+\end{figure}
+\todo[color=05ExperimentsAndLabWork]{crop figure properly}
+
 For the common PID-tuning method as described by Ziegler and Nichols,
 some knowledge about the system is needed.
 There exist two Ziegler Nichols methods,
 depending on the open-loop dynamics of the system.
 Because our system has a stable response to a step input, we used the first method described in \todo[color=05ExperimentsAndLabWork]{page 226 ff, Feedback Control of Dynamic Systems}
 Here typically a unit step input is given into the OL system as shown in figure \ref{fig:OL}.
-\missingfigure[figwidth=\textwidth]{OL block diagram of the system}
+
+\todo[color=05ExperimentsAndLabWork]{get actual values for R and L}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/04ExperimentsAndLabWork/OLblock.png}
+    \caption{OL block diagram of the system}
 \label{fig:OL}
+\end{figure}
+\todo[color=05ExperimentsAndLabWork]{crop figure properly}
+
 Because we are scaling the $\omega$ down by a factor of 10, so we can directly read the percentage,
 we had to scale the aforementioned unit step up by a factor of 10,
 in order to get usable results.
@@ -86,7 +101,7 @@ Our analysis of figure \ref{fig:stepin} gives us the following values:
 	$t_d=L$	& $=$ & $0.75$ 		& \footnotesize{\textit{lag}}\\
 	$\tau$ 	& $=$ & $1.2436$ 	& \footnotesize{\textit{time constant}}
 \end{tabular}
-
+\\
 Ziegler-Nichols is tuning a PID controller $D_c(s)$ with the formula\\
 $D_c(s)=k_P(1+ \frac{1}{T_Is}+T_Ds)$,
 where $k_P$, $T_I$ and $T_D$ are scalar gains,
@@ -99,8 +114,12 @@ tuned according to the characteristics obtained from figure \ref{fig:stepin}.
 \end{tabular}
 
 
-
-%\end{equation}
-\todo[color=05ExperimentsAndLabWork]{get actual values for R and L}
-\missingfigure{response to a step input of 10}
-\label{fig:stepin}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/04ExperimentsAndLabWork/UnitStepResponse1Pump.png}
+    \caption{response to a step input with value 10}
+	\label{fig:stepin}
+\end{figure}
+\todo[color=05ExperimentsAndLabWork]{can we make the axis look like they are made by LaTeX as well?}
+\\ \\ \\ \\
+\todo[color=05ExperimentsAndLabWork]{structure}
