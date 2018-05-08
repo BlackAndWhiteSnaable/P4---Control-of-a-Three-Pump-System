@@ -110,3 +110,26 @@ Speed_100 = Speed(:,11);
 Speed_100 = Speed_100 * 720;
 
 Speed_all = [Speed_10 Speed_20 Speed_30 Speed_40 Speed_50 Speed_60 Speed_70 Speed_80 Speed_90 Speed_100];
+
+%%PLOTTING
+figure('Name', 'Speed Without Offset And Gain', 'NumberTitle', 'off')
+for i = 1:10
+    name = [num2str(i * 10) '%CV01'];
+    plot(Flow_all(:, i), Pres_all(:, i), 'DisplayName', name);
+    grid on;
+    hold on;
+end
+xlabel('Flow [$\frac{m^3}{h}$]','Interpreter','latex');
+ylabel('Pressure[bar]', 'Interpreter', 'latex');
+legend('show');
+
+figure('Name', 'Speed Without Offset And Gain', 'NumberTitle', 'off')
+for i = 1:10
+    name = [num2str(i * 10) '%CV01'];
+    plot(Flow_all(:, i), Powr_all(:, i), 'DisplayName', name);
+    grid on;
+    hold on;
+end
+xlabel('Flow [$\frac{m^3}{h}$]','Interpreter','latex');
+ylabel('Power Consuption[watt]', 'Interpreter', 'latex');
+legend('show');
