@@ -1,10 +1,10 @@
 clc
 %if pump2_meas doesn't exist, make it
 if ~exist('pump2_meas', 'var')
-    plotCompareFlow;
+    plotCompareSpeed;
 end
 %clears all unnecessary variables
-clearvars abs_max abs_min cntr i j name x_blank Flow
+clearvars abs_max abs_min cntr i j name x_blank Speed
 
 %% gather average between two timestamps
 Speed=ones(10,11);
