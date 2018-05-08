@@ -73,3 +73,4 @@ end
 xlabel('Flow','Interpreter','latex');
 ylabel('Power Consuption', 'Interpreter', 'latex');
 legend('show');
+

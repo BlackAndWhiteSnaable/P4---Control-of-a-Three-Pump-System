@@ -111,7 +111,7 @@ Speed_100 = Speed_100 * 720;
 
 Speed_all = [Speed_10 Speed_20 Speed_30 Speed_40 Speed_50 Speed_60 Speed_70 Speed_80 Speed_90 Speed_100];
 
-%%PLOTTING
+%% PLOTTING
 figure('Name', 'Flow vs. Pressure With Offset and Gain', 'NumberTitle', 'off')
 for i = 1:10
     name = [num2str(i * 10) '%CV01'];
