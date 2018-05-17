@@ -1,13 +1,18 @@
 %%
 clc;clear
-% OPEN THE SIMULINK FILE TO SAVE
+% OPEN THE FIGURE TO SAVE
 % name of the outputfile
-out = 'StepresponseTest';
+out = input('Name for the output file: ','s');
 
 % chapter for this to appear in
-chapter = '04ExperimentsAndLabWork';
+chapter = input('Chapter name including number: ','s');
+folder = ['../Report/figures/' chapter '/'];
 
+%making sure the folder exists, to not get errors
+if exist(folder,'dir')~=7
+    mkdir(folder)
+end
 
 %% DON'T CHANGE ANYTHING BELOW
-fileloc = ['../Report/figures/' chapter '/' out];
+fileloc = [folder out];
 print('-f','-deps',fileloc)

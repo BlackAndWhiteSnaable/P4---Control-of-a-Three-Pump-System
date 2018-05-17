@@ -2,14 +2,19 @@
 clc;clear
 % OPEN THE SIMULINK FILE TO SAVE
 % name of the outputfile
-out = 'CLblock';
+out = input('Name for the output file: ','s');
 
 % chapter for this to appear in
-chapter = '04ExperimentsAndLabWork';
+chapter = input('Chapter name including number: ','s');
+folder = ['../Report/figures/' chapter '/'];
+
+%making sure the folder exists, to not get errors
+if exist(folder,'dir')~=7
+    mkdir(folder)
+end
 
 
 %% DON'T CHANGE ANYTHING BELOW
-print('-s','-dpdf',out)
-crop = ['pdfcrop ' out ' ../Report/figures/' chapter '/' out '.pdf'];
+print('-s','-dpdf',[folder out '.pdf'])
+crop = ['pdfcrop ' folder out '.pdf ' folder out '.pdf'];
 system(crop);
-delete([out '.pdf']);
