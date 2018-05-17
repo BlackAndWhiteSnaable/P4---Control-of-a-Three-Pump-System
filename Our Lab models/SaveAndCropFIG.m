@@ -15,4 +15,4 @@ end
 
 %% DON'T CHANGE ANYTHING BELOW
 fileloc = [folder out];
-print('-f','-deps',fileloc)
+print('-f','-depsc',fileloc)
