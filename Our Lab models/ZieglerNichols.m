@@ -1,5 +1,5 @@
 %% clear
-%clc;clear
+clc
 %% gather these values from unit step response
 x1 = 1.53;
 x2 = 4.15; %start and endtime of slope
@@ -34,4 +34,5 @@ ZNKp(3) = 1.2 / (R * L);
 ZNTi(3) = 2 * L;
 ZNTd(3) = 0.5 * L;
 
-%clearvars -except ZN*
+%% cleanup
+clearvars -except ZN* R

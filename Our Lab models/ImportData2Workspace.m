@@ -20,3 +20,4 @@ for j=1:n
     version = extractBefore(version,'.dat');
     pump2_meas(j).version = version;
 end
+clearvars a filename folder j n str2find version

@@ -1,9 +1,7 @@
 %% SETUP
-%clc;
-if ~exist('run_num', 'var')
+clc;
+if ~exist('pump2_meas', 'var')
     ImportData2Workspace;
-else
-    clearvars -except pump2_meas run_num
 end
 abs_max = 0; abs_min = 5; x_blank = 0;
     
@@ -28,3 +26,6 @@ title('Power Comparison')
 xlabel('time [s]')
 ylabel('LMGP2')
 legend('show','Location','northwest')
+
+%% cleanup
+clearvars abs_max abs_min j name x_blank

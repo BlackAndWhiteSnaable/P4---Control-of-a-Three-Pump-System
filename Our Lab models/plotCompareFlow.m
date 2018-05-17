@@ -1,16 +1,12 @@
 %% SETUP
 clc;
-%if run_num exists, all other necessary ones should exist
-if exist('run_num', 'var')
-    clearvars -except pump2_meas run_num Pres Flow
-else
+if ~exist('pump2_meas', 'var')
     ImportData2Workspace;
-    clearvars -except pump2_meas run_num Pres Flow
 end
 abs_max = 0; abs_min = 50; x_blank = 0;
 
 %% PLOTTING
-% plot all speed curves
+% plot all flow curves
 figure('Name',['Flow Comparison run',num2str(run_num)],'NumberTitle','off')
 for j = 1:numel(pump2_meas)
     name = [num2str(j*10) '% CV01'];
@@ -30,3 +26,6 @@ title('Flow Comparison')
 xlabel('time [s]')
 ylabel('MFM02')
 legend('show','Location','northwest')
+
+%% cleanup
+clearvars abs_max abs_min j name x_blank

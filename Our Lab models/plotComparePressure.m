@@ -2,14 +2,11 @@
 clc;
 %if run_num exists, all other necessary ones should exist
 if exist('run_num', 'var')
-    if exist('pump2_meas', 'var')
-        clearvars -except pump2_meas run_num Pres Flow
-    else
+    if ~exist('pump2_meas', 'var')
         ImportData2Workspace
     end
 else
     ImportData2Workspace;
-    clearvars -except pump2_meas run_num Pres Flow
 end
 abs_max = 0; abs_min = 50; x_blank = 0;
     
@@ -34,3 +31,4 @@ title('Pressure Comparison')
 xlabel('time [s]')
 ylabel('DPT02')
 legend('show','Location','northwest')
+clearvars abs_max abs_min j name x_blank
