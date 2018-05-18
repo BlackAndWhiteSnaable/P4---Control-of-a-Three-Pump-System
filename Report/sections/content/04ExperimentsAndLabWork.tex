@@ -4,7 +4,53 @@ we conducted different experiments,
 to gain knowledge about the system,
 test controller implementations and gather data needed for controller tuning.
 
-\section{System test}\label{sec:system_test} 
+
+\section{Data Acquisition}\label{sec:data_gathering}
+All data was collected with the help of custom made 
+ML scripts and SLRT models.
+The execution happened on the xPC Target OS.
+Some specifics of these files will be explained in this chapter,
+while the complete files can be found on the GitHub repository \cite{GitHub}.
+
+The system is built as described in Chapter \ref{ch:physsetup},
+with the controlling PC running xPC Target,
+a real-time OS for use with SLRT.
+
+Tu use SLRT on xPC targets, a SL model has to be made on the host PC,
+compiled, transferred over Ethernet and executed on the target.
+After the execution is finished on the target,
+the .dat files containing the recorded data have to be transferred back to the host,
+where further analysis can be done.
+
+To automate as much of this process as possible,
+we created a ML script that updates and compiles the SL model, transfers it to the target,
+starts the execution and copies the generated .dat files to the host.
+
+All data is recorded on the target PC from
+
+
+The script programmed for the system test was done in Matlab. 
+A model of the system is made using Simulink blocks. 
+Simulink Real-time and xPC Target was used to run the model in real-time on 
+the pump systems dedicated PC. 
+\todo[color=05ExperimentsAndLabWork]{Is this ok here? Do we want a seperate section for this anyway?}
+
+
+
+
+% Explain how we carried out the performance test
+xPC Target allows you to add input/output blocks to your model, and then use the host 
+PC and a C compiler to create executable code. The executable code is download 
+from the host PC to the target PC running the xPC Target real-time kernel. 
+After downloading the executable code, you can run and test your target 
+application in real-time. \todo[color=05ExperimentsAndLabWork]{is it necessary to describe this and data acquisition?}
+
+\missingfigure[figwidth=0.5\textwidth]{Placeholder figure}
+
+Remove this nonsense:
+A performance curve is plotted to indicate the variation of pump differential head against volumetric flow (gpm) of a liquid at an indicated rotational speed or velocity, while consuming a specific quantity of horsepower (BHP). The performance curve is actually four curves relating with each other on a common graph. These four curves are:
+
+\section{System Test}\label{sec:system_test} 
 To obtain information about how the system reacts under different conditions,
 a test was carried out with some example conditions.
 From those conditions, the goal is to extrapolate an equation for the system,
@@ -30,37 +76,8 @@ We chose to use pump 2 at random.
 \todo[color=05ExperimentsAndLabWork]{more detail later}
 
 
-\section{Results}\label{sec:results}
-Explain this better:\newline
-- The pump speed is gradually turned up from 0 to 100\% in 10\% intervals. \newline
-- For each pump speed, the valve openningvalve settling time, steps of 10 seconds\newline
-- Select valve opening(backpressure) by for loop\newline
 
-\missingfigure[figwidth=\textwidth]{Show curves from early test runs}
-
-\section{Data gathering}\label{sec:data_gathering}
-The script programmed for the system test was done in Matlab. 
-A model of the system is made using Simulink blocks. 
-Simulink Real-time and xPC Target was used to run the model in real-time on 
-the pump systems dedicated PC. 
-\todo[color=05ExperimentsAndLabWork]{Is this ok here? Do we want a seperate section for this anyway?}
-
-
-
-
-% Explain how we carried out the performance test
-xPC Target allows you to add input/output blocks to your model, and then use the host 
-PC and a C compiler to create executable code. The executable code is download 
-from the host PC to the target PC running the xPC Target real-time kernel. 
-After downloading the executable code, you can run and test your target 
-application in real-time. \todo[color=05ExperimentsAndLabWork]{is it necessary to describe this and data acquisition?}
-
-\missingfigure[figwidth=0.5\textwidth]{Placeholder figure}
-
-Remove this nonsense:
-A performance curve is plotted to indicate the variation of pump differential head against volumetric flow (gpm) of a liquid at an indicated rotational speed or velocity, while consuming a specific quantity of horsepower (BHP). The performance curve is actually four curves relating with each other on a common graph. These four curves are:
-
-\section{Unit step response}
+\section{Step response}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figures/04ExperimentsAndLabWork/CLblock.pdf}
@@ -119,3 +136,11 @@ tuned according to the characteristics obtained from figure \ref{fig:stepin}.
 \todo[color=05ExperimentsAndLabWork]{can we make the axis look like they are made by LaTeX as well?}
 \\ \\ \\ \\
 \todo[color=05ExperimentsAndLabWork]{structure}
+
+\section{Results}\label{sec:results}
+Explain this better:\newline
+- The pump speed is gradually turned up from 0 to 100\% in 10\% intervals. \newline
+- For each pump speed, the valve openningvalve settling time, steps of 10 seconds\newline
+- Select valve opening(backpressure) by for loop\newline
+
+\missingfigure[figwidth=\textwidth]{Show curves from early test runs}
