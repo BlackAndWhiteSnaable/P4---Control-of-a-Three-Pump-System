@@ -1,7 +1,12 @@
+%% Notes
+% Changed name
+% Changed rtwbuild to 'PIDValveTest'
+% Changed PIDfile output filename
+
 %% clear
 clc;clearvars -except ZNKp ZNTd ZNTi
 %% SETUP workspace variables to be used in simulation
-CV01 = 100;
+CV01 = 100;     %This will be manipulated
 CV01t = 0.5;
 simstop = 60*1;
 name = ['PID'];
@@ -15,9 +20,8 @@ for i=1:3
     Kn=0;
     %make sure this fits with simulink!!
     targetfile = ['E:\PID.dat'];
-    unusedfile = ['E:\unused.dat'];
 
-    rtwbuild('PIDtestP2');   % Build and download application.
+    rtwbuild('PIDValveTest');   % Build and download application.
 
     tg = SimulinkRealTime.target;
 
@@ -32,11 +36,8 @@ for i=1:3
 
     %download file to host and rename
     SimulinkRealTime.copyFileToHost(targetfile);
-    SimulinkRealTime.copyFileToHost(unusedfile);
 
-    PIDfile = ['PIDdata/closedloopGain' name(1:i) '.dat'];
-    unusedfile = ['PIDdata/closedloopGainUnused' name(1:i) '.dat'];
+    PIDfile = ['PIDdata/PIDValveTestData' name(1:i) '.dat'];
     %rename file
     movefile('PID.dat',PIDfile);
-    movefile('unused.dat',unusedfile);
 end

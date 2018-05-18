@@ -34,5 +34,4 @@ ZNKp(3) = 1.2 / (R * L);
 ZNTi(3) = 2 * L;
 ZNTd(3) = 0.5 * L;
 
-%% cleanup
-clearvars -except ZN* R
+clearvars -except ZN* R L
