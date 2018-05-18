@@ -16,3 +16,5 @@ for j=[1:10]
         Pres(j,cntr)= avgFromTo(i-5,i,100,pump2_meas(j).data(:,6));
     end
 end
+%% cleanup
+clearvars cntr i j
