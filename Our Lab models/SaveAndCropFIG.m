@@ -1,6 +1,7 @@
 %%
 clc;clear
 % OPEN THE FIGURE TO SAVE
+user = sprintf('Please open the figure you want to save')
 % name of the outputfile
 out = input('Name for the output file: ','s');
 
