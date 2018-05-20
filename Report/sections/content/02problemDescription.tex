@@ -2,6 +2,45 @@
 
 \section{Problem Description}
 We want to control a constant flow with a minimum power consumption.
+
+This project is about different mathematical modelling approaches for a system consisting mainly of three pumps.
+The modelling will be used to develop a controller governing the total flow $Q_{tot}$.
+The system was already fully functionally available in our university.
+No alterations on the setup were possible to complete our project,
+since the system was simultaneously used by two other groups.
+As controllable inputs
+\todo[color=02problemDescription]{read in control book if controllable inputs is correct}
+to the system were available the individual speed of each pump $\omega P_{1,2,3}$ and the valve opening of one control valve $CV_1$.
+
+Measurable outputs of the system include
+\todo[color=02problemDescription]{finish this list}
+individual flow, individual differential pressure, pressure over $CV_1$, individual power consumption.
+Not all of these measurements were used in our project.
+
+A schematic representation of the system is available in Appendix X.
+\todo[color=02problemDescription]{create schematic overview of the system, (\url{https://en.wikipedia.org/wiki/Piping_and_instrumentation_diagram})}
+
+
+\section{Control Methods}
+Based on the properties of a system two different approaches to controlling it can be applied.
+Single Input Single Output (SISO) systems are often modelled in the frequency domain
+as transfer functions and controlled with the help of classical control.
+Here most commonly a full-output feedback loop is used because of its simplicity.
+\todo[color=02problemDescription]{check if everything said here is true}
+\todo[color=02problemDescription]{find relevant pages in control book}
+\cite{Franklin2014}
+
+Multiple Input Multiple Output (MIMO) systems are often modelled and controlled using state-space
+modelling, where all inputs are combined into one input vector
+and the plant is described as a combination of three to four matrices.
+In modern control this approach is commonly used in combination with full state feedback,
+where instead of the output an intermediate product (the states) are used for full-state feedback.
+\todo[color=02problemDescription]{reread and rewrite}
+
+Our system is effectively a MISO system.
+
+
+
 \todo[color=02problemDescription]{this is obviously not done}
 
 
