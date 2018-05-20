@@ -1,16 +1,42 @@
 \chapter{Mathematical Modelling}\label{ch:mathmodel}
 
+\todo[color=04mathematicalModelling,inline]{break this chapter into static and dynamic modelling}
+Most physical systems can be modelled statically or dynamically.
+Depending on the application of the model,
+and therefore on the end goal of the controller,
+either option has some benefits and flaws.
+
+Since our focus shifted during the project, we started out developing a static model,
+describing the steady state response of the system.
+Later on we decided to move towards a dynamic model, for easier PID-controller development.
+
+Both modelling processes are described in this chapter,
+with a small section in the end explaining the key differences.
+\todo[color=04mathematicalModelling]{write a small conclusion at the end of this chapter}
+\section{Static Modelling}\label{sec:statmod}
+
+The static model explains the behaviour of the system at steady-state,
+i.e. when the output is settled after a step input.
+Static models are therefore also referred to as steady-state models.
+Both expressions are used interchangeably throughout this report.
+
+Typical static models for pump systems are pump curves and system curves.
+\todo[color=04mathematicalModelling,inline]{explain differences between pump curves and system curves}
+\todo[color=04mathematicalModelling,inline]{make sure sections and subsection makes sense}
 \section{Pump Curves}\label{sec:pumpcurves}
-\todo[color=04mathematicalModelling]{static modeling and control + dynamic modeling and control}
 \subsubsection{QH-Curve}
 
-A QH-curve or pump curve defines the head as a function of the flow. The flow is the rate of the fluid going through the 
-pump. It is generally stated in cubic meter per hour $[m^{3}/h]$. Figure \ref{fig:pump_head_curve} represents a typical pump head curve.
+A QH-curve or pump curve defines the head as a function of the flow.
+The flow (Q) is the rate of the fluid going through the pump.
+Q is typically stated in cubic meters per hour $[m^{3}/h]$ or other volume per time metrics.
+Figure \ref{fig:pump_head_curve} represents a typical pump head curve.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{figures/05mathematicalModeling/pumpCurves.eps}
 \end{figure}
+\todo[color=04mathematicalModelling]{either we don't have numbers on the axes or the actually mean something. Also this figure doesn't have a single curve, just connected data points ;)}
+
 \newpage
 \subsubsection{System Head Curve}
 A system head curve is a graphical representation of the pump head that is required to move fluid through a piping system at various flow rates.
@@ -24,12 +50,17 @@ As stated before, the resistance can come from friction with the pipes, or eleva
 We used the data gathered through experiments to develop a model that would fit all our data, within a certain degree of error, 
 and that we would be able to further test.
 
-We decided to use black-box modeling with polynomial fitting. We based our decision on other research that has been done on the same
-setup as ours, and also on the affinity laws.
-\todo[color=04mathematicalModelling]{quote zhenyu paper}
+We decided to use grey-box modelling with polynomial fitting.
+We consider our approach as grey-box rather than black-box,
+because we chose the degrees of the polynomials based on known and tested physical relations.
 
-Curve Fitting Tool \cite{cftool} \textit{cftool} was used in order to find a suitable mathematical formula for accurately describing the 
-system, while also trying to represent it in the easiest manner possible. 
+A very similar modelling process was already successfully used by Pedersen and Yang \cite{YangMultiPump2008} on the same setup.
+The choice of degree for the polynomials was determined by the affinity laws \cite{AffinityLaws}
+and supported by very good fit to the data.
+
+MLs Curve Fitting Toolbox (\textit{cftool}) \cite{cftool}
+was used in order to find the polynomial coefficients most accurately describing the system.
+
 \subsubsection{Single Variable Speed Pump Model}
 Equation \ref{eq:pump_model} determines the head and the power, given the flow. 
 Although the formula does not directly relate to the pump speed, it indirectly relates to it, due to the fact that only one possible 
