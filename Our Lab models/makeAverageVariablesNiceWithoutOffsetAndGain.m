@@ -38,18 +38,18 @@ Powr_100 = Powr(:,11);
 
 Powr_all = [Powr_10 Powr_20 Powr_30 Powr_40 Powr_50 Powr_60 Powr_70 Powr_80 Powr_90 Powr_100];
 %% Prepare Speed for curve fitting
-Speed_10 = Speed(:,2);
-Speed_20 = Speed(:,3);
-Speed_30 = Speed(:,4);
-Speed_40 = Speed(:,5);
-Speed_50 = Speed(:,6);
-Speed_60 = Speed(:,7);
-Speed_70 = Speed(:,8);
-Speed_80 = Speed(:,9);
-Speed_90 = Speed(:,10);
-Speed_100 = Speed(:,11);
+Sped_10 = Sped(:,2);
+Sped_20 = Sped(:,3);
+Sped_30 = Sped(:,4);
+Sped_40 = Sped(:,5);
+Sped_50 = Sped(:,6);
+Sped_60 = Sped(:,7);
+Sped_70 = Sped(:,8);
+Sped_80 = Sped(:,9);
+Sped_90 = Sped(:,10);
+Sped_100 = Sped(:,11);
 
-Speed_all = [Speed_10 Speed_20 Speed_30 Speed_40 Speed_50 Speed_60 Speed_70 Speed_80 Speed_90 Speed_100];
+Sped_all = [Sped_10 Sped_20 Sped_30 Sped_40 Sped_50 Sped_60 Sped_70 Sped_80 Sped_90 Sped_100];
 
 %% PLOTTING
 figure('Name', 'Flow vs. Pressure Without Offset And Gain', 'NumberTitle', 'off')
