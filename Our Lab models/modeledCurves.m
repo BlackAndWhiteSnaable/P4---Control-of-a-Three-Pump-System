@@ -1,37 +1,44 @@
-%% DEFINE MATRICES AND VARIABLES
-modeledPressure = zeros(10,10);
-modeledPower = zeros(10,10);
-a2 = -0.0846;
-a1 = 0.762;
-a0 = 10.63;
+%% DEFINE VARIABLES AND MATRICES
+modeledFlow = zeros(10, 10);
+modeledPressure = zeros(10, 10);
 
-b0 = -0.157;
-b1 = -1.302;
-b2 = 92.48;
-b3 = -62.57;
+x1 = -0.08434;
+x2 = 0.7071;
+x3 = 7.826;
 
+y1 = -0.2143;
+y2 = 0.5312;
+y3 = 46.99;
+y4 = -35.93;
 
+%% FORMULAS
+%{
+head = a0 * Speed ^ 2 + a1 * Speed * Flow + a2 * Flow ^ 2;
+pressure = b0 * Speed ^ 3 + b1 * Speed ^ 2 * Flow + b2 * Speed * Flow ^ 2 + b3 * Flow ^ 3;
+%}
 
-%% BUILD MATRICES BASED ON FORMULAS 
+%% BUILDING MATRICES
 for i = 1:10
     for j = 1:10
-        a0 = a0 / Speed_all(j,i) ^ 2;
-        a1 = a1 / Speed_all(j,i);
-        modeledPressure(i,j) = a2 * Flow_all(i,j) ^ 2 + a1 * Flow_all(i,j) * Speed_all(j,i) + a0 * Speed_all(j,i) ^ 2;
+        a0 = (x3 / Sped_all(j,4) ^ 2);
+        a1 = (x2 / Sped_all(j,4));
+        a2 = x1;
+        modeledPressure(i,j) = a0 * Sped_all(i,j) ^ 2 + a1 * Flow_all(i,j) * Sped_all(i,j) + a2 * Flow_all(i,j) ^ 2;
     end
 end
 
 for i = 1:10
     for j = 1:10
-        b0 = b0 / Speed_all(j,i) ^ 3;
-        b1 = b1 / Speed_all(j,i) ^ 2;
-        b2 = b2 / Speed_all(j,i) ^ 1;
-        modeledPower(i,j) = b3 * Flow_all(i,j) ^ 3 + b2 * Flow_all(i,j) ^ 2 * Speed_all(j,i) + b1 * Flow_all(i,j) * Speed_all(j,i) ^ 2 + b0 * Speed_all(j,i) ^ 3;
+        b0 = (y4 / Sped_all(j,4) ^ 3);
+        b1 = (y3 / Sped_all(j,4) ^ 2);
+        b2 = (y2 / Sped_all(j,4));
+        b3 = y1;
+        modeledPower(i,j) = b0 * Sped_all(i,j) ^ 3 + b1 * Sped_all(i,j) ^ 2 * Flow_all(i,j) + b2 * Sped_all(i,j) * Flow_all(i,j) ^ 2 + b3 * Flow_all(i,j) ^ 3;
     end
 end
 
 %% PLOTTING
-figure('Name', 'Flow vs. Modeled Pressure', 'NumberTitle', 'off');
+figure('Name', 'Flow vs. Modeled Pressure For One Pump', 'NumberTitle', 'off');
 for i = 1:10
     name = [num2str(i * 10) '% CV01'];
     plot(Flow_all(:,i), modeledPressure(:,i), 'DisplayName', name);
@@ -42,7 +49,7 @@ xlabel('Flow', 'Interpreter', 'latex');
 ylabel('Modeled Pressure', 'Interpreter', 'latex');
 legend('show');
 
-figure('Name', 'Flow vs. Modeled Power', 'NumberTitle', 'off');
+figure('Name', 'Flow vs. Modeled Power For One Pump', 'NumberTitle', 'off');
 for i = 1:10
     name = [num2str(i * 10) '% CV01'];
     plot(Flow_all(:,i), modeledPower(:,i), 'DisplayName', name);
