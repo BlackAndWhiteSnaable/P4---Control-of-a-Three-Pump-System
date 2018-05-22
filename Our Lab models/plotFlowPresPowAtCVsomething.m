@@ -1,3 +1,11 @@
+%% make sure all variables exist
+% chose run_num to import
+run_num = 10;
+
+if ~exist('pump2_meas','var')
+    ImportData2Workspace
+end
+
 % plot all curves at cv=70
 j = 6;
 

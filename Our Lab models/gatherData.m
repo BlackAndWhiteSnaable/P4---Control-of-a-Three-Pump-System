@@ -4,7 +4,7 @@ folder_check=0;
 % ED4 is only working on Pump2
 
 %gets automatically incremented if folder already exists
-run_num = 10;
+run_num = 20;
 
 %valve settling time < 5 seconds
 CV01t = 5;
