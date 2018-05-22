@@ -1,4 +1,8 @@
 %% prepare Flow for curve fitting
+if ~exist('Flow_all','var')
+    averageFlow;
+end
+
 Flow_10 = Flow(:,2);
 Flow_20 = Flow(:,3);
 Flow_30 = Flow(:,4);
@@ -12,6 +16,10 @@ Flow_100 = Flow(:,11);
 
 Flow_all = [Flow_10 Flow_20 Flow_30 Flow_40 Flow_50 Flow_60 Flow_70 Flow_80 Flow_90 Flow_100];
 %% Prepare Pressure for curve fiting
+if ~exist('Pres_all','var')
+    averagePressure;
+end
+
 Pres_10 = Pres(:,2);
 Pres_20 = Pres(:,3);
 Pres_30 = Pres(:,4);
@@ -25,6 +33,10 @@ Pres_100 = Pres(:,11);
 
 Pres_all = [Pres_10 Pres_20 Pres_30 Pres_40 Pres_50 Pres_60 Pres_70 Pres_80 Pres_90 Pres_100];
 %% Prepare Power for curve fitting
+if ~exist('Powr_all','var')
+    averagePower;
+end
+
 Powr_10 = Powr(:,2);
 Powr_20 = Powr(:,3);
 Powr_30 = Powr(:,4);
@@ -38,6 +50,10 @@ Powr_100 = Powr(:,11);
 
 Powr_all = [Powr_10 Powr_20 Powr_30 Powr_40 Powr_50 Powr_60 Powr_70 Powr_80 Powr_90 Powr_100];
 %% Prepare Speed for curve fitting
+if ~exist('Sped_all','var')
+    averageSpeed;
+end
+
 Sped_10 = Sped(:,2);
 Sped_20 = Sped(:,3);
 Sped_30 = Sped(:,4);

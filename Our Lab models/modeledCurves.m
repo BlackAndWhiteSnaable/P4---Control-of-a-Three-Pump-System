@@ -1,3 +1,5 @@
+makeAverageVariablesNiceWithoutOffsetAndGain
+
 %% DEFINE VARIABLES AND MATRICES
 modeledFlow = zeros(10, 10);
 modeledPressure = zeros(10, 10);

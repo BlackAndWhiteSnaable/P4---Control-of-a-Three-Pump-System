@@ -1,5 +1,8 @@
 %% SETUP
 %clc;
+if ~exist('run_num','var')
+    ImportData2Workspace
+end
 clearvars -except pump2_meas run_num
 abs_max = 0; abs_min = 5; x_blank = 0;
 

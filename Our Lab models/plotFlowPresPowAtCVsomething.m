@@ -1,5 +1,5 @@
-% plot all curves at cv=60
-j = 7;
+% plot all curves at cv=70
+j = 6;
 
 %% offset and gain all relevant curves
 % flow
