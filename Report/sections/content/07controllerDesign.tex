@@ -1,6 +1,29 @@
 \chapter{Controller Design}\label{ch:controldesign}
 \todo[color=07controllerDesign]{Controller Design not enough text yet}
 \todo[color=07controllerDesign]{Explain what PID is}
+There exist many different approaches to designing a controller,
+all of which have their advantages and disadvantages.
+For this project we decided to use a very simple approach,
+the Proportional Derivative Integral (PID) controller.
+We compare this to another option we thought about,
+the state-space controller, explain both of them briefly
+and argue for our choice.
+
+\section{PID control}\label{sec:PID}
+A PID controller consists of three parts,
+which it inherits its name from.
+A mathematical representation can be given by one of the following two options:
+
+\begin{equation}
+	  D_{cl}(s) = k_P + \frac{k_I}{s} + k_D s$$
+	$$D_{cl}(s) = k_P ( \frac{k_I}{s} + k_D s)
+	 \label{eq:PID}
+\end{equation}
+
+The proportional 
+
+The 
+
 \section{Step response}
 \begin{figure}[H]
     \centering
