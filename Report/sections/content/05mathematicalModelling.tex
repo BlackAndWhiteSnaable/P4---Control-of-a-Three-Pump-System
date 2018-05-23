@@ -23,29 +23,6 @@ Both expressions are used interchangeably throughout this report.
 Typical static models for pump systems are pump curves and system curves.
 \todo[color=04mathematicalModelling,inline]{explain differences between pump curves and system curves}
 \todo[color=04mathematicalModelling,inline]{make sure sections and subsection makes sense}
-\section{Pump Curves}\label{sec:pumpcurves}
-\subsubsection{QH-Curve}
-
-A QH-curve or pump curve defines the head as a function of the flow.
-The flow (Q) is the rate of the fluid going through the pump.
-Q is typically stated in cubic meters per hour $[m^{3}/h]$ or other volume per time metrics.
-Figure \ref{fig:pump_head_curve} represents a typical pump head curve.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\textwidth]{figures/05mathematicalModeling/pumpCurves.eps}
-\end{figure}
-\todo[color=04mathematicalModelling]{either we don't have numbers on the axes or the actually mean something. Also this figure doesn't have a single curve, just connected data points ;)}
-
-\newpage
-\subsubsection{System Head Curve}
-A system head curve is a graphical representation of the pump head that is required to move fluid through a piping system at various flow rates.
-The system curve helps quantify the resistance in a system due to friction and elevation change over the range of flows. Simply put, the 
-system curve shows how much resistance the pump has to overcome in order to be able to move a certain amount of fluid though the system.
-As stated before, the resistance can come from friction with the pipes, or elevation changes.
-\todo[color=04mathematicalModelling]{repetitive, choose one that you think explains it the best}
-\todo[color=04mathematicalModelling]{insert system curve photo}
-
 
 We used the data gathered through experiments to develop a model that would fit all our data, within a certain degree of error, 
 and that we would be able to further test.
@@ -87,7 +64,6 @@ The pump Affinity Laws state:
 	\left(\frac{\omega_1}{\omega_2}\right)^3 = \frac{P_1}{P_2}	
 \end{align}
 
-\newpage
 Assuming the pump model parameters ($\bar{a_{0}}$, $\bar{a_{1}}$, $\bar{a_{2}}$) and ($\bar{b_{0}}$, $\bar{b_{1}}$, $\bar{b_{2}}$, $\bar{b_{3}}$) 
 described in equation \ref{eq:pump_model} are obtained at a certain speed $\bar{\omega_{0}}$, 
 this results in the following equation describing the pump at any speed $\omega$.
@@ -136,55 +112,3 @@ accurately enough. Further expansion would result in a higher degree polynomial 
 Using the model shown in Equation \ref{eq:simulated_power} we were able to replicate our data with a small error percentage. The results
 are shown in the figures below.
 \todo[color=04mathematicalModelling]{not sure if we need this or not so i didn't put any photos}
-\newpage
-With the data gathered through the experiments (Section \ref{sec:experiment}\todo[color=04mathematicalModelling]{not linked yet}),
-
-\todo[color=04mathematicalModelling]{re-write this section, all math used here doesn't apply to real life. But use the knowledge we 
-gained here instead of deleting everything}
-We decided to use black-box modelling with polynomial fitting.
-For this we used the Curve Fitting Tool \cite{cftool} \textit{cftool} 
-\todo[color=04mathematicalModelling]{make this look like a command} in MATLAB.
-Looking at the data we decided to use polynomial fitting with a second degree polynomial
-as can be seen in equation \ref{eq:polynom}.
-
-\begin{equation}
-	 P(Q) = p_1 \cdot Q^2 + p_2 \cdot Q + p_3
-	 \label{eq:polynom}
-\end{equation}
-
-After repeating this process over different datasets with different pump speeds,
-we noticed that the coefficients $p_1$ and $p_2$ barely change.
-\todo[color=04mathematicalModelling]{they do, shit isn't even properly linear...}
-
-The standard deviation for the $p_1$ and $p_2$ coefficients were calculated with the equation \todo[color=04mathematicalModelling]{add 
-reference to eq}
-
-\begin{equation}
-	\sigma_{\mean{p_{1,2}}} = \dfrac{1}{n}\sum |p_{1,2}-\mean{p_{1,2}}|
-	\label{eq:avedev}
-\end{equation}
-
-The results obviously vary between runs. For the run used to create the model the $\sigma_{\mean{p_{1,2}}}$ are:
-\begin{equation}
-	\sigma_{\mean{p_1}} \simeq 0.003854$$
-	
-	$$\sigma_{\mean{p_2}} \simeq 0.042299
-\end{equation}
-
-The $p_3$ coefficient however changes significantly, through different pump speeds.
-With a standard deviation $\sigma_{\mean{p_3}} \simeq 3.378111$ it was impossible to use only one simple polynomial as described in 
-\ref{eq:polynom} to describe all pump characteristics at all speeds.
-
-We were able to identify a second order polynomial describing the change in $p_3$ according to the pump speed $\omega$.
-\begin{equation}
-	 p_3 = a \cdot \omega^2 + b \cdot \omega + c
-	 \label{eq:p3olynom}
-\end{equation}
-
-Combining \ref{eq:polynom} and \ref{eq:p3olynom}, we get:
-
-\begin{equation}
-	P(Q) = p_1 \cdot Q^2 + p_2 \cdot Q + a \cdot \omega^2 + b \cdot \omega + c 
-\end{equation}
-\todo[color=04mathematicalModelling]{at least something that isn't completely wrong, but incomplete. Not sure if we should start 
-remodelling with power anyways}
