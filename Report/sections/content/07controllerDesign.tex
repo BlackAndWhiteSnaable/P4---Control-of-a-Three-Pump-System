@@ -19,6 +19,12 @@ A mathematical representation can be given by one of the following two options:
 	$$D_{cl}(s) = k_P ( \frac{k_I}{s} + k_D s)
 	 \label{eq:PID}
 \end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/07controllerDesign/PID_explicit.pdf}
+    \caption{Comparison of two common PID designs}
+	\label{fig:twoPID}
+\end{figure}
 
 The proportional 
 
@@ -42,9 +48,9 @@ Here typically a unit step input is given into the OL system as shown in figure 
 \todo[color=07controllerDesign]{get actual values for R and L}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{figures/04ExperimentsAndLabWork/OLblock.pdf}
-    \caption{OL block diagram of the system}
-\label{fig:OL}
+    \includegraphics[width=\textwidth]{figures/07controllerDesign/StepResponseLabeled.eps}
+    \caption{response to a step input with value 10}
+	\label{fig:stepin}
 \end{figure}
 
 Because we are scaling the $\omega$ down by a factor of 10, so we can directly read the percentage,
@@ -72,14 +78,9 @@ tuned according to the characteristics obtained from figure \ref{fig:stepin}.
 	$T_I$ & $=$ & $2L$					& \footnotesize{\textit{integral gain}}\\
 	$T_D$ & $=$ & $0.5L$ 				& \footnotesize{\textit{derivative gain}}\\
 \end{tabular}
+\missingfigure{Comparison of P, PI and PID control}
 
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{figures/04ExperimentsAndLabWork/StepResponseLabeled.eps}
-    \caption{response to a step input with value 10}
-	\label{fig:stepin}
-\end{figure}
 \todo[color=07controllerDesign]{can we make the axis look like they are made by LaTeX as well?}
 \\ \\ \\ \\
 \todo[color=07controllerDesign]{structure}
