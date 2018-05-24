@@ -23,9 +23,34 @@ Both expressions are used interchangeably throughout this report.
 Typical static models for pump systems are pump curves and system curves.
 \todo[color=04mathematicalModelling,inline]{explain differences between pump curves and system curves}
 \todo[color=04mathematicalModelling,inline]{make sure sections and subsection makes sense}
+
 \newpage
-We used the data gathered through experiments to develop a model that would fit all our data, within a certain degree of error, 
-and that we would be able to further test.
+
+\subsection{Gathered Data}
+Several tests were done on the setup, in order to get a general overview of the system.
+The data was used to determine the pump curves, and to approximate models for the curves.
+Figure \ref{fig:measuredFlow} represents the flow, while Figure \ref{fig:measuredPower}
+and Figure represent the pressure and power consumption, respectively.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[scale=0.5]{figures/05mathematicalModelling/measuredFlow.pdf}
+	\vspace{-5mm}
+	\caption{Measured Flow}
+	\label{fig:measuredFlow}
+\end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/05mathematicalModelling/measuredPower.pdf}
+	\vspace{-5mm}
+	\caption{Measured Power}
+	\label{fig:measuredPower}
+\end{figure}
+
+\todo[color=04mathematicalModelling]{fix formatting later and also add for pressure}
+\newpage
+We used the data gathered through experiments to develop a model that would fit all our data,
+within a certain degree of error, and that we would be able to further test.
 
 We decided to use grey-box modelling with polynomial fitting.
 We consider our approach as grey-box rather than black-box,
@@ -38,7 +63,7 @@ and supported by very good fit to the data.
 MLs Curve Fitting Toolbox (\textit{cftool}) \cite{cftool}
 was used in order to find the polynomial coefficients most accurately describing the system.
 
-\subsubsection{Single Variable Speed Pump Model}
+\subsubsection{Single Pump Model}
 Equation \ref{eq:pump_model} determines the head and the power, given the flow. 
 Although the formula does not directly relate to the pump speed, it indirectly relates to it, due to the fact that only one possible 
 pump speed $\omega$ exists for a given flow.
@@ -58,11 +83,11 @@ The coefficients are determined by the pump characteristics and can be experimen
 Taking variable speed into account, the equations \ref{eq:pump_model} will depend on the motor speed. 
 The pump Affinity Laws state:
 
-\begin{align}
+\begin{align*}
 	\left(\frac{\omega_1}{\omega_2}\right)^1 = \frac{Q_1}{Q_2} && 
 	\left(\frac{\omega_1}{\omega_2}\right)^2 = \frac{H_1}{H_2} &&
 	\left(\frac{\omega_1}{\omega_2}\right)^3 = \frac{P_1}{P_2}	
-\end{align}
+\end{align*}
 
 Assuming the pump model parameters ($\bar{a_{0}}$, $\bar{a_{1}}$, $\bar{a_{2}}$) and ($\bar{b_{0}}$, $\bar{b_{1}}$, $\bar{b_{2}}$, $\bar{b_{3}}$) 
 described in equation \ref{eq:pump_model} are obtained at a certain speed $\bar{\omega_{0}}$, 
@@ -81,9 +106,9 @@ The coefficients can be determined as follows:
 	b_0 = \frac{\bar{b_0}}{\bar{\omega_0^3}} && b_1 = \frac{\bar{b_1}}{\bar{\omega_0^2}} && b_2 = \frac{\bar{b_2}}{\omega_0} && b_3 = \bar{b_3}
 \end{align*}
 
-Results of the model can be seen in figure and figure.
+Fitted Curves can be seen in Figure
 \todo[color = 04mathematicalModelling]{add figures}
-\subsubsection{Multi Variable Speed Pump Model at Same Speed}
+\subsubsection{Multiple Pumps Model at Same Speed}
 For a certain number of pumps P in parallel, with the requirement that they all run at the same speed $\omega$, the pump model is
 described by the following equations:
 

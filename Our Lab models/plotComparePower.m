@@ -22,10 +22,9 @@ for j = 1:numel(pump2_meas)
     axis([0 pump2_meas(1).data(end,end) abs_min-x_blank abs_max+x_blank])
     hold on; grid on
 end
-title('Power Comparison')
-xlabel('time [s]')
-ylabel('LMGP2')
-legend('show','Location','northwest')
+xlabel('Time[s]', 'Interpreter', 'latex');
+ylabel('Power[watt]', 'Interpreter', 'latex');
+legend('show','Location','northwest');
 
 %% cleanup
 clearvars abs_max abs_min j name x_blank

@@ -27,8 +27,8 @@ for j = 1:numel(pump2_meas)
     axis([0 pump2_meas(1).data(end,end) abs_min-x_blank abs_max+x_blank])
     hold on; grid on
 end
-title('Pressure Comparison')
-xlabel('time [s]')
-ylabel('DPT02')
-legend('show','Location','northwest')
+title('Pressure Comparison');
+xlabel('Time [s]', 'Interpreter', 'latex');
+ylabel('Pressure [bar]', 'Interpreter', 'latex');
+legend('show','Location','northwest');
 clearvars abs_max abs_min j name x_blank
