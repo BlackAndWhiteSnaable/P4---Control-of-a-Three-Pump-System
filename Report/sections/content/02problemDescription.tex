@@ -8,20 +8,23 @@ The modelling will be used to develop a controller governing the total flow $Q_{
 The system was already fully functionally available in our university.
 No alterations on the setup were possible to complete our project,
 since the system was simultaneously used by two other groups.
-As actuators were available the individual speed of each pump $\omega P_{1,2,3}$ and the valve opening of one control valve $CV_1$.
+As control inputs were available the individual speed of each pump $\omega P_{1,2,3}$ and the valve opening of one control valve $CV_1$.
 
-Sensors on this system are individual flow, individual differential pressure, pressure over $CV_1$, individual power consumption.
+Sensed outputs on this system are individual flow, individual differential pressure, pressure over $CV_1$ and individual power consumption.
+Individual being separate for each pump.
 
-A schematic representation of the system is available in Appendix \ref{app:overview}.
+A Piping and Instrumentations Diagram (P\&ID) of the system is available in Appendix \ref{app:overview}.
 
 
 \section{Control Methods}
 Based on the properties of a system two different approaches to controlling it can be applied.
-Single Input Single Output (SISO) systems are often modelled in the frequency domain
-as transfer functions and controlled with the help of classical control.
-Here most commonly a full-output feedback loop is used because of its simplicity.
-\todo[color=02problemDescription]{check if everything said here is true}
-\todo[color=02problemDescription]{find relevant pages in control book}
+Classical Control refers to the use of transfer functions
+and generally full output feedback.
+This is generally preferred for simpler systems,
+mostly Single Input Single Output (SISO) systems,
+because one transfer function is needed for all connections between each input and output.
+A very common and simple control scheme for these systems is the PID control,
+explained later in Chapter \ref{ch:controldesign}.
 \cite{Franklin2014}
 
 Multiple Input Multiple Output (MIMO) systems are often modelled and controlled using state-space
@@ -29,9 +32,9 @@ modelling, where all inputs are combined into one input vector
 and the plant is described as a combination of three to four matrices.
 In modern control this approach is commonly used in combination with full state feedback,
 where instead of the output an intermediate product (the states) are used for full-state feedback.
-\todo[color=02problemDescription]{reread and rewrite}
+Since we are not using this approach in our project no detailed explanation will be given in this report.
+\todo[color=02problemDescription]{good now?}
 
-Our system is effectively a MISO system.
 
 
 
@@ -39,5 +42,48 @@ Our system is effectively a MISO system.
 
 
 \section{Problem Delimitation}
-\todo[color=02problemDescription]{do we need this?}
-\todo[color=02problemDescription]{we need to make requirements for the controller somewhere, probably here}
+Our system can be seen as a SISO, MIMO or something in between,
+depending on what is to be controlled.
+If only a single pump is considered and only the output flow to be controlled,
+it is a SISO system.
+Using multiple pumps and controlling for example flow and pressure would effectively make it a MIMO system.
+
+In this project,
+we decided to use the system as a SISO system,
+controlling the total flow of all three pumps by regulating a single pump.
+Primary goals are therefore:
+
+\begin{itemize}
+\item Creation of a dynamic model for one pump
+\item Design of a PID controller for the flow
+\item Tuning of said PID controller 
+\end{itemize}
+
+In addition we also had some secondary goals,
+which we deemed not necessary for successful completion of the project,
+but nice extras.
+
+\begin{itemize}
+\item Creation of a static model for one pump
+\item Creation of a static model for multiple pumps
+\item Design of a controller for the flow, taking efficiency into account
+\end{itemize}
+
+The dynamic model will be useful to tune the PID controller,
+and give us a deeper insight into the working of the pumps.
+It would also make it possible to simulate and theoretically test different controller designs.
+
+
+\subsection{Requirements}
+\todo[color=02problemDescription]{we need to meet our requirements}
+To have a goal while tuning the PID controller,
+we gave ourselves the following requirements.
+
+\begin{itemize}
+\item Maximum Overshoot $M_p \leq 5\%$
+\item Steady-state error $e_{ss} \leq 5 \%$
+\end{itemize}
+
+We chose not to put a requirement on the settling time $t_s$,
+because we could not initially estimate how the system would behave,
+since we had no previous experience with pumps.
