@@ -4,14 +4,14 @@ makeAverageVariablesNiceWithoutOffsetAndGain
 modeledFlow = zeros(10, 10);
 modeledPressure = zeros(10, 10);
 
-x1 = -0.08434;
-x2 = 0.7071;
-x3 = 7.826;
+x1 = -0.08614;
+x2 = 0.1519;
+x3 = 8.03;
 
-y1 = -0.2143;
-y2 = 0.5312;
-y3 = 46.99;
-y4 = -35.93;
+y1 = -0.07603;
+y2 = -3.002;
+y3 = 37.76;
+y4 = 68.78;
 
 %% FORMULAS
 %{

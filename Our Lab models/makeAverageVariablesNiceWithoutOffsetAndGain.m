@@ -55,15 +55,25 @@ if ~exist('Sped_all','var')
 end
 
 Sped_10 = Sped(:,2);
+Sped_10 = Sped_10 * 720;
 Sped_20 = Sped(:,3);
+Sped_20 = Sped_20 * 720;
 Sped_30 = Sped(:,4);
+Sped_30 = Sped_30 * 720;
 Sped_40 = Sped(:,5);
+Sped_40 = Sped_40 * 720;
 Sped_50 = Sped(:,6);
+Sped_50 = Sped_50 * 720;
 Sped_60 = Sped(:,7);
+Sped_60 = Sped_60 * 720;
 Sped_70 = Sped(:,8);
+Sped_70 = Sped_70 * 720;
 Sped_80 = Sped(:,9);
+Sped_80 = Sped_80 * 720;
 Sped_90 = Sped(:,10);
+Sped_90 = Sped_90 * 720;
 Sped_100 = Sped(:,11);
+Sped_100 = Sped_100 * 720;
 
 Sped_all = [Sped_10 Sped_20 Sped_30 Sped_40 Sped_50 Sped_60 Sped_70 Sped_80 Sped_90 Sped_100];
 
@@ -89,4 +99,5 @@ end
 xlabel('Flow','Interpreter','latex');
 ylabel('Power Consuption', 'Interpreter', 'latex');
 legend('show');
-
+%% CLEANUP
+clearvars i
