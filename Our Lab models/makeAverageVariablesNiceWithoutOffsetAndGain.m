@@ -78,26 +78,33 @@ Sped_100 = Sped_100 * 720;
 Sped_all = [Sped_10 Sped_20 Sped_30 Sped_40 Sped_50 Sped_60 Sped_70 Sped_80 Sped_90 Sped_100];
 
 %% PLOTTING
-figure('Name', 'Flow vs. Pressure Without Offset And Gain', 'NumberTitle', 'off')
+%{
+figure('Name', 'Flow vs. Pressure Without Offset And Gain', 'NumberTitle', 'off', 'Position', [100 100 800 400])
 for i = 1:10
-    name = [num2str(i * 10) '%CV01'];
+    name = [num2str(i * 10) '\%CV01'];
     plot(Flow_all(:, i), Pres_all(:, i),'DisplayName', name);
     grid on;
     hold on;
 end
-xlabel('Flow','Interpreter','latex');
-ylabel('Pressure', 'Interpreter', 'latex');
-legend('show');
+xlabel('Flow $[\frac{m^3}{h}]$','Interpreter','latex', 'fontsize', 18);
+ylabel('Pressure [bar]', 'Interpreter', 'latex', 'fontsize', 18);
+leg = legend('show','Location','northeast'); 
+set(leg,'Interpreter','latex'); 
+set(leg,'FontSize',9); 
+%}
 
-figure('Name', 'Flow vs. Power Consuption Without Offset And Gain', 'NumberTitle', 'off')
+figure('Name', 'Flow vs. Power Consuption Without Offset And Gain', 'NumberTitle', 'off', 'Position', [400 100 800 400])
 for i = 1:10
-    name = [num2str(i * 10) '%CV01'];
+    name = [num2str(i * 10) '\%CV01'];
     plot(Flow_all(:, i), Powr_all(:, i),'DisplayName', name);
     grid on;
     hold on;
 end
-xlabel('Flow','Interpreter','latex');
-ylabel('Power Consuption', 'Interpreter', 'latex');
-legend('show');
+xlabel('Flow $[\frac{m^3}{h}]$','Interpreter','latex', 'fontsize', 18);
+ylabel('Power Consuption [W]', 'Interpreter', 'latex', 'fontsize', 18);
+leg2 = legend('show', 'Location', 'southeast');
+set(leg2, 'Interpreter', 'latex');
+set(leg2, 'FontSize', 9);
+
 %% CLEANUP
 clearvars i
