@@ -2,7 +2,7 @@
 clc;
 if ~(exist('run_num', 'var'))
     % run to import
-    run_num = 20;
+    run_num = 32;
 else
     clearvars -except run_num
 end
