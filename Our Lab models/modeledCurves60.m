@@ -4,14 +4,14 @@ makeAverageVariablesNiceWithoutOffsetAndGain
 modeledFlow = zeros(10, 10);
 modeledPressure = zeros(10, 10);
 
-x1 = -0.08573;
-x2 = 0.2061;
-x3 = 10.59;
+x1 = -0.03044;
+x2 = 0.07635;
+x3 = 1.688;
 
-y1 = -0.1786;
-y2 = -2.367;
-y3 = 62.64;
-y4 = 152.9;
+y1 = -0.2825;
+y2 = -0.7147;
+y3 = 54.39;
+y4 = 163.7;
 
 %% FORMULAS
 %{
@@ -40,24 +40,28 @@ for i = 1:10
 end
 
 %% PLOTTING
-figure('Name', 'Flow vs. Modeled Pressure For One Pump', 'NumberTitle', 'off');
+figure('Name', 'Flow vs. Modeled Pressure For One Pump', 'NumberTitle', 'off', 'Position', [100 580 800 400]);
 for i = 1:10
-    name = [num2str(i * 10) '% CV01'];
+    name = [num2str(i * 10) '\% CV01'];
     plot(Flow_all(:,i), modeledPressure(:,i), 'DisplayName', name);
     hold on;
     grid on;
 end
-xlabel('Flow', 'Interpreter', 'latex');
-ylabel('Modeled Pressure', 'Interpreter', 'latex');
-legend('show');
+xlabel('Flow $[\frac{m^3}{h}]$','Interpreter','latex', 'fontsize', 18);
+ylabel('Pressure [bar]', 'Interpreter', 'latex', 'fontsize', 18);
+leg = legend('show','Location','northeast'); 
+set(leg,'Interpreter','latex'); 
+set(leg,'FontSize',9); 
 
-figure('Name', 'Flow vs. Modeled Power For One Pump', 'NumberTitle', 'off');
+figure('Name', 'Flow vs. Modeled Power For One Pump', 'NumberTitle', 'off', 'Position', [1000 580 800 400]);
 for i = 1:10
-    name = [num2str(i * 10) '% CV01'];
+    name = [num2str(i * 10) '\% CV01'];
     plot(Flow_all(:,i), modeledPower(:,i), 'DisplayName', name);
     hold on;
     grid on;
 end
-xlabel('Flow', 'Interpreter', 'latex');
-ylabel('Modeled Power', 'Interpreter', 'latex');
-legend('show');
+xlabel('Flow $[\frac{m^3}{h}]$','Interpreter','latex', 'fontsize', 18);
+ylabel('Power Consuption [W]', 'Interpreter', 'latex', 'fontsize', 18);
+leg2 = legend('show', 'Location', 'southeast');
+set(leg2, 'Interpreter', 'latex');
+set(leg2, 'FontSize', 9);

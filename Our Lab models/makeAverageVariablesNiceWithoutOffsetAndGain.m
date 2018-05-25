@@ -78,8 +78,8 @@ Sped_100 = Sped_100 * 720;
 Sped_all = [Sped_10 Sped_20 Sped_30 Sped_40 Sped_50 Sped_60 Sped_70 Sped_80 Sped_90 Sped_100];
 
 %% PLOTTING
-%{
-figure('Name', 'Flow vs. Pressure Without Offset And Gain', 'NumberTitle', 'off', 'Position', [100 100 800 400])
+
+figure('Name', 'Flow vs. Pressure Without Offset And Gain', 'NumberTitle', 'off', 'Position', [100 50 800 400])
 for i = 1:10
     name = [num2str(i * 10) '\%CV01'];
     plot(Flow_all(:, i), Pres_all(:, i),'DisplayName', name);
@@ -91,9 +91,9 @@ ylabel('Pressure [bar]', 'Interpreter', 'latex', 'fontsize', 18);
 leg = legend('show','Location','northeast'); 
 set(leg,'Interpreter','latex'); 
 set(leg,'FontSize',9); 
-%}
 
-figure('Name', 'Flow vs. Power Consuption Without Offset And Gain', 'NumberTitle', 'off', 'Position', [400 100 800 400])
+
+figure('Name', 'Flow vs. Power Consuption Without Offset And Gain', 'NumberTitle', 'off', 'Position', [1000 50 800 400])
 for i = 1:10
     name = [num2str(i * 10) '\%CV01'];
     plot(Flow_all(:, i), Powr_all(:, i),'DisplayName', name);

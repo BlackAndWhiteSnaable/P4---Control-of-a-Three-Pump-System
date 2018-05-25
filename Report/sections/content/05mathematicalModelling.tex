@@ -1,6 +1,5 @@
 \chapter{Mathematical Modelling}\label{ch:mathmodel}
-
-\todo[color=04mathematicalModelling,inline]{break this chapter into static and dynamic modelling}
+\todo[color=04mathematicalModelling,inline]{Mathematical Modelling}
 Most physical systems can be modelled statically or dynamically.
 Depending on the application of the model,
 and therefore on the end goal of the controller,
@@ -25,9 +24,6 @@ Typical static models for pump systems are pump curves and system curves.
 %\todo[color=04mathematicalModelling,inline]{make sure sections and subsection makes sense}
 
 \newpage
-<<<<<<< Updated upstream
-
-=======
 We used the data gathered through experiments to develop a model that would fit all our data,
 within a certain degree of error, and around an operating point. A model that could fit all the 
 data within a small percentage error would be very hard to determine.
@@ -43,7 +39,7 @@ and supported by very good fit to the data.
 
 ML Curve Fitting Toolbox (\textit{cftool}) \cite{cftool}
 was used in order to find the polynomial coefficients most accurately describing the system.
->>>>>>> Stashed changes
+
 \subsubsection{Single Pump Model}
 Equations \ref{eq:pumpHeadModel} and \ref{eq:pumpPowerModel} represents a model that 
 determines the head and the power, given the flow. 
@@ -60,7 +56,7 @@ provided everything else remains constant.
 	P = \bar{b_{0}} \cdot Q^3 + \bar{b_{1}} \cdot Q^2 + \bar{b_{2}} \cdot Q + \bar{b_{3}}
 	\label{eq:pumpPowerModel}
 \end{equation}
-
+\todo[color=04mathematicalModelling]{fix this}
 
 The coefficients are determined by the pump characteristics and can be experimentally identified.
 Taking variable speed into account, the equations \ref{eq:pumpHeadModel}  and \ref{eq:pumpPowerModel}
@@ -125,6 +121,16 @@ power consumption curve.
 
 \textit{cftool} was used to determine coefficients  from each curve in  Figures \ref{fig:flowVsPressure}
 and \ref{fig:flowVsPowerConsumption}.
+
+The coefficients for the model were determined at 60 \% pump speed, chosen at random and can be seen in
+table below.
+\todo[color=04mathematicalModelling]{maybe not say at random, something to do with requirements possibly}
+\begin{align*}
+	a_0 = -0.03044 && a_1 = 0.07635  && a_2 = 1.688  \\
+	b_0 = -0.2825 && b_1 = -0.7147 && b_2 = 54.39 && b_3 = 163.7 \\
+\end{align*}
+
+\section{Dynamic Modelling}
 
 %\newpage
 %\subsubsection{Multiple Pumps Model at Same Speed}
