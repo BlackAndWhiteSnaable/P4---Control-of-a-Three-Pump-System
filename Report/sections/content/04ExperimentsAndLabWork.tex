@@ -1,8 +1,18 @@
 \chapter{Experiments and Lab Work}\label{ch:experiment}
 To relate the theory behind controlling pumps to the real world,
 we conducted different experiments.
-This helped to gain knowledge about the pump system,
-to test controller implementations, and to gather the data needed for tuning of the controller.
+
+System tests were carried out to gather data about how the system reacts under different conditions.
+The measured data was stored for further analysis.
+From the data it was possible to identify the correlations between pump speed, 
+backpressure, flow and power consumption. 
+The data also makes it possible to extrapolate equations for the system,
+that estimates the systems reaction at different conditions.
+
+The actual tests were performed by running a pump at different speed intervals,
+while varying the flow resistance by the control valve.
+This results in corresponding values of flow, pressure, and energy consumption
+measured by the sensors.
 
 \section{Data Acquisition}\label{sec:data_gathering}
 The pump system is built as described in Chapter \ref{ch:physsetup},
@@ -26,33 +36,15 @@ we created a ML script that updates and compiles the SL model, transfers it to t
 starts the execution and copies the generated .dat files to the host.
 
 \section{System Test}\label{sec:system_test} 
-To obtain information about how the system reacts under different conditions,
-a test was carried out with some example conditions.
-From those conditions, the goal is to extrapolate an equation for the system,
-that can estimate the systems reaction at different conditions.
-To obtain the data needed,
-a single pump is run at different speeds,
-while flow resistance is varied by a choke valve,
-resulting in corresponding values of flow, pressure, and energy consumption
-measured by the sensors.
-The measured data was stored for further analysis such as creating pump curves.
-
-To get an overview over the whole operating range of the setup,
-a very broad test was conducted.
-We wanted to find the correlations between pump speed, backpressure, flow and power consumption.
-To get reliable results, we chose to only change one variable at a time.
-Since the value to be changed by our controller was expected to be the pump speed $\omega P_{1,2,3}$,
+It was expected that the controller would change the the pump speed $\omega P_{1,2,3}$,
 we decided to fix the backpressure by fixing the control valve position,
 and stepwise change $\omega P_{1,2,3}$.
 Since the three pumps in the setup are expected to be identical,
 the test was only run with one of the pumps.
-We chose to use pump 2 at random.
 
-\subsection{Gathered Data}
-Several tests were done on the setup, in order to get a general overview of the system.
-Pump 2 was chosen at random.
-We have run several tests, where we have gradually changed the pump speed in order to monitor
-the flow, pressure and power consumption.
+To get reliable results, we chose to only change one variable at a time.
+
+The pump speed was gradually changed in order to monitor the flow, pressure and power consumption.
 Starting from 0\% pump speed, we have increased the speed by 10\% every 15 seconds. This was done
 in order to give the system some time to stabilize. The process was repeated for a range of valve openings.
 Identical to the pump speed, the valve was in the beginning 10\% open, gradually increasing by 10\% and
@@ -64,14 +56,16 @@ and Figure represent the pressure and power consumption, respectively.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.9\textwidth]{figures/05mathematicalModelling/measuredFlow.eps}
+	\includegraphics[scale=0.5]{figures/05mathematicalModelling/measuredFlow.eps}
+	\vspace{-5mm}
 	\caption{Measured Flow}
 	\label{fig:measuredFlow}
 \end{figure}
 \vspace{-5mm}
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.9\textwidth]{figures/05mathematicalModelling/measuredPower.eps}
+	\includegraphics[width=0.81\textwidth]{figures/05mathematicalModelling/measuredPower.eps}
+	\vspace{-5mm}
 	\caption{Measured Power}
 	\label{fig:measuredPower}
 \end{figure}
@@ -92,8 +86,9 @@ Figure X shows the captured data for a test, with pump at 50\% speed and control
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/04ExperimentsAndLabWork/testrun.eps}
+	\includegraphics[width=0.8\textwidth]{figures/04ExperimentsAndLabWork/testrun}
+	\vspace{-5mm}
 	\caption{testrun}
 	\label{fig:testrun}
 \end{figure}
-\missingfigure[figwidth=\textwidth]{Show curves from early test runs}
+%Show curves from early test runs
