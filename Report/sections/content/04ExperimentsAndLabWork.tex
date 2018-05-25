@@ -1,24 +1,23 @@
 \chapter{Experiments and Lab Work}\label{ch:experiment}
 To relate the theory behind controlling pumps to the real world,
-we conducted different experiments,
-to gain knowledge about the system,
-test controller implementations and gather data needed for controller tuning.
-
+we conducted different experiments.
+This helped to gain knowledge about the pump system,
+to test controller implementations, and to gather the data needed for tuning of the controller.
 
 \section{Data Acquisition}\label{sec:data_gathering}
+The pump system is built as described in Chapter \ref{ch:physsetup},
+with the controlling PC running xPC Target,
+a real-time OS for use with SLRT. 
+
 All data was collected with the help of custom made 
 ML scripts and SLRT models.
-The execution happened on the xPC Target OS.
-Some specifics of these files will be explained in this chapter,
+The execution of these was done on the xPC Target OS.
+Specific parts of these files will be explained in this chapter,
 while the complete files can be found on the GitHub repository \cite{GitHub}.
 
-The system is built as described in Chapter \ref{ch:physsetup},
-with the controlling PC running xPC Target,
-a real-time OS for use with SLRT.
-
-Tu use SLRT on xPC targets, a SL model has to be made on the host PC,
-compiled, transferred over Ethernet and executed on the target.
-After the execution is finished on the target,
+To use SLRT on xPC targets, a SL model of the system was made on the host PC,
+compiled, transferred over Ethernet and executed on the xPC target.
+After the real-time execution is finished on the target,
 the .dat files containing the recorded data have to be transferred back to the host,
 where further analysis can be done.
 
@@ -26,35 +25,11 @@ To automate as much of this process as possible,
 we created a ML script that updates and compiles the SL model, transfers it to the target,
 starts the execution and copies the generated .dat files to the host.
 
-All data is recorded on the target PC from
-
-
-The script programmed for the system test was done in Matlab. 
-A model of the system is made using Simulink blocks. 
-Simulink Real-time and xPC Target was used to run the model in real-time on 
-the pump systems dedicated PC. 
-\todo[color=05ExperimentsAndLabWork]{Is this ok here? Do we want a seperate section for this anyway?}
-
-
-
-
-% Explain how we carried out the performance test
-xPC Target allows you to add input/output blocks to your model, and then use the host 
-PC and a C compiler to create executable code. The executable code is download 
-from the host PC to the target PC running the xPC Target real-time kernel. 
-After downloading the executable code, you can run and test your target 
-application in real-time. \todo[color=05ExperimentsAndLabWork]{is it necessary to describe this and data acquisition?}
-
-\missingfigure[figwidth=0.5\textwidth]{Placeholder figure}
-
-Remove this nonsense:
-A performance curve is plotted to indicate the variation of pump differential head against volumetric flow (gpm) of a liquid at an indicated rotational speed or velocity, while consuming a specific quantity of horsepower (BHP). The performance curve is actually four curves relating with each other on a common graph. These four curves are:
-
 \section{System Test}\label{sec:system_test} 
 To obtain information about how the system reacts under different conditions,
 a test was carried out with some example conditions.
 From those conditions, the goal is to extrapolate an equation for the system,
-that can predict or estimate \todo[color=05ExperimentsAndLabWork]{choose predict or estimate} the systems reaction at different conditions.
+that can estimate the systems reaction at different conditions.
 To obtain the data needed,
 a single pump is run at different speeds,
 while flow resistance is varied by a choke valve,
@@ -67,18 +42,22 @@ a very broad test was conducted.
 We wanted to find the correlations between pump speed, backpressure, flow and power consumption.
 To get reliable results, we chose to only change one variable at a time.
 Since the value to be changed by our controller was expected to be the pump speed $\omega P_{1,2,3}$,
-we decided to fix the backpressure by fixing the valve position,
+we decided to fix the backpressure by fixing the choke valve position,
 and stepwise change $\omega P_{1,2,3}$.
 Since the three pumps in the setup are expected to be identical,
 the test was only run with one of the pumps.
 We chose to use pump 2 at random.
 
-\todo[color=05ExperimentsAndLabWork]{more detail later}
+\section{Result}\label{sec:results}
+A system test was performed, 
+to capture live data of how the system would react, 
+under various conditions.
+The pump speed was gradually turned up from 0 to 100\% in intervals of 10\%. 
+During each pump speed, the control valve was changed in 10\% intervals as well. 
+For each change to the control valve, 
+10 seconds of settling time was introduced, 
+to let the control valve and backpressure stabilise.
 
-\section{Results}\label{sec:results}
-Explain this better:\newline
-- The pump speed is gradually turned up from 0 to 100\% in 10\% intervals. \newline
-- For each pump speed, the valve openningvalve settling time, steps of 10 seconds\newline
-- Select valve opening(backpressure) by for loop\newline
+Figure X shows the captured data for a test, with pump at 50\% speed and control valve at 50\%.
 
 \missingfigure[figwidth=\textwidth]{Show curves from early test runs}
