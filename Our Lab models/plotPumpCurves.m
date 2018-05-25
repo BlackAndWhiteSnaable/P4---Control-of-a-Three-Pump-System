@@ -1,6 +1,6 @@
 %% create pumpcurves
 clc
-run_num = 11;
+run_num = 32;
 %run averageFlow &averagePressure &averagePower if needed
 if ~exist('Pres', 'var')
     averagePressure;
