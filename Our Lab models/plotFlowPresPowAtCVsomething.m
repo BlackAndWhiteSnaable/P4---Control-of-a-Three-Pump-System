@@ -27,7 +27,7 @@ speed = pump2_meas(j).data(:,1);
 
 %% create figure
 figure('Name',['Flow,Pressure,Power comparison; CV01=',num2str(j)],'NumberTitle','off','Position',[5 50 800 400])
-title(['Stair Response with $CV_1 = ' num2str(j*10) '\%$'],'Interpreter','latex')
+%title(['Stair Response with $CV_1 = ' num2str(j*10) '\%$'],'Interpreter','latex')
 hold on; grid on
 
 %% plot Flow
@@ -54,7 +54,8 @@ plot(time,speed/10,sstyle,'MarkerIndices',1500:1500:length(time),'DisplayName',n
 axis([0 170 -0.5 11])
 
 %% label axis
-xlabel('Time [s]','fontsize',18,'Interpreter','latex')
+xlabel('Time [$s$]','fontsize',18,'Interpreter','latex')
+ylabel('y [$units$]','fontsize',18,'Interpreter','latex')
 
 %% build legend
 leg = legend('Location','northwest');

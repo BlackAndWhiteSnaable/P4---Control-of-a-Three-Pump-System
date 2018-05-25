@@ -26,43 +26,6 @@ Typical static models for pump systems are pump curves and system curves.
 
 \newpage
 
-\subsection{Gathered Data}
-Several tests were done on the setup, in order to get a general overview of the system.
-The data was used to determine the pump curves, and to approximate models for the curves.
-Figure \ref{fig:measuredFlow} represents the flow, while Figure \ref{fig:measuredPower}
-and Figure represent the pressure and power consumption, respectively.
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[scale=0.5]{figures/05mathematicalModelling/measuredFlow.pdf}
-	\vspace{-5mm}
-	\caption{Measured Flow}
-	\label{fig:measuredFlow}
-\end{figure}
-\begin{figure}[ht]
-	\centering
-	\includegraphics[width=0.8\textwidth]{figures/05mathematicalModelling/measuredPower.pdf}
-	\vspace{-5mm}
-	\caption{Measured Power}
-	\label{fig:measuredPower}
-\end{figure}
-
-\todo[color=04mathematicalModelling]{fix formatting later and also add for pressure}
-\newpage
-We used the data gathered through experiments to develop a model that would fit all our data,
-within a certain degree of error, and that we would be able to further test.
-
-We decided to use grey-box modelling with polynomial fitting.
-We consider our approach as grey-box rather than black-box,
-because we chose the degrees of the polynomials based on known and tested physical relations.
-
-A very similar modelling process was already successfully used by Pedersen and Yang \cite{YangMultiPump2008} on the same setup.
-The choice of degree for the polynomials was determined by the affinity laws \cite{Volk2014}
-and supported by very good fit to the data.
-
-MLs Curve Fitting Toolbox (\textit{cftool}) \cite{cftool}
-was used in order to find the polynomial coefficients most accurately describing the system.
-
 \subsubsection{Single Pump Model}
 Equation \ref{eq:pump_model} determines the head and the power, given the flow. 
 Although the formula does not directly relate to the pump speed, it indirectly relates to it, due to the fact that only one possible 

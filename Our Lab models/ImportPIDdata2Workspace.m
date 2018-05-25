@@ -38,15 +38,14 @@ input = meas.data(:,24);
 error = meas.data(:,25);
 time  = meas.data(:,26);
 
-
-figure()
+%% figure
+figure('Position',[200 800 800 400])
 axis([0 20+0.01 -0.1 2.5])
 xlabel('Time [$s$]','Interpreter','latex');
 ylabel('Q [$\frac{m^{3}}{s}$]','Interpreter','latex');
-title('Step Response','Interpreter','latex')
+%title('Step Response','Interpreter','latex')
 set(gca,'fontsize',16);
 hold on; grid on;
-plot(time,ref,'-k','MarkerIndices',1:50:length(time),'DisplayName','step input (scaled down with 10)')
 %plot(time,input,'DisplayName','$\omega$')
 %plot(time,error./10,'DisplayName','err')
 
@@ -61,8 +60,17 @@ set(leg,'FontSize',12);
 %% only for step response
 A = mean(mfm03(20*100:end));
 A_plot = ones(numel(time),1)*A;
-plot(time,A_plot,'-r','MarkerIndices',1:50:length(time),'DisplayName','Final Value')
+plot(time,A_plot,'-or','MarkerIndices',250:500:length(time),'DisplayName','Final Value')
 plot(time,(time/R)-(1/R),'-^r','MarkerIndices',1:50:length(time),'DisplayName','Slope')
+
+ax=gca;
+yyaxis right
+plot(time,ref*10,'-k','MarkerIndices',1:50:length(time),'DisplayName','step input')
+
+ylabel('$\omega$P [$\%$]','Interpreter','latex');
+axis([0 20 -1 25])
+ax.YColor = 'k';
+
 leg = legend('Location','southeast');
 set(leg,'Interpreter','latex');
 set(leg,'FontSize',12);
