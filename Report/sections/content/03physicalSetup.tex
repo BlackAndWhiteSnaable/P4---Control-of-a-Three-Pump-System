@@ -174,20 +174,47 @@ this can be compared to the cross sectional area and the specific resistance of 
 \section{Valves}
 A valve is a device used to regulate the flow of a gas or liquid through a piping system.
 Valves can be actuated by different means, such as air pressure, electric motors or rotary handles.
-The valve present in our setup is an \todo[color=03PhysicalSetup]{look up the actual name of the valve}
+The valve present in our setup is a Beukert valve. \todo[color=03physicalSetup]{look up the actual name of the valve}
 In our project, we are not using the valve for regulatory purposes,
 but only to simulate disturbances in the system.
 
-\section{Sensors}
-Sensors were present on the setup. They were used to gather the data used throughout the report 
-and closely monitor the system. The data gathered was used to determine various pump curves.
 
-\subsubsection{Flow Meter}
-After each pump, a magnetic flow meter is installed to measure the flow, and configured to measure 
-cubic meters per hour.
-\subsubsection{$\Delta$Pressure Sensor}
-Pressure sensors are installed across the pump, measuring the pressure difference between two points.
-One located before and the other located after the pump. They are configured tho measure in bars.
-\subsubsection{Power Sensor}
-A power sensor was used to closely monitor the power delivered to the pumps. The power was expressed
-in Watts.
+\section{Target PC}
+A target PC is often used when a setup has to be run in real-time.
+In our setup it is a desktop PC running xPC target,
+a real-time capable OS.
+It is equipped with a PCI card to collect the data from all sensors.
+In other cases a different PC setup might be used,
+with application specific hardware.
+Because the target PC is not a key part of this project,
+but merely a tool,
+we will not go into detail about it.
+\todo[color=03physicalSetup]{find some source (speedgoat?)}
+
+\section{Sensors}
+When we started the project,
+the setup was already equipped with several sensors.
+This section will briefly explain what sensors are used.
+
+\subsection*{Flow Meter}
+Downstream from  each pump, a magnetic flow meter (MFM) is installed to measure the flow.
+\todo[color=03physicalSetup]{look up the sensor}
+Their digital gauge was used to calibrate the sensors data output to cubic meters per hour ($\frac{m^3}{h}$).
+
+\subsection*{Power Sensor}
+A power sensor was used to closely monitor the power delivered to the pumps.
+This power works like a digital multimeter,
+measuring voltage $U$ and current $I$.
+From those measurements it calculates the power $P$.
+\todo[color=03physicalSetup]{look up the sensor}
+This sensor has a digital display, where $U$ [$V$], $I$ [$A$] and $P$ [$kW$] are displayed,
+which we used to calibrate the output to $kW$.
+
+\subsection*{$\Delta$Pressure Sensor}
+Pressure sensors are installed across each pump,
+measuring the pressure difference between the inlet and the outlet of the pump.
+Because they didn't have a visual representation of their measurements
+and all our previous calculations of sensor calibration fit with previous work done on the setup
+\todo[color=03physicalSetup]{cite Kaspers work},
+we chose to rely on previous calibration and inherited their conversion.
+After this conversion they output data is measured in $bar$.
