@@ -84,19 +84,24 @@ while $P$ behaves in the opposite manner, having its highest values at the lowes
 
 \todo[color=05ExperimentsAndLabWork]{fix formatting later and also add for pressure}
 
-\section{Data Example}\label{sec:results}
-A system test was performed, 
-to capture live data of how the system would react, 
-under various conditions.
-The pump speed was gradually increased from 0 to 100\% in intervals of 10\%. 
-Between each run, the control valve was changed in 10\% intervals as well.
-
-Figure \ref{fig:testrun} shows the captured data for a test, with $\omega P$ increasing and $CV_1$ at 60\%.
+\subsection{Data Example}%\label{sec:results}
+To give some more insight in the testing,
+we wanted to show the data collected in a single run.
+The Figures \ref{fig:measuredFlow}, \ref{fig:measuredPower} and \ref{fig:measuredPressure}
+show the collected data through several runs,
+each with a different $CV_1$.
+The data for all lines $CV_1 = 70\%$ in all three figures comes from the same run.
+While executing a run,
+the data for all used sensors was shown on the target in real time.
+To get a better understanding of how the tests were executed,
+we included Figure \ref{fig:testrun},
+a rebuilt live view.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/04ExperimentsAndLabWork/testrun.eps}
-	\caption{testrun}
+	\caption{$Q$, $H$, $P$ and stair input $\omega P_{2in}$ at $CV_1 = 70\%$}
 	\label{fig:testrun}
 \end{figure}
-\missingfigure[figwidth=\textwidth]{Show curves from early test runs}
+In this test $\omega P$ was stepwise increased while $CV_1$ was fixed at 70\%.
+\todo[color=04mathematicalModelling]{I think this sentence can go --Daniel}
