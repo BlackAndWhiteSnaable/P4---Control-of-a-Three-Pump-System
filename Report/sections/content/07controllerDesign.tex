@@ -61,11 +61,12 @@ As mentioned before,
 to use the QDM, we need a step response of the system.
 The following section explains step response in more detail and shows our analysis.
 
-\subsection{Quarter Decay Tuning}
+\subsection{Quarter Decay Tuning}\label{sub:quadec}
 To obtain all needed data,
 a step input is to be input into the plant
 and the output recorded.
 \subsubsection{Step Response}
+\todo[color=07controllerDesign]{This needs writing}
 A block diagram of this setup can be seen in Figure \ref{fig:OL}.
 Comparing this figure with \ref{fig:twoPID} highlights
 that no feedback or controller is used to observe only the dynamics of the plant.
@@ -130,17 +131,14 @@ Note that the parameters $T_I$ and $T_D$ not mentioned for the first two control
 \subsubsection{Results}
 We tested all three options of P, PI and PID control with the tuned parameters,
 the results can be seen in Figure \ref{fig:PIDtest}.
+Please note, that the P-controller with the calculated value did not achieve any results,
+as the error was too small to start the pump.
+To overcome this issue, we multiplied $k_P$ with 10.
+This was solely done for the P-controller,
+because the PI- and PID-controller gave proper results without this correction.
+We expect this to be caused by the scaling factor before the input to the pumps,
+as discussed in Subsection \ref{sub:quadec}.
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{figures/07controllerDesign/Ptest.eps}
-    \includegraphics[width=\textwidth]{figures/07controllerDesign/PItest.eps}
-    \includegraphics[width=\textwidth]{figures/07controllerDesign/PIDtest.eps}
-    \caption{Results from testing a P, PI and PID controller with ZN tuning}
-	\label{fig:PIDtest}
-\end{figure}
-\missingfigure{Comparison of P, PI and PID control}
 
 \begin{figure}[H]
     \centering
@@ -162,13 +160,34 @@ Interestingly, the PID-controller also has an overshoot above our limits,
 which we expect to be caused by the ZN tuning.
 In the next step we tried manually tuning the $k_D$ coefficient,
 to get an overshoot inside our requirements.
-\todo[color=07controllerDesign]{manually tune}
+
+\subsection{Manual Tuning}\label{sub:manualPID}
+Building on top of the best candidate, the PID-controller,
+we manually tuned the coefficients.
+We came to the conclusion,
+that the overshoot is happening, because the controller is too aggressive,
+which is why we decided to decrease the $k_P$ coefficient to $0.2$.
+Looking back at the second formula in Equation \ref{eq:PID},
+we can see, that this will not affect the relations between the coefficients.
+
+\subsubsection{Results}
+The results of the manual tuning can be seen in Figure \ref{fig:manualPID}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/07controllerDesign/manualPID.eps}
+    \caption{Results from ZN PID with $k_P = 0.2$}
+	\label{fig:manualPID}
+\end{figure}
+Interesting to notice here is,
+that the controller has a deadtime of approximately 4 seconds,
+before its output affects the system.
 
 
 One big disadvantage of PID tuning for this system is,
-that it is not taking advantage of the existence of three pumps as three individual inputs.
+that it is not taking advantage of the existence of three pumps as  individual inputs.
 The tuning in this chapter is based on using only a single pump,
-but could easily be repeated for multiple pumps with the same input speed.
+but could easily be repeated for multiple pumps with equal input speed.
 Based on research done by Pedersen and Yang \cite{YangMultiPump2008},
 it seems that using multiple pumps could increase efficiency,
 but it be most efficient to always spin all used pumps equally.
