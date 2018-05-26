@@ -1,12 +1,25 @@
 %% check if everything exists
-clc
+clc;clear
 if ~(exist('ZNKp','var'))
     clear
     ZieglerNichols %US if using ultimate sensitivity
 end
 
+PIDrun_num = input('PIDrun_num?');
+%TYPE = input('P(1), PI(2) or PID(3)?');
+text = 'PID';
+
+for TYPE=1:3
+if TYPE == 1
+    file = ['PIDdata/run' num2str(PIDrun_num) '/PIDdataP.dat'];
+elseif TYPE == 2
+    file = ['PIDdata/run' num2str(PIDrun_num) '/PIDdataPI.dat'];
+else
+    file = ['PIDdata/run' num2str(PIDrun_num) '/PIDdataPID.dat'];
+end
+
 %% import data (.dat) into workspace
-meas=SimulinkRealTime.utils.getFileScopeData(['PIDdata/openloopGainUnitstep.dat']);
+meas=SimulinkRealTime.utils.getFileScopeData(file);
 cv01  = meas.data(:, 1);
 
 dpt01 = meas.data(:, 2);
@@ -38,25 +51,39 @@ input = meas.data(:,24);
 error = meas.data(:,25);
 time  = meas.data(:,26);
 
+
 %% figure
-figure('Position',[200 800 800 400])
-axis([0 20+0.01 -0.1 2.5])
+figure('Position',[400*TYPE-350 0 800 400])
+ax=gca;
+title(text(1:TYPE),'Interpreter','latex')
+axis([0 30 -5 20])
 xlabel('Time [$s$]','Interpreter','latex');
-ylabel('Q [$\frac{m^{3}}{s}$]','Interpreter','latex');
-%title('Step Response','Interpreter','latex')
+ylabel('Q [$\frac{m^3}{s}$]','Interpreter','latex');
+yyaxis right
+plot(time,input,':>k','MarkerIndices',100:500:length(time),'DisplayName','$\omega P_{in}$','markers',12)
+ylabel('$\omega$P [$\%$]','Interpreter','latex');
+axis([0 30 -7.5 30])
+ax.YColor = 'k';
+yyaxis left
+ax.YColor = 'k';
+
 set(gca,'fontsize',16);
 hold on; grid on;
-%plot(time,input,'DisplayName','$\omega$')
-%plot(time,error./10,'DisplayName','err')
 
-%plot(time,dpt02)
-%plot(time,lmgp3,'DisplayName','lmgp')
-plot(time,mfm03,':k','MarkerIndices',[1:25:599 600:50:length(time)],'DisplayName','Q')
+plot(time,ref,'-or','MarkerIndices',100:500:length(time),'DisplayName','$Q_{ref}$','markers',12)
+plot(time,mfm01+mfm02+mfm03,':^k','MarkerIndices',100:500:length(time),'DisplayName','$Q_{tot}$','markers',12)
+%plot(time,error./10,':xk','MarkerIndices',100:500:length(time),'DisplayName','$Q_{error}$','markers',12)
+
+%plot(time,dpt02,'DisplayName','dpt')
+%plot(time,lmgp2,'DisplayName','lmgp')
+
 %plot(time,wp002,'DisplayName','wp002')
 leg = legend('Location','southeast');
 set(leg,'Interpreter','latex');
 set(leg,'FontSize',12);
+end
 
+stop()
 %% only for step response
 A = mean(mfm03(20*100:end));
 A_plot = ones(numel(time),1)*A;
