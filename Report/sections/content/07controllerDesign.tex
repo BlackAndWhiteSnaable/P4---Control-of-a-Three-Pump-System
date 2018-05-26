@@ -129,12 +129,31 @@ Note that the parameters $T_I$ and $T_D$ not mentioned for the first two control
 
 \subsubsection{Results}
 We tested all three options of P, PI and PID control with the tuned parameters,
-the results can be seen in Figure \ref{fig:missing}.
+the results can be seen in Figure \ref{fig:PIDtest}.
 
-\missingfigure{Comparison of P, PI and PID control}
 
-Unexpectedly, the PID controller settles faster than the other two.
-\todo[color=07controllerDesign]{make sure that is true}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/07controllerDesign/Ptest.eps}
+    \includegraphics[width=\textwidth]{figures/07controllerDesign/PItest.eps}
+    \includegraphics[width=\textwidth]{figures/07controllerDesign/PIDtest.eps}
+    \caption{Results from testing a P, PI and PID controller with ZN tuning}
+	\label{fig:PIDtest}
+\end{figure}
+
+As was expected, the P-controller settles the fastest,
+at approximately 4 seconds,
+while the PI and PID settle around 20 seconds.
+The P-controller has a very big steady-state error though,
+which doesn't fulfil our requirements.
+The PI-controller does not have a steady-state error,
+but the overshoot of approximately 25\% doesn't fulfil our requirements either.
+Interestingly, the PID-controller also has an overshoot above our limits,
+which we expect to be caused by the ZN tuning.
+In the next step we tried manually tuning the $k_D$ coefficient,
+to get an overshoot inside our requirements.
+\todo[color=07controllerDesign]{manually tune}
+
 
 One big disadvantage of PID tuning for this system is,
 that it is not taking advantage of the existence of three pumps as three individual inputs.
@@ -147,6 +166,3 @@ This is not possible with a single PID controller,
 as it only outputs one speed to all connected pumps.
 It could be possible to implement an additional logic,
 switching between differently tuned controllers for different flow requirements.
-
-\section{State Space Control}
-\todo[color=07controllerDesign]{do we even want that section?}
