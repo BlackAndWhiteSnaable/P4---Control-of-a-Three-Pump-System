@@ -25,8 +25,13 @@ Typical static models for pump systems are pump curves and system curves.
 
 \newpage
 We used the data gathered through experiments to develop a model that would fit all our data,
-within a certain degree of error, and around an operating point. A model that could fit all the 
-data within a small percentage error would be very hard to determine.
+within a certain degree of error,
+\todo[color=04mathematicalModelling]{what is the degree?}
+and around an operating point.
+\todo[color=04mathematicalModelling]{what i the operation point?}
+A model that could fit all the data without any error error would have to be of a very high order
+and would probably model the system and sensor noise.
+This model would not be very beneficial but instead very resource consuming
 
 We decided to use grey-box modelling with polynomial fitting.
 We consider our approach as grey-box rather than black-box,
@@ -41,11 +46,12 @@ ML Curve Fitting Toolbox (\textit{cftool}) \cite{cftool}
 was used in order to find the polynomial coefficients most accurately describing the system.
 
 \subsubsection{Single Pump Model}
-Equations \ref{eq:pumpHeadModel} and \ref{eq:pumpPowerModel} represents a model that 
-determines the head and the power, given the flow. 
-Although the formula does not directly relate to the pump speed, it indirectly 
-relates to it, due to the fact that only one possible pump speed $\omega$ exists for a given flow,
-provided everything else remains constant.
+Equations \ref{eq:pumpHeadModel} and \ref{eq:pumpPowerModel} show a model that 
+determines the head $H$ and the power $P$,
+at a given $Q$. 
+Although the formula does not directly relate to the pump speed, it indirectly relates to it,
+due to the fact that only one possible pump speed $\omega$ exists for a given flow,
+provided the impeller diameter $D$ remains constant (compare \ref{sub:afflaws}).
 \todo[color=04mathematicalModelling]{quote zhenyu paper again}
 
 \begin{equation}
@@ -57,6 +63,7 @@ provided everything else remains constant.
 	\label{eq:pumpPowerModel}
 \end{equation}
 \todo[color=04mathematicalModelling]{fix this}
+\todo[color=04mathematicalModelling]{what are the bars on top?}
 
 The coefficients are determined by the pump characteristics and can be experimentally identified.
 Taking variable speed into account, the equations \ref{eq:pumpHeadModel}  and \ref{eq:pumpPowerModel}
@@ -97,9 +104,10 @@ Figure \ref{fig:flowVsPressure} shows data points connected together that repres
 a pump head curve. As observed in the figure, when the opening percentage of the control valve is at
 10\% the pressure seems to reach negative values. We believe, this arises from the fact that we were not 
 able to properly calibrate the pressure sensors. As an alternative, we have used the gain and offsets
-provided to us by previous researchers that have experimented on the same setup. The gains and offsets
-that we were able to determine for Flow and Power Consumption, respectively, were also consistent with
-the values determined by us. This is the reason we decided to use the values provided to us.
+provided to us by previous researchers that have experimented on the same setup.
+The gains and offsets that we were able to determine for Flow and Power Consumption,
+respectively, were also consistent with the values determined by them.
+This is the reason we decided to use the values provided to us.
 
 \begin{figure}[h]
 	\centering
@@ -119,8 +127,7 @@ power consumption curve.
 	\label{fig:flowVsPowerConsumption}
 \end{figure}
 
-\textit{cftool} was used to determine coefficients  from each curve in  Figures \ref{fig:flowVsPressure}
-and \ref{fig:flowVsPowerConsumption}.
+\textit{cftool} was used to determine coefficients  from each curve in  Figures \ref{fig:flowVsPressure} and \ref{fig:flowVsPowerConsumption}.
 
 The coefficients for the model were determined at 60 \% pump speed, chosen at random and can be seen in
 table below.
