@@ -1,4 +1,5 @@
 \chapter{Model Validation}\label{ch:modValPerf}
+\section{Static Modelling}
 \todo[color=06modelValidationAndPerformance]{Model Validation and Performance}
 To validate the model acquired in Chapter \ref{ch:mathmodel}, we ran a second test with the 
 same setup as described in Chapter \ref{ch:experiment}. Coefficients were determined for pump models,
@@ -46,3 +47,43 @@ The modelling errors could come as a result of many factors, however, there is r
 As with the case of the pressure sensors, we were not able to determine accurate values for 
 the pump speeds. Again, we have used gains and offsets provided to us. Additionally, as stated in \cite{Yang2010}
 motor and drive efficiency are not accounted for.
+
+\section{Dynamic Modelling}
+We determined the coefficients for our P, I, and D using Ziegler Nichols tuning method.
+The results both in theory and practice can be seen below. Figure \ref{fig:modeledPI2} represents the model for the PI -
+Controller, while Figure \ref{fig:actualPI2} represents the output of the system using the same controller.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/06ModelValidation/modelPI.eps}
+	\caption{Modeled PI Controller}
+	\label{fig:modeledPI2}
+\end{figure}
+\vspace{-5mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/07controllerDesign/PItest.eps}
+    \caption{Actual PI Controller}
+	\label{fig:actualPI2}
+\end{figure}
+The output of the model is quite similar to the output of the setup, with the exception of the delayed step input.
+Additionally, the model seems to converge faster to the setpoint.
+
+The model for the PID - Controller also presents strong similarities with the actual output of the setup.
+The comparison can be seen in figures \ref{fig:modeledPID2} and \ref{fig:actualPID2}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/06ModelValidation/modelPID.eps}
+	\caption{Modeled PID Controller}
+	\label{fig:modeledPID2}
+\end{figure}
+\vspace{-5mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/07controllerDesign/PIDtest.eps}
+    \caption{Actual PID Controller}
+	\label{fig:actualPID2}
+\end{figure}
+Same can be noticed for the PID - Controller, the step input for the physical setup is given 0.5 seconds later.
+The model also converges faster to the setpoint. This might be due to dynamic properties of the flow, which might 
+not be properly modeled using the transfer function.
