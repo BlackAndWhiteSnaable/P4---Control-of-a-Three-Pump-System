@@ -1,11 +1,121 @@
 \chapter{Discussion}\label{ch:discussion}
 \todo[color=09discussion]{Discussion no text yet}
 
-During the project, our focus shifted. We aimed at developing a control technique, to achieve a constant flow, employing
-all three pumps, and using minimal amount of energy. In the end, using control methods taught during our semester, we have
-developed a PID Controller, capable of maintaining a certain flow, employing only one pump.
+In this chapter we discuss the initially stated requirements
+and compare them with the results achieved.
+We will also have a look at future work opportunities,
+to be done on top of this project.\\
+This chapter will also explain the process of working on this project.
 
-We believe, our initial goal was a high one. However possibly not achievable at our level and with our level of knowledge.
+We initially set out three primary goals for this project:
+
+\begin{itemize}
+\item Creation of a dynamic model for one pump
+\item Design of a PID controller for the flow
+\item Tuning of said PID controller 
+\end{itemize}
+And three secondary goals:
+
+\begin{itemize}
+\item Creation of a static model for one pump
+\item Creation of a static model for multiple pumps
+\item Design of a controller for the flow, taking efficiency into account
+\end{itemize}
+Looking back at the project,
+we can now say that all primary goals
+and some of the secondary goals were met.
+\\
+We created a dynamic model for a single pump
+through analysis of experimental data
+and assuming a transfer function of the form 
+$\frac{Y(s)}{U(s)}=\frac{A e^{s t_d}}{\tau s + 1}$.
+Where all coefficients were found analysing a step response.
+\todo[color=09discussion]{can we simulate with the controller?}
+\\
+
+1. This model gave a good fit to our step response data,
+but performed poorly to test the actual controller.
+We expect this to be an issue with the way we implemented the controller simulation in ML and SL.
+\\
+
+2. This model gave a good fit to our collected data
+and was also able to predict the outcome of our proposed controller.
+
+The design and tuning of the PID controller was primarily done on the physical setup,
+instead of the simulation, because it was readily accessible
+and provided good results.
+This is also the reason for the dynamic model not being our first priority when it came to time management.
+\\\\We initially set out to describe the whole system,
+with all three pumps as a MIMO system and be able to control the total flow with minimal power consumption.
+This was to be achieved by using multiple pumps and benefiting from the shifted maximum efficiency point as stated in previous research.
+When we realised that we would not be able to finish that project in the given timeframe,
+we chose to implement a PID control on a SISO system instead.
+The knowledge gained about the system from developing the static model was helpful to determine an operating range for the PID control.
+It showed that almost identical dynamics were to be expected at all points
+$0\%<CV_1\leq100\%$ and $10\%\leq\omega P\leq100\%$.
+It also evens the path for future work on energy efficiency,
+because there already exists a reliable model of the power consumption with respect to H and Q,
+which can easily be extended to a model of the efficiency.
+
+\begin{itemize}
+\item Maximum Overshoot $M_p = 0\%$
+\item Steady-state error $e_{ss} \leq 1 \%$
+\end{itemize}
+
+With the manually tuned PID controller,
+all requirements set in \ref{sub:req} and shown above were hit,
+but this was done by making the system very slow and creating a very big delay in reaction.
+
+With more intensive tuning and more reasonable requirements,
+better coefficients for a PID controller could possibly be found.
+Specifically requiring no overshoot is not expected to be reasonable in most applications of a flow controller.
+It might for example be more beneficial to require the integral of the error to be very small,
+to ensure steady flow on average.
+
+\section{Future Work}
+As with every project, not all work on this topic is done yet.
+We therefore propose a small list of future work opportunities.
+Some of the points on that list are inspired by our initial goal,
+energy efficiency.
+
+Development of a more robust dynamic model.
+As stated before,
+\todo[color=09discussion]{stated where?}
+our dynamic model was not a perfect description of the system.
+With more advanced modelling techniques and more research into this,
+a better model could be found.
+This would benefit most other future work.
+
+While developing our static model,
+we found that it was not accurate for the whole operating range of the system.
+We believe it is possible to find a model better suited,
+if more work is put into this topic.
+This would also benefit most other future work
+and maybe also the general understanding of pumping systems.
+
+Research in the industry to find what requirements actually matter should be conducted,
+to ensure that the next iteration of this controller would be useful.
+Based on our research alone,
+we cannot know which factors to prioritise
+and therefore not build a beneficial controller.
+
+Our initial goal of efficiency optimisation was not met,
+due to a shift in focus.
+We still think this is a worthwhile goal to work on.
+Since we already put some thought into the topic,
+we propose building a decisive logic to decide how many pumps to use,
+which might be possible to implement as a lookup table.
+A more reliable approach would of course be modelling the efficiency of 1, 2 and 3 pumps according to Q and H
+and developing a MIMO controller taking those factors into account.
+Developing a reliable model for the efficiency could help building a lookup table or decisive logic to switch between multiple pumps.
+\\\\\\\\\\\\\\\\
+During the project, our focus shifted. We aimed at developing a control technique to achieve a constant flow, employing
+all three pumps and using a minimal amount of energy.
+In the end, using control methods taught during our semester,
+we have developed a PID Controller, capable of maintaining a certain flow, employing only one pump.
+
+We believe, our initial goal was a high one.
+However possibly not achievable at our level and with our level of knowledge.
 Such goals were previously achieved by researchers present at this university. 
 
 During the project, we have gained a lot of insight into pumps, and were able to apply principles and knowledge
