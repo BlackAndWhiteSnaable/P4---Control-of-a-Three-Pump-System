@@ -13,7 +13,7 @@ if ZNKp(1)<1
     ZNKp(1) = ZNKp(1) * 10;
 end
 
-PIDrun_num = 20;
+PIDrun_num = 31;
 
 while exist(['PIDdata/run' num2str(PIDrun_num)], 'dir')
     PIDrun_num = PIDrun_num +1;
@@ -23,7 +23,7 @@ mkdir(['PIDdata/run' num2str(PIDrun_num)])
 
 clc;%clearvars -except ZNKp ZNTd ZNTi
 %% SETUP workspace variables to be used in simulation
-CV01 = 100;     %This will be manipulated
+CV01 = 20;     %This will be manipulated
 CV01t = 0.5;
 simstop = 60*1;
 name = ['PID'];
