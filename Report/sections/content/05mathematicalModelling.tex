@@ -62,8 +62,6 @@ provided the impeller diameter $D$ remains constant (compare \ref{sub:afflaws}).
 	\label{eq:pumpPowerModel}
 \end{equation}
 
-\todo[color=04mathematicalModelling]{what are the bars on top?}
-
 The coefficients are determined by the pump characteristics and can be experimentally identified.
 Taking variable speed into account, the equations \ref{eq:pumpHeadModel}  and \ref{eq:pumpPowerModel}
 will depend on the motor speed\cite{Yang2010}. The pump Affinity Laws state:
@@ -169,7 +167,6 @@ Important to notice, that the modeled step response looks quite accurate to the 
 One key difference, would be the time delay. The unit step input is given instantly on the model,
 while on the physical setup, there was a delay of 0.5 seconds, from the moment the simulation had started,
 to the moment the unit step was given.
-
 The next step was to implement the Ziegler-Nichols PID tuning method. The models obtained have been accurate
 with some degree of error and they can be seen in Figure \ref{fig:modeledPI} and \ref{fig:modeledPID}.
 
@@ -188,4 +185,4 @@ with some degree of error and they can be seen in Figure \ref{fig:modeledPI} and
 \end{figure}
 
 Both models predict with a relative high accuracy the  behavior of the physical setup, 
-with a certain degree of error. Comparisons can be seen in Chapter \ref{ch:modValPerf}.
+with a certain degree of error. Comparisons can be seen in Chapter \ref{ch:modValPerf} and Appendix \ref{app:modelling}.
