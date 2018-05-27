@@ -1,5 +1,4 @@
 \chapter{Model Validation}\label{ch:modValPerf}
-
 \todo[color=06modelValidationAndPerformance]{Model Validation and Performance}
 To validate the model acquired in Chapter \ref{ch:mathmodel}, we ran a second test with the 
 same setup as described in Chapter \ref{ch:experiment}. Coefficients were determined for pump models,
@@ -45,16 +44,5 @@ As expected, the models are able to approximate the pump curves, that are closer
 the models were determined for. They are not as accurate overall as expected. 
 The modelling errors could come as a result of many factors, however, there is room for improvement. 
 As with the case of the pressure sensors, we were not able to determine accurate values for 
-the pump speeds. Again, we have used gains and offsets provided to us. Additionally, as stated in [X]
+the pump speeds. Again, we have used gains and offsets provided to us. Additionally, as stated in \cite{Yang2010}
 motor and drive efficiency are not accounted for.
-\todo[color=06modelValidationAndPerformance]{quote zhenyu paper}
-\newpage
-Other modelling errors, could be introduced by the manner in which the models were determined. The data we
-used was processed in such a manner that only average values over a period of time were used.
-\todo[color=06modelValidationAndPerformance]{maybe new section}
-
-A better approach, would have been to model the whole range of values. We have done this, but it turned out unsuccessfully. 
-The computing power was simply not enough.
-The simulation was ran for 15 seconds each time the pump speed was changed. If instead, the simulation had been ran for
-10 seconds, the data would have been less, but this might have not been enough for the Pressure and Flow to reach a 
-steady state.
