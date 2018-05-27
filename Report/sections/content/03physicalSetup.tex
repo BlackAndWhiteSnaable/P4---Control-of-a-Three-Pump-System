@@ -72,8 +72,7 @@ but the change can be modelled with the Affinity Laws.
 \subsection{Affinity Laws}\label{sub:afflaws}
 Affinity laws are mathematical relationships that provide a way to estimate the 
 changes in performance of a pump, as a result of a change in one of the basic pump variables.
-In it's simplest form, the term law, means a principle that has been proven true for all cases.
-\todo[color=03physicalSetup]{Still not sure about that sentence with all cases...}
+In it's simplest form, the term law, means a principle that has been proven true for all cases \cite{Bachus2003}.
 
 Equations \ref{eq:afflaw1} show the relations between a change in motor speeds $N$
 to flow $Q$, head $H$ and power $P$.
@@ -176,22 +175,21 @@ this can be compared to the cross sectional area and the specific resistance of 
 \section{Valves}
 A valve is a device used to regulate the flow of a gas or liquid through a piping system.
 Valves can be actuated by different means, such as air pressure, electric motors or rotary handles.
-The valve present in our setup is a Beukert valve. \todo[color=03physicalSetup]{look up the actual name of the valve}
+The valve present in our setup is a Bürkert control valve.
 In our project, we are not using the valve for regulatory purposes,
-but only to simulate disturbances in the system.
+but only to simulate disturbances and resistance in the system.
 
 
 \section{Target PC}
 A target PC is often used when a setup has to be run in real-time.
 In our setup it is a desktop PC running xPC target,
 a real-time capable OS.
-It is equipped with a PCI card to collect the data from all sensors.
+It is equipped with a PCI card to collect the data from all sensors. \cite{TargetPCSource}
 In other cases a different PC setup might be used,
 with application specific hardware.
 Because the target PC is not a key part of this project,
 but merely a tool,
 we will not go into detail about it.
-\todo[color=03physicalSetup]{find some source (speedgoat?)}
 
 \section{Sensors}
 When we started the project,
@@ -199,25 +197,21 @@ the setup was already equipped with several sensors.
 This section will briefly explain what sensors are used.
 
 \subsection*{Flow Meter}
-Downstream from  each pump, a magnetic flow meter (MFM) is installed to measure the flow.
-\todo[color=03physicalSetup]{look up the sensor}
+Downstream from  each pump, a magnetic flow meter (MFM) is installed to measure the flow.\cite{MFM}
 Their digital gauge was used to calibrate the sensors data output to cubic meters per hour ($\frac{m^3}{h}$).
 
 \subsection*{Power Sensor}
 A power sensor was used to closely monitor the power delivered to the pumps.
 This power works like a digital multimeter,
 measuring voltage $U$ and current $I$.
-From those measurements it calculates the power $P$.
-\todo[color=03physicalSetup]{look up the sensor}
+From those measurements it calculates the power $P$.\cite{LMG}
 This sensor has a digital display, where $U$ [$V$], $I$ [$A$] and $P$ [$kW$] are displayed,
 which we used to calibrate the output to $kW$.
 
 \subsection*{$\Delta$Pressure Sensor}
 Pressure sensors are installed across each pump,
-measuring the pressure difference between the inlet and the outlet of the pump.
-\todo[color=03physicalSetup]{look up the sensor}
+measuring the pressure difference between the inlet and the outlet of the pump.\cite{DPT}
 Because they didn't have a visual representation of their measurements
-and all our previous calculations of sensor calibration fit with previous work done on the setup
-\todo[color=03physicalSetup]{cite Kaspers work},
+and all our previous calculations of sensor calibration fit with previous work done on the setup \cite{Jepsen2017},
 we chose to rely on previous calibration and inherited their conversion.
 After this conversion they output data is measured in $bar$.
