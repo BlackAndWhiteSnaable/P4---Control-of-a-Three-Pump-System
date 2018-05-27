@@ -130,8 +130,7 @@ power consumption curve.
 
 The ML tool \textit{cftool} was used to determine coefficients  from each curve in  Figures \ref{fig:flowVsPressure} and \ref{fig:flowVsPowerConsumption}.
 
-The coefficients for the model were determined at 60 \% pump speed, chosen at random and can be seen in
-table below.
+The coefficients for the model were determined at 60 \% pump speed, chosen at random and can be seen below.
 \todo[color=04mathematicalModelling]{maybe not say at random, something to do with requirements possibly}
 \begin{align*}
 	a_0 = -0.03044 && a_1 = 0.07635  && a_2 = 1.688  \\
@@ -139,9 +138,9 @@ table below.
 \end{align*}
 \newpage
 \section{Dynamic Modelling}
-Giving the system a unit step response, we determined the process reaction curve of the system. This has been used 
-in order to calculate the PID coefficients when configuring the PID.
-The next step was to try and model the curve, using equation \ref{eq:plantTransferFunction}.
+Giving the system a unit step input, we determined the process reaction curve of the system. This has been used 
+in order to calculate the PID coefficients when configuring the PID, using Zielger-Nichols tuning technique.
+The next step was to model the curve, using equation \ref{eq:plantTransferFunction}.
 
 \begin{equation}
 	\frac{Y(s)}{U(s)} = \frac{A \cdot e^{-st_d}}{\tau \cdot s + 1}
@@ -167,28 +166,30 @@ We have used ML to model the step response, and the result can be seen in Figure
 \end{figure}
 
 Important to notice, that the modeled step response looks quite accurate to the actual step response.
-One difference, would be the time delay. The unit step input is given instantly on the model, while on the physical setup,
-there was a delay of 0.5 seconds, from the moment the simulation had started, to the moment the unit step was given.
+One key difference, would be the time delay. The unit step input is given instantly on the model,
+while on the physical setup, there was a delay of 0.5 seconds, from the moment the simulation had started,
+to the moment the unit step was given.
 
-The next step was to implement the Ziegler-Nichols PID tuning method in theory. The models obtained have been accurate
-with some degree of error and they can be seen in Figure \ref{fig:modeledPI} and xx.
+The next step was to implement the Ziegler-Nichols PID tuning method. The models obtained have been accurate
+with some degree of error and they can be seen in Figure \ref{fig:modeledPI} and \ref{fig:modeledPID}.
 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/06ModelValidation/modelPI.eps}
+	\includegraphics[width=0.7\textwidth]{figures/06ModelValidation/modelPI.eps}
 	\caption{Modeled PI Controller}
 	\label{fig:modeledPI}
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figures/06ModelValidation/modelPID.eps}
+	\includegraphics[width=0.7\textwidth]{figures/06ModelValidation/modelPID.eps}
 	\caption{Modeled PID Controller}
-	\label{fig:modeledPI}
+	\label{fig:modeledPID}
 \end{figure}
 
-Both models models reflect the actual behavior of the physical setup. 
+Both models models reflect the actual behavior of the physical setup, with a certain degree of error.
+Comparisons can be seen in Appendix XX. 
 %\newpage
 %\subsubsection{Multiple Pumps Model at Same Speed}
 %For a certain number of pumps P in parallel, with the requirement that they all run at the same speed
