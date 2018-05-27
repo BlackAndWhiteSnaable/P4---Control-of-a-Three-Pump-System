@@ -31,11 +31,11 @@ and around an operating point.
 \todo[color=04mathematicalModelling]{what i the operation point?}
 A model that could fit all the data without any error error would have to be of a very high order
 and would probably model the system and sensor noise.
-This model would not be very beneficial but instead very resource consuming
 
 We decided to use grey-box modelling with polynomial fitting.
 We consider our approach as grey-box rather than black-box,
 because we chose the degrees of the polynomials based on known and tested physical relations.
+\todo[color=04mathematicalModelling]{do we need the last sentence?}
 
 A very similar modelling process was already successfully used by Pedersen and Yang 
 \cite{YangMultiPump2008} on the same setup.
@@ -48,7 +48,7 @@ was used in order to find the polynomial coefficients most accurately describing
 \subsubsection{Single Pump Model}
 Equations \ref{eq:pumpHeadModel} and \ref{eq:pumpPowerModel} show a model that 
 determines the head $H$ and the power $P$,
-at a given $Q$. 
+at a given flow $Q$. 
 Although the formula does not directly relate to the pump speed, it indirectly relates to it,
 due to the fact that only one possible pump speed $\omega$ exists for a given flow,
 provided the impeller diameter $D$ remains constant (compare \ref{sub:afflaws}).
@@ -127,7 +127,7 @@ power consumption curve.
 	\label{fig:flowVsPowerConsumption}
 \end{figure}
 
-\textit{cftool} was used to determine coefficients  from each curve in  Figures \ref{fig:flowVsPressure} and \ref{fig:flowVsPowerConsumption}.
+The ML tool \textit{cftool} was used to determine coefficients  from each curve in  Figures \ref{fig:flowVsPressure} and \ref{fig:flowVsPowerConsumption}.
 
 The coefficients for the model were determined at 60 \% pump speed, chosen at random and can be seen in
 table below.
