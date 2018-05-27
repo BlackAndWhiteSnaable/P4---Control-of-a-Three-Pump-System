@@ -27,21 +27,20 @@
   Aalborg University\\
   \href{http://www.aau.dk}{http://www.aau.dk}
 }{% the abstract
-	Our end goal is to control the flow of water in a system consisting of three pumps in parallel.
-	A secondary goal is to achieve this with minimal power consumption.
+	This report describes two versions of mathematical modelling for pumping systems.
+	All data used for the coefficients was gathered on a setup of three identical pumps in parallel,
+	but only one pump was used at a time.
 	
-	Using more than one pump,
-	we can remove the link between flow and power consumption as described in the affinity laws,
-	because the peak efficiency gets moved to a higher flow with multiple pumps used in parallel.
+	In the early stages of the project the goal was to use all three pumps for energy efficiency,
+	this was however not done because of the limited time frame.
 	
-	it is possible to stepwise change the impeller size,
-	while changing the efficiency in a different way. %TODO
+	Instead a PID controller was implemented and tuned with the Ziegler Nichols method.
+	The coefficients were based on experimental data gathered on aforementioned setup.
 	
-	We set ourselves a goal of performance for the model,
-	and discuss why this goal is reasonable in respect to energy consumption.
-	Discussion whether the goal was met or not follows in the same chapter,
-	and steps to ensure the goal is hit are explained.
+	Additionally a static model of the head relative to the flow was developed.
+	
+	The final controller implementation is done with
+	Simulink\textsuperscript{\textregistered{}} Real-Time\texttrademark{},
+	on a target PC.
 }
-\todo[color=titlepages]{write an abstract, there are \%TODO points in the LaTeX}
-\todo[color=titlepages]{maybe rewrite parts, if we only go with PID}
 \cleardoublepage
