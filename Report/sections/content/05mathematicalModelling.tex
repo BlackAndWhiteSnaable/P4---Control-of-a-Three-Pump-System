@@ -137,9 +137,41 @@ table below.
 	a_0 = -0.03044 && a_1 = 0.07635  && a_2 = 1.688  \\
 	b_0 = -0.2825 && b_1 = -0.7147 && b_2 = 54.39 && b_3 = 163.7 \\
 \end{align*}
-
+\newpage
 \section{Dynamic Modelling}
+Giving the system a unit step response, we determined the process reaction curve of the system. This has been used 
+in order to calculate the PID coefficients when configuring the PID.
+The next step was to try and model the curve, using equation \ref{eq:plantTransferFunction}.
 
+\begin{equation}
+	\frac{Y(s)}{U(s)} = \frac{A \cdot e^{-st_d}}{\tau \cdot s + 1}
+	\label{eq:plantTransferFunction}
+\end{equation}
+
+\begin{itemize}
+	\item A = final value the step response settles at
+	\item $t_{d}$ = time delay
+	\item $\tau$ = time it takes from 0.1 of final value to 0.9 final value
+\end{itemize}
+
+After analyzing the step response on the physical setup, we have determined the values to be A = 2.221, 
+$t_d$ = 0.75 and $\tau$ = 2.62.
+
+We have used ML to model the step response, and the result can be seen in Figure \ref{fig:modeledStepResponse}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/06ModelValidation/modeledStepResponse.eps}
+	\caption{Modeled Step Response}
+	\label{fig:modeledStepResponse}
+\end{figure}
+
+Important to notice, that the modeled step response looks quite accurate to the actual step response.
+One difference, would be the time delay. The unit step input is given instantly on the model, while on the physical setup,
+there was a delay of 0.5 seconds, from the moment the simulation had started, to the moment the unit step was given.
+
+The next step was to implement the Ziegler-Nichols PID tuning method in theory. Unexpectedly, using that tuning
+method we have obtained very different results from the actual ones obtained on the physical setup. 
 %\newpage
 %\subsubsection{Multiple Pumps Model at Same Speed}
 %For a certain number of pumps P in parallel, with the requirement that they all run at the same speed
