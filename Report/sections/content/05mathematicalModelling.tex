@@ -54,14 +54,14 @@ provided the impeller diameter $D$ remains constant (compare \ref{sub:afflaws}).
 
 
 \begin{equation}
-	H = \bar{a_{0}} \cdot Q^2 + \bar{a_{1}} \cdot Q + \bar{a_{2}}
+	H = \bar{a_{2}} \cdot Q^2 + \bar{a_{1}} \cdot Q + \bar{a_{0}}
 	\label{eq:pumpHeadModel}
 \end{equation}
 \begin{equation}
-	P = \bar{b_{0}} \cdot Q^3 + \bar{b_{1}} \cdot Q^2 + \bar{b_{2}} \cdot Q + \bar{b_{3}}
+	P = \bar{b_{3}} \cdot Q^3 + \bar{b_{2}} \cdot Q^2 + \bar{b_{1}} \cdot Q + \bar{b_{0}}
 	\label{eq:pumpPowerModel}
 \end{equation}
-\todo[color=04mathematicalModelling]{fix this}
+
 \todo[color=04mathematicalModelling]{what are the bars on top?}
 
 The coefficients are determined by the pump characteristics and can be experimentally identified.
@@ -173,14 +173,13 @@ to the moment the unit step was given.
 The next step was to implement the Ziegler-Nichols PID tuning method. The models obtained have been accurate
 with some degree of error and they can be seen in Figure \ref{fig:modeledPI} and \ref{fig:modeledPID}.
 
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/06ModelValidation/modelPI.eps}
 	\caption{Modeled PI Controller}
 	\label{fig:modeledPI}
 \end{figure}
-
+\vspace{-5mm}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.7\textwidth]{figures/06ModelValidation/modelPID.eps}
@@ -188,6 +187,5 @@ with some degree of error and they can be seen in Figure \ref{fig:modeledPI} and
 	\label{fig:modeledPID}
 \end{figure}
 
-Both models models reflect the actual behavior of the physical setup, with a certain degree of error.
-Comparisons can be seen in Appendix XX.
-\todo[color=04mathematicalModelling]{Appendix}
+Both models predict with a relative high accuracy the  behavior of the physical setup, 
+with a certain degree of error. Comparisons can be seen in Chapter \ref{ch:modValPerf}.
