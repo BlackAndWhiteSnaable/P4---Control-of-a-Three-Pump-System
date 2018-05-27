@@ -77,7 +77,7 @@ will depend on the motor speed\cite{Yang2010}. The pump Affinity Laws state:
 Assuming the pump model parameters ($\bar{a_{0}}$, $\bar{a_{1}}$, $\bar{a_{2}}$ and $\bar{b_{0}}$,
 $\bar{b_{1}}$, $\bar{b_{2}}$, $\bar{b_{3}}$) described in equation \ref{eq:pumpHeadModel} and 
 \ref{eq:pumpPowerModel} are obtained at a certain speed $\bar{\omega_{0}}$, 
-this results in the following equation describing the pump at any speed $\omega$ \cite{Yang2010}
+this results in the following equation describing the pump at any speed $\omega$ \cite{Yang2010}.
 
 \begin{equation}
 	H(\omega) = a_0 \cdot \omega^2 + a_1 \cdot \omega \cdot Q(\omega) + a_2 \cdot Q(\omega)^2
@@ -94,16 +94,17 @@ The coefficients can be determined as follows:
 	a_0 = \frac{\bar{a_0}}{\bar{\omega_0^2}} && a_1 = \frac{\bar{a_1}}{\bar{\omega_0}} && a_2 = \bar{a_2} \\
 	b_0 = \frac{\bar{b_0}}{\bar{\omega_0^3}} && b_1 = \frac{\bar{b_1}}{\bar{\omega_0^2}} && b_2 = \frac{\bar{b_2}}{\omega_0} && b_3 = \bar{b_3}
 \end{align*}
+\cite{Yang2010}
 
 As observed in equations \ref{eq:pumpHeadModel2} and \ref{eq:pumpPowerModel2} the coefficients are
 initially multiplied by the input speed. Afterwards they are divided by the
-speed they were determined for, in order to take into account the variable speed.
+speed they were determined for, in order to take into account the variable speed \cite{Yang2010}..
 
 Figure \ref{fig:flowVsPressure} shows data points connected together that represent 
 a pump head curve. As observed in the figure, when the opening percentage of the control valve is at
 10\% the pressure seems to reach negative values. We believe, this arises from the fact that we were not 
 able to properly calibrate the pressure sensors. As an alternative, we have used the gain and offsets
-provided to us by previous researchers that have experimented on the same setup.
+provided to us by previous researchers that have experimented on the same setup \cite{Jepsen2017}.
 The gains and offsets that we were able to determine for Flow and Power Consumption,
 respectively, were also consistent with the values determined by them.
 This is the reason we decided to use the values provided to us.
@@ -126,7 +127,8 @@ power consumption curve.
 	\label{fig:flowVsPowerConsumption}
 \end{figure}
 
-The ML tool \textit{cftool} was used to determine coefficients  from each curve in  Figures \ref{fig:flowVsPressure} and \ref{fig:flowVsPowerConsumption}.
+The ML tool \textit{cftool} \cite{cftool} was used to determine coefficients from each curve in  Figures 
+\ref{fig:flowVsPressure} and \ref{fig:flowVsPowerConsumption}.
 
 The coefficients for the model were determined at 60 \% pump speed, chosen at random and can be seen below.
 \todo[color=04mathematicalModelling]{maybe not say at random, something to do with requirements possibly}
@@ -144,7 +146,7 @@ The next step was to model the curve, using equation \ref{eq:plantTransferFuncti
 	\frac{Y(s)}{U(s)} = \frac{A \cdot e^{-st_d}}{\tau \cdot s + 1}
 	\label{eq:plantTransferFunction}
 \end{equation}
-
+\cite{Franklin2014}
 \begin{itemize}
 	\item A = final value the step response settles at
 	\item $t_{d}$ = time delay
