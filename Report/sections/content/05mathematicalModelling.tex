@@ -170,8 +170,25 @@ Important to notice, that the modeled step response looks quite accurate to the 
 One difference, would be the time delay. The unit step input is given instantly on the model, while on the physical setup,
 there was a delay of 0.5 seconds, from the moment the simulation had started, to the moment the unit step was given.
 
-The next step was to implement the Ziegler-Nichols PID tuning method in theory. Unexpectedly, using that tuning
-method we have obtained very different results from the actual ones obtained on the physical setup. 
+The next step was to implement the Ziegler-Nichols PID tuning method in theory. The models obtained have been accurate
+with some degree of error and they can be seen in Figure \ref{fig:modeledPI} and xx.
+
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/06ModelValidation/modelPI.eps}
+	\caption{Modeled PI Controller}
+	\label{fig:modeledPI}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/06ModelValidation/modelPID.eps}
+	\caption{Modeled PID Controller}
+	\label{fig:modeledPI}
+\end{figure}
+
+Both models models reflect the actual behavior of the physical setup. 
 %\newpage
 %\subsubsection{Multiple Pumps Model at Same Speed}
 %For a certain number of pumps P in parallel, with the requirement that they all run at the same speed
