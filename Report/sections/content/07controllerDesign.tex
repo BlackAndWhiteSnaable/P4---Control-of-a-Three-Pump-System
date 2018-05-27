@@ -32,27 +32,22 @@ on the forward loop, behind the subtraction of the feedback and before the input
 
 The gains $k_P$, $k_I$ and $k_D$ have to be tuned according to the dynamics of the plant
 and the desired characteristics of the controller.
-This tuning can be done manually,
-\todo[color=07controllerDesign]{find source for manual tuning}
-or methodically.
+This tuning can be done manually, or methodically.
 We chose to use the Ziegler-Nichols tuning method,
 as described by Franklin et al. \cite{Franklin2014},
-as this method promised results inside our requirements and was discussed in our courses.
+as this method promised results close to our requirements and was discussed in our courses.
 
 To use this method, some knowledge about the system is required.
-Depending on the stability of the open loop system,
-this can be acquired in one of two ways.
 If the system reacts stable to a step input,
-\todo[color=07controllerDesign]{I think that is wrong, please someone check}
-the output measured can be used to tune $k_P$, $k_I$ and $k_D$ according to the "quarter decay method"
+the output measured can be used to tune $k_P$, $k_I$ and $k_D$ according to the Quarter Decay Method (QDM)
 \cite{Franklin2014}.
 
 In the case that the system has an unstable reaction,
-\todo[color=07controllerDesign]{Then this is also wrong}
-the "Ultimate Sensitivity Method" should be used.
+the Ultimate Sensitivity Method (USM) should be used.
 Here the $k_p$ is increased until the system becomes marginally stable.
+\cite{Franklin2014}.
 
-In both cases the output of the system is to be graphed over the time elapsed
+In both cases the output of the system is to be graphed over time
 and from the corresponding graph some characteristic values can be read.
 Because we are using the quarter decay method,
 we won't discuss the ultimate sensitivity method any further.
@@ -62,14 +57,13 @@ to use the QDM, we need a step response of the system.
 The following section explains step response in more detail and shows our analysis.
 
 \subsection{Quarter Decay Tuning}\label{sub:quadec}
-To obtain all needed data,
-a step input is to be input into the plant
-and the output recorded.
+To obtain all needed data, the step response of the system
+needs to be analysed.
+
 \subsubsection{Step Response}
 \todo[color=07controllerDesign]{This needs writing}
+The step response needs to be measured on the open loop system.
 A block diagram of this setup can be seen in Figure \ref{fig:OL}.
-Comparing this figure with \ref{fig:twoPID} highlights
-that no feedback or controller is used to observe only the dynamics of the plant.
 
 \begin{figure}[H]
     \centering
@@ -91,10 +85,7 @@ The figure also shows two red lines, approximating the slope and the final value
 
 From this graph we can approximate the slope $R$ and the Lag $L=t_d$.
 
-
-
-
-Because we are scaling the $\omega$ down by a factor of 10, so we can directly read the percentage,
+Because we are scaling the $\omega P$ down by a factor of 10, so we can directly input a percentage,
 we had to scale the aforementioned unit step up by a factor of 10,
 in order to get usable results.
 While encountering this problem, we also noticed, that the pumps don't spin below an $\omega$ of 9\%.
