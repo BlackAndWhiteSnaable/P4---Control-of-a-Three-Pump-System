@@ -1,6 +1,6 @@
 \chapter{Model Validation}\label{ch:modValPerf}
 \section{Static Modelling}
-\todo[color=06modelValidationAndPerformance]{Model Validation and Performance}
+%\todo[color=06modelValidationAndPerformance]{Model Validation and Performance}
 To validate the model acquired in Chapter \ref{ch:mathmodel}, we ran a second test with the 
 same setup as described in Chapter \ref{ch:experiment}. Coefficients were determined for pump models,
 for every percentage of the valve opening.
@@ -41,12 +41,14 @@ the Power Consumption for one of the tests.
 	\label{fig:flowVsModeledPressure}
 \end{figure}
 
-As expected, the models are able to approximate the pump curves, that are closer to the actual pump speed 
-the models were determined for. They are not as accurate overall as expected. 
+As expected, the models are able to approximate the pump curves, that are closer to the actual pump speed the models were determined for.
+They are not as accurate overall as expected. 
 The modelling errors could come as a result of many factors, however, there is room for improvement. 
-As with the case of the pressure sensors, we were not able to determine accurate values for 
-the pump speeds. Again, we have used gains and offsets provided to us. Additionally, as stated in \cite{Yang2010}
-motor and drive efficiency are not accounted for.
+As with the case of the pressure sensors,
+we were not able to determine accurate values for the pump speeds.
+Again, we have used gains and offsets provided to us.
+Additionally, motor and drive efficiency are not accounted for,
+as done in previous research \cite{Yang2010}.
 
 \section{Dynamic Modelling}
 We determined the coefficients for our P, I, and D using Ziegler Nichols tuning method.
@@ -85,6 +87,5 @@ The comparison can be seen in figures \ref{fig:modeledPID2} and \ref{fig:actualP
 	\label{fig:actualPID2}
 \end{figure}
 Same can be noticed for the PID - Controller, the step input for the physical setup is given 0.5 seconds later.
-The model also converges faster to the setpoint. This might be due to dynamic properties of the flow, 
-which might not be properly modeled using the transfer function.
+The model also converges faster to the setpoint.
 All figures can be found in Appendix  \ref{app:modelValidation}.

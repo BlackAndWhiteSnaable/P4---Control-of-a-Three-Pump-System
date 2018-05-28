@@ -1,8 +1,6 @@
 \chapter{Problem Description}\label{ch:probdesc}
 
 \section{Problem Description}
-We want to control a constant flow with a minimum power consumption.
-
 This project is about different mathematical modelling approaches for a system consisting mainly of three pumps.
 The modelling will be used to develop a controller governing the total flow $Q_{tot}$.
 The system was already fully functionally available in our university.
@@ -10,8 +8,8 @@ No alterations on the setup were possible to complete our project,
 since the system was simultaneously used by two other groups.
 As control inputs were available the individual speed of each pump $\omega P_{1,2,3}$ and the valve opening of one control valve $CV_1$.
 
-Sensed outputs on this system are individual flow, individual differential pressure, pressure over $CV_1$ and individual power consumption.
-Individual being separate for each pump.
+Sensed outputs on this system are individual flow, individual differential pressure, pressure over $CV_1$ and individual power consumption ($P_el$).
+Individual meaning separate for each pump.
 
 A Piping and Instrumentations Diagram (P\&ID) of the system is available in Appendix \ref{app:overview}.
 
@@ -40,7 +38,7 @@ Our system can be seen as a SISO, MIMO or something in between,
 depending on what is to be controlled.
 If only a single pump is considered and only the output flow to be controlled,
 it is a SISO system.
-Using multiple pumps and controlling for example flow and pressure would effectively make it a MIMO system.
+Using multiple pumps and controlling for example Q and H would effectively make it a MIMO system.
 
 In this project,
 we decided to use the system as a SISO system,
@@ -49,7 +47,7 @@ Primary goals are therefore:
 
 \begin{itemize}
 \item Creation of a dynamic model for one pump
-\item Design of a PID controller for the flow
+\item Design of a PID controller for Q
 \item Tuning of said PID controller 
 \end{itemize}
 

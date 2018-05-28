@@ -1,5 +1,4 @@
 \chapter{Controller Design}\label{ch:controldesign}
-\todo[color=07controllerDesign]{Controller Design not enough text yet}
 There exist many different approaches to designing a controller,
 all of which have their advantages and disadvantages.
 For this project we decided to use a very simple approach,
@@ -39,13 +38,13 @@ as this method promised results close to our requirements and was discussed in o
 
 To use this method, some knowledge about the system is required.
 If the system reacts stable to a step input,
-the output measured can be used to tune $k_P$, $k_I$ and $k_D$ according to the Quarter Decay Method (QDM)
-\cite{Franklin2014}.
+the output measured can be used to tune $k_P$, $k_I$ and $k_D$
+according to the Quarter Decay Method (QDM) \cite{Franklin2014}.
 
 In the case that the system has an unstable reaction,
 the Ultimate Sensitivity Method (USM) should be used.
 Here the $k_p$ is increased until the system becomes marginally stable.
-\cite{Franklin2014}.
+\cite{Franklin2014}
 
 In both cases the output of the system is to be graphed over time
 and from the corresponding graph some characteristic values can be read.
@@ -61,14 +60,13 @@ To obtain all needed data, the step response of the system
 needs to be analysed.
 
 \subsubsection{Step Response}
-\todo[color=07controllerDesign]{This needs writing}
-The step response needs to be measured on the open loop system.
-A block diagram of this setup can be seen in Figure \ref{fig:OL}.
+The step response needs to be measured on the Open Loop (OL) system.
+A block diagram of an OL setup can be seen in Figure \ref{fig:OL}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{figures/07controllerDesign/OLblock.pdf}
-    \caption{OL block diagram of the system}
+    \caption{OL block diagram of a system}
 \label{fig:OL}
 \end{figure}
 
@@ -81,15 +79,13 @@ The figure also shows two red lines, approximating the slope and the final value
     \caption{response to a step input with value 10}
 	\label{fig:stepin}
 \end{figure}
-\todo[color=07controllerDesign]{can we make all axis look like they are made by LaTeX as well?}
 
-From this graph we can approximate the slope $R$ and the Lag $L=t_d$.
-
+From this graph we can approximate the slope $R$ and the Lag $L=t_d$.\\
 Because we are scaling the $\omega P$ down by a factor of 10, so we can directly input a percentage,
 we had to scale the aforementioned unit step up by a factor of 10,
 in order to get usable results.
-While encountering this problem, we also noticed, that the pumps don't spin below an $\omega$ of 9\%.
-When using the corrected step input, we got the measurements shown in figure X \ref{fig:stepin}.
+While encountering this problem, we also noticed, that the pumps don't spin at $\omega \leq 9\%$.
+When using the corrected step input, we got the measurements shown in Figure \ref{fig:stepin}.
 
 Our analysis of figure \ref{fig:stepin} gives us the following values:
 \\
@@ -103,7 +99,8 @@ Our analysis of figure \ref{fig:stepin} gives us the following values:
 The QDM is tuning a P, PI or PID controller $D_c(s)$ with the formula shown in the second Equation \ref{eq:PID}.
 The values of $k_P$, $T_I$ and $T_D$ are scalar gains,
 tuned according to the characteristics obtained from figure \ref{fig:stepin}.
-\\\\
+\\
+\begin{center}
 \begin{tabular}{l r c l l}
 	Type of Controller	& \multicolumn{3}{ c }{Optimum Gain}\\
 	\hline
@@ -116,8 +113,9 @@ tuned according to the characteristics obtained from figure \ref{fig:stepin}.
 						& $T_I$ & $=$ & $2L$				\\
 						& $T_D$ & $=$ & $0.5L$ 				\\
 \end{tabular}
-Note that the parameters $T_I$ and $T_D$ not mentioned for the first two controller types are to be set to 0 and therefore ignored.
-\todo[color=07controllerDesign]{Is this table readable?}
+\end{center}
+Note that the parameters $T_I$ and $T_D$ are not mentioned for the first two controller types,
+as they are to be set to 0.
 
 \subsubsection{Results}
 We tested all three options of P, PI and PID control with the tuned parameters,
