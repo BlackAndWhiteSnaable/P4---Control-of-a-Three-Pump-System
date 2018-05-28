@@ -1,5 +1,4 @@
-\chapter{Mathematical Modelling}\label{ch:mathmodel} 
-\todo[color=04mathematicalModelling,inline]{Mathematical Modelling}
+\chapter{Mathematical Modelling}\label{ch:mathmodel}
 Most physical systems can be modelled statically or dynamically.
 Depending on the application of the model,
 and therefore on the end goal of the controller,
@@ -23,18 +22,13 @@ Typical static models for pump systems are pump curves and system curves.
 %\todo[color=04mathematicalModelling,inline]{make sure sections and subsection makes sense}
 
 \newpage
-We used the data gathered through experiments to develop a model that would fit all our data,
-within a certain degree of error,
-\todo[color=04mathematicalModelling]{what is the degree?}
-and around an operating point.
-\todo[color=04mathematicalModelling]{what i the operation point?}
-A model that could fit all the data without any error error would have to be of a very high order
-and would probably model the system and sensor noise.
+We used the data gathered through experiments to develop a model that would fit our data with some error.
+A model that could fit all the data without any error would have to be of a very high order
+and would probably model the noise better than the actual system..
 
 We decided to use grey-box modelling with polynomial fitting.
 We consider our approach as grey-box rather than black-box,
 because we chose the degrees of the polynomials based on known and tested physical relations.
-\todo[color=04mathematicalModelling]{do we need the last sentence?}
 
 A very similar modelling process was already successfully used by Pedersen and Yang 
 \cite{YangMultiPump2008} on the same setup.
@@ -46,8 +40,8 @@ was used in order to find the polynomial coefficients most accurately describing
 
 \subsubsection{Single Pump Model}
 Equations \ref{eq:pumpHeadModel} and \ref{eq:pumpPowerModel} show a model that 
-determines the head $H$ and the power $P$,
-at a given flow $Q$ \cite{Yang2010}. 
+determines $H$ and $P$,
+at a given $Q$ \cite{Yang2010}. 
 Although the formula does not directly relate to the pump speed, it indirectly relates to it,
 due to the fact that only one possible pump speed $\omega$ exists for a given flow,
 provided the impeller diameter $D$ remains constant (compare \ref{sub:afflaws}).
@@ -64,7 +58,7 @@ provided the impeller diameter $D$ remains constant (compare \ref{sub:afflaws}).
 
 The coefficients are determined by the pump characteristics and can be experimentally identified.
 Taking variable speed into account, the equations \ref{eq:pumpHeadModel}  and \ref{eq:pumpPowerModel}
-will depend on the motor speed\cite{Yang2010}. The pump Affinity Laws state:
+will depend on the motor speed \cite{Yang2010}. The pump Affinity Laws state:
 
 \begin{align*}
 	\left(\frac{\omega_1}{\omega_2}\right)^1 = \frac{Q_1}{Q_2} && 
@@ -96,7 +90,7 @@ The coefficients can be determined as follows:
 
 As observed in equations \ref{eq:pumpHeadModel2} and \ref{eq:pumpPowerModel2} the coefficients are
 initially multiplied by the input speed. Afterwards they are divided by the
-speed they were determined for, in order to take into account the variable speed \cite{Yang2010}..
+speed they were determined for, in order to take into account the variable speed \cite{Yang2010}.
 
 Figure \ref{fig:flowVsPressure} shows data points connected together that represent 
 a pump head curve. As observed in the figure, when the opening percentage of the control valve is at
@@ -128,14 +122,14 @@ power consumption curve.
 The ML tool \textit{cftool} \cite{cftool} was used to determine coefficients from each curve in  Figures 
 \ref{fig:flowVsPressure} and \ref{fig:flowVsPowerConsumption}.
 
-The coefficients for the model were determined at 60 \% pump speed, chosen at random and can be seen below.
-\todo[color=04mathematicalModelling]{maybe not say at random, something to do with requirements possibly}
+The coefficients for the model were determined at 60 \% pump speed, 
+as this promised the best overall fit through the whole range.
 \begin{align*}
 	a_0 = -0.03044 && a_1 = 0.07635  && a_2 = 1.688  \\
 	b_0 = -0.2825 && b_1 = -0.7147 && b_2 = 54.39 && b_3 = 163.7 \\
 \end{align*}
 \newpage
-\section{Dynamic Modelling}
+\section{Dynamic Modelling}\label{sec:dynMod}
 Giving the system a unit step input, we determined the process reaction curve of the system. This has been used 
 in order to calculate the PID coefficients when configuring the PID, using Zielger-Nichols tuning technique.
 The next step was to model the curve, using equation \ref{eq:plantTransferFunction}.

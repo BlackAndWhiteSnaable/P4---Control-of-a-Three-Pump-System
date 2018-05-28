@@ -40,9 +40,10 @@ In 1689, physicist Denis Papin invented the centrifugal pump.
 It is the most commonly used type of pump, due to its simple construction,
 relative low cost, reliability and quiet operation.
 
-The pump is built on a simple principle: Liquid is led to the impeller hub
+The pump is built on a simple principle:
+Liquid is led to the impeller hub
 and by means of the centrifugal force it is flung towards the periphery of 
-the impeller. \cite{PumpHandbook}
+the impeller \cite{PumpHandbook}.
 
 Figure \ref{fig:pump_sections} shows two cross sections of a centrifugal pump,
 showing the flow of liquid through the pump.
@@ -52,7 +53,7 @@ showing the flow of liquid through the pump.
     \qquad
     \hspace{0.1\textwidth}
     \includegraphics[width=0.3\linewidth]{figures/pump_above_view.PNG}
-    \caption{Centrifugal Pump}\cite{PumpHandbook}
+    \caption{Centrifugal Pump \cite{PumpHandbook}}
     \label{fig:pump_sections}
 \end{figure}
 \newpage
@@ -60,7 +61,7 @@ showing the flow of liquid through the pump.
 The fluid is sucked into the impeller at the impeller eye and flows through
 the impeller channels formed by the blades between the shroud and hub.
 The blades of the rotating impeller transfer energy to the fluid by
-increasing velocity and pressure.\cite{CentrifugalPump}
+increasing velocity and pressure. \cite{CentrifugalPump}
 
 The design of the impeller depends on the requirements for application,
 pressure and flow. The impeller is the primary component determining the pump performance. 
@@ -83,7 +84,7 @@ to flow $Q$, head $H$ and power $P$.
 	\frac{H_1}{H_2} = \left(\frac{N_1}{N_2}\right)^2
 	\hspace{10mm}
 	\frac{P_1}{P_2} = \left(\frac{N_1}{N_2}\right)^3
-	\label{eq:afflaw1}	
+	\label{eq:afflaw1}
 \end{equation}
 \cite{Volk2014}\\\\
 Similarly, the equations \ref{eq:afflaw2} show the relation between a change in impeller diameter $D$
@@ -117,7 +118,7 @@ This can be explained with the Affinity laws mentioned earlier.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{figures/03physicalSetup/typicalHeadCurve.PNG}
-	\caption{Typical Pump Head Curve}\cite{PumpPhoto}
+	\caption{Typical Pump Head Curve \cite{PumpPhoto}}
 	\label{fig:typicalPumpCurve}
 \end{figure}
 
@@ -130,7 +131,7 @@ Generally, the power consumption increases with the flow.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/03physicalSetup/typicalPowerConsumptionCurve.PNG}
-	\caption{Typical Power Consumption Curve}\cite{PumpPhoto}
+	\caption{Typical Power Consumption Curve \cite{PumpPhoto}}
 	\label{fig:typicalPowerConsumptionCurve}
 \end{figure}
 
@@ -143,22 +144,24 @@ chosen operating point of the pump. The red dot, shows the efficiency of the pum
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/03physicalSetup/typicalEfficiencyCurve.PNG}
-	\caption{Typical Efficiency Curve}\cite{PumpPhoto}
+	\caption{Typical Efficiency Curve (y-axis: H [$ft$]) \cite{PumpPhoto}}
 	\label{fig:typicalEfficiencyCurve}
 \end{figure}
 Noticeable here is,
 that $\eta$ does not linearly correlate to $P_{el}$.
 
-\subsubsection{NPSH - Curve (Net Positive Suction Head)}
-The Net Positive Suction head (NPSH) is the minimum required pressure that has to be present at the inlet to avoid 
-cavitation.The NPSH increases with the flow.
-Figure \ref{fig:typicalNPSHCurve} shows a typical NPSH - Curve. It can be observed that for a flow of approximately 32 $gpm$
+\subsubsection{NPSH Curve}
+The Net Positive Suction Head (NPSH) is the minimum required pressure
+that has to be present at the inlet to avoid cavitation.
+The NPSH increases with the flow.
+Figure \ref{fig:typicalNPSHCurve} shows a typical NPSH Curve.
+It can be observed that for a flow of approximately 32 $gpm$
 a NPSH of approximately 8 feet is required.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{figures/03physicalSetup/typicalNPSHCurve.PNG}
-	\caption{Typical NPSH Curve}\cite{PumpPhoto}
+	\caption{Typical NPSH Curve \cite{PumpPhoto}}
 	\label{fig:typicalNPSHCurve}
 \end{figure}
 
@@ -197,20 +200,20 @@ the setup was already equipped with several sensors.
 This section will briefly explain what sensors are used.
 
 \subsection*{Flow Meter}
-Downstream from  each pump, a magnetic flow meter (MFM) is installed to measure the flow.\cite{MFM}
+Downstream from  each pump, a magnetic flow meter (MFM) \cite{MFM} is installed to measure the flow.
 Their digital gauge was used to calibrate the sensors data output to cubic meters per hour ($\frac{m^3}{h}$).
 
 \subsection*{Power Sensor}
-A power sensor was used to closely monitor the power delivered to the pumps.
+A power sensor \cite{LMG} was used to closely monitor the power delivered to the pumps.
 This power works like a digital multimeter,
 measuring voltage $U$ and current $I$.
-From those measurements it calculates the power $P$.\cite{LMG}
+From those measurements it calculates the power $P$.
 This sensor has a digital display, where $U$ [$V$], $I$ [$A$] and $P$ [$kW$] are displayed,
 which we used to calibrate the output to $kW$.
 
 \subsection*{$\Delta$Pressure Sensor}
-Pressure sensors are installed across each pump,
-measuring the pressure difference between the inlet and the outlet of the pump.\cite{DPT}
+Pressure sensors \cite{DPT} are installed across each pump,
+measuring the pressure difference between the inlet and the outlet of the pump.
 Because they didn't have a visual representation of their measurements
 and all our previous calculations of sensor calibration fit with previous work done on the setup \cite{Jepsen2017},
 we chose to rely on previous calibration and inherited their conversion.

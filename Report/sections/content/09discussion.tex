@@ -1,6 +1,4 @@
 \chapter{Discussion}\label{ch:discussion}
-\todo[color=09discussion]{Discussion no text yet}
-
 In this chapter we discuss the initially stated requirements
 and compare them with the results achieved.
 We will also have a look at future work opportunities,
@@ -30,16 +28,8 @@ through analysis of experimental data
 and assuming a transfer function of the form 
 $\frac{Y(s)}{U(s)}=\frac{A e^{s t_d}}{\tau s + 1}$.
 Where all coefficients were found analysing a step response.
-\todo[color=09discussion]{can we simulate with the controller?}
-\\
-
-1. This model gave a good fit to our step response data,
-but performed poorly to test the actual controller.
-We expect this to be an issue with the way we implemented the controller simulation in ML and SL.
-\\
-
-2. This model gave a good fit to our collected data
-and was also able to predict the outcome of our proposed controller.
+This model gave a good fit to our step response data,
+but didn't perform perfectly to test the actual controller.
 
 The design and tuning of the PID controller was primarily done on the physical setup,
 instead of the simulation, because it was readily accessible
@@ -79,8 +69,7 @@ Some of the points on that list are inspired by our initial goal,
 energy efficiency.
 
 Development of a more robust dynamic model.
-As stated before,
-\todo[color=09discussion]{stated where?}
+As stated in Section \ref{sec:dynMod},
 our dynamic model was not a perfect description of the system.
 With more advanced modelling techniques and more research into this,
 a better model could be found.
