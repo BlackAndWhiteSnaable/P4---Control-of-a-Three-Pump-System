@@ -4,7 +4,7 @@ folder_check=0;
 % ED4 is only working on Pump2
 
 %gets automatically incremented if folder already exists
-run_num = 20;
+run_num = 1;
 
 %valve settling time < 5 seconds
 CV01t = 5;
@@ -17,11 +17,11 @@ WPtime = [CV01t:15:150+CV01t];
 simstop = WPtime(end)+(WPtime(end)-WPtime(end-1));
 
 %make sure this fits with simulink!!
-targetfile = ['E:\3P.dat'];
+targetfile = ['E:\2P.dat'];
 
 %% select valve opening(backpressure) by for loop
 for CV01 = [10:10:100]
-    rtwbuild('Pump2Test');   % Build and download application.
+    rtwbuild('threeP');   % Build and download application.
 
     tg = SimulinkRealTime.target;
 
@@ -32,11 +32,11 @@ for CV01 = [10:10:100]
     while strcmp(tg.Status, 'running')
         if folder_check==0
 
-            hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
+            hostfolder = ['twoPump\run_' int2str(run_num) '\'];
             %make sure the folder doesn't exist
             while (exist(hostfolder, 'dir') == 7)
                 run_num = run_num + 1;
-                hostfolder = ['dataFromTarget\run_' int2str(run_num) '\'];
+                hostfolder = ['twoPump\run_' int2str(run_num) '\'];
             end
 
             %create the new run_# folder
@@ -46,11 +46,11 @@ for CV01 = [10:10:100]
             folder_check = 1;
         end
         %int2str(CV01) makes sure the file has the valve opening % in the name
-        hostfile = [hostfolder 'P2_' num2str(CV01,'%03d') '.dat'];
+        hostfile = [hostfolder '3P_' num2str(CV01,'%03d') '.dat'];
         pause(0.01);
     end
     %% download file to host and rename
     SimulinkRealTime.copyFileToHost(targetfile);
     %rename file
-    movefile('3P.dat',hostfile);
+    movefile('2P.dat',hostfile);
 end
