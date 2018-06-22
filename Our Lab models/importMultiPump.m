@@ -26,7 +26,41 @@ for pump_amnt=[2:3]
         end
     end
 end
-pump1=meas(1,:,:);
-pump2=meas(2,:,:);
-pump3=meas(3,:,:);
-clearvars a filename folder j n str2find version
+%% 1 pump
+n1pump1 = squeeze(meas(1,1,:));
+% n1p1FLOW = multiPumpAvgFlow(n1pump1);
+% n1p1POWR = multiPumpAvgPower(n1pump1);
+% n1p1PRES = multiPumpAvgPressure(n1pump1);
+
+n1pump2 = squeeze(meas(1,2,:));
+% n1p2FLOW = multiPumpAvgFlow(n1pump2);
+% n1p2POWR = multiPumpAvgPower(n1pump2);
+% n1p2PRES = multiPumpAvgPressure(n1pump2);
+
+n1pump3 = squeeze(meas(1,3,:));
+% n1p3FLOW = multiPumpAvgFlow(n1pump3);
+% n1p3POWR = multiPumpAvgPower(n1pump3);
+% n1p3PRES = multiPumpAvgPressure(n1pump3);
+
+%% 2 pumps
+n2pump23 =squeeze(meas(2,1,:));
+n2p23FLOW = multiPumpAvgFlow(n2pump23);
+n2p23POWR = multiPumpAvgPower(n2pump23);
+n2p23PRES = multiPumpAvgPressure(n2pump23);
+
+n2pump13 =squeeze(meas(2,2,:));
+n2p13FLOW = multiPumpAvgFlow(n2pump13);
+n2p13POWR = multiPumpAvgPower(n2pump13);
+n2p13PRES = multiPumpAvgPressure(n2pump13);
+
+n2pump12 =squeeze(meas(2,3,:));
+n2p12FLOW = multiPumpAvgFlow(n2pump12);
+n2p12POWR = multiPumpAvgPower(n2pump12);
+n2p12PRES = multiPumpAvgPressure(n2pump12);
+
+%% 3 pumps
+n3pump123=squeeze(meas(3,1,:));
+n3p123FLOW = multiPumpAvgFlow(n3pump123);
+n3p123POWR = multiPumpAvgPower(n3pump123);
+n3p123PRES = multiPumpAvgPressure(n3pump123);
+clearvars a filename folder jfile nfiles str2find version run_num stp meas
