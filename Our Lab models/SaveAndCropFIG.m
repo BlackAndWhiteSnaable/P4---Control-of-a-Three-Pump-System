@@ -1,5 +1,5 @@
 %%
-clc;clear
+clc
 % OPEN THE FIGURE TO SAVE
 user = sprintf('Please open the figure you want to save')
 % name of the outputfile
@@ -16,4 +16,7 @@ end
 
 %% DON'T CHANGE ANYTHING BELOW
 fileloc = [folder out];
-print('-f','-depsc',fileloc)
+print('-f','-dsvg',fileloc)
+
+%% CLEANUP
+clearvars out user folder chapter fileloc
