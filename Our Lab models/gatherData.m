@@ -54,3 +54,6 @@ for CV01 = [10:10:100]
     %rename file
     movefile('2P.dat',hostfile);
 end
+
+%% CLEANUP
+clearvars folder_check run_num CV01t WP2 WPtime simstop targetfile CV01 tg hostfolder hostfile ans
