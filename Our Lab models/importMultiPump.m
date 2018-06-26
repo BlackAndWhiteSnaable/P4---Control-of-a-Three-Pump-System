@@ -177,12 +177,12 @@ n3vPRES = multiPumpAvgPressure(n3val123);
 
 %% clearing n3 pump specific variables
 clearvars n3p123FLOW n3p123POWR n3p123PRES n3v123FLOW n3v123POWR n3v123PRES
-
-%% cftool 1 pump
-cftool(n1pFLOW, n1pPRES, n1pPOWR);
-
-%% cftool 2 pumps
-cftool(n2pFLOW, n2pPRES, n2pPOWR);
-
-%% cftool 3 pumps
-cftool(n3pFLOW, n3pPRES, n3pPOWR);
+% 
+% %% cftool 1 pump
+% cftool(n1pFLOW, n1pPRES, n1pPOWR);
+% 
+% %% cftool 2 pumps
+% cftool(n2pFLOW, n2pPRES, n2pPOWR);
+% 
+% %% cftool 3 pumps
+% cftool(n3pFLOW, n3pPRES, n3pPOWR);
