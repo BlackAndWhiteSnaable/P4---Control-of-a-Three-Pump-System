@@ -21,7 +21,7 @@ targetfile = ['E:\2P.dat'];
 
 %% select valve opening(backpressure) by for loop
 for CV01 = [10:10:100]
-    rtwbuild('threeP');   % Build and download application.
+    rtwbuild('twoP');   % Build and download application.
 
     tg = SimulinkRealTime.target;
 
@@ -32,11 +32,11 @@ for CV01 = [10:10:100]
     while strcmp(tg.Status, 'running')
         if folder_check==0
 
-            hostfolder = ['twoPump\run_' int2str(run_num) '\'];
+            hostfolder = ['2Pump\run_' int2str(run_num) '\'];
             %make sure the folder doesn't exist
             while (exist(hostfolder, 'dir') == 7)
                 run_num = run_num + 1;
-                hostfolder = ['twoPump\run_' int2str(run_num) '\'];
+                hostfolder = ['2Pump\run_' int2str(run_num) '\'];
             end
 
             %create the new run_# folder
@@ -46,7 +46,7 @@ for CV01 = [10:10:100]
             folder_check = 1;
         end
         %int2str(CV01) makes sure the file has the valve opening % in the name
-        hostfile = [hostfolder '3P_' num2str(CV01,'%03d') '.dat'];
+        hostfile = [hostfolder '2P_' num2str(CV01,'%03d') '.dat'];
         pause(0.01);
     end
     %% download file to host and rename

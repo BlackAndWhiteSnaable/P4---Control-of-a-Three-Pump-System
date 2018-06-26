@@ -6,7 +6,7 @@ user = sprintf('Please open the figure you want to save')
 out = input('Name for the output file: ','s');
 
 % chapter for this to appear in
-chapter = input('Chapter name including number: ','s');
+chapter = 'presentation'; %input('Chapter name including number: ','s');
 folder = ['../Report/figures/' chapter '/'];
 
 %making sure the folder exists, to not get errors
